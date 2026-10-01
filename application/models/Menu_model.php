@@ -72,7 +72,7 @@ public function getTenderNoticeMenu_admin(){
 					->result_array();
 	return $res;
 }
-public function getMenuById($office_code='',$menu_id){
+public function getMenuById($office_code = '', $menu_id = 0){
     $res = $this->db->select('*')
 					->from('menu')
 					->where('office_code',$office_code)
@@ -81,7 +81,7 @@ public function getMenuById($office_code='',$menu_id){
 					->row_array();
 	return $res;
 }
-public function getMenuDetailsById($office_code='',$menu_id){
+public function getMenuDetailsById($office_code = '', $menu_id = 0){
     $res = $this->db->select('md.*')
 					->from('menu m')
 					->join('menu_details md','m.menu_id = md.menu_id')
@@ -91,7 +91,7 @@ public function getMenuDetailsById($office_code='',$menu_id){
 					->result_array();
 	return $res;
 }
-public function deleteMenuById($office_code='',$menu_id){
+public function deleteMenuById($office_code = '', $menu_id = 0){
     $this->db->where('office_code',$office_code)
 			 ->where('menu_id',$menu_id)
 			 ->delete('menu');
@@ -156,7 +156,7 @@ public function getOfficeMenu_admin($office_code='AGAE',$wing=''){
 	return $res;
 }
 
-public function getOfficeMenuById($office_code='AGAE',$menu_id){
+public function getOfficeMenuById($office_code = 'AGAE', $menu_id = 0){
     $res = $this->db->select('*')
 					->from('office_menu')
 					//->where('office_code',$office_code)
@@ -165,7 +165,7 @@ public function getOfficeMenuById($office_code='AGAE',$menu_id){
 					->row_array();
 	return $res;
 }
-public function getOfficeMenuDetailsById($office_code='AGAE',$menu_id){
+public function getOfficeMenuDetailsById($office_code = 'AGAE', $menu_id = 0){
     $res = $this->db->select('md.*')
 					->from('office_menu m')
 					->join('office_menu_details md','m.office_menu_id = md.office_menu_id')
@@ -175,7 +175,7 @@ public function getOfficeMenuDetailsById($office_code='AGAE',$menu_id){
 					->result_array();
 	return $res;
 }
-public function deleteOfficeMenuById($office_code='AGAE',$menu_id){
+public function deleteOfficeMenuById($office_code = 'AGAE', $menu_id = 0){
    // $res = $this->db->where('office_code',$office_code)
 	$res = $this->db->where('office_menu_id',$menu_id)
 					->delete('office_menu');

@@ -31,7 +31,7 @@
             <tbody>
 			  	<?php
 					$sl = 1;
-					function callsub($sub,$parent_id = 0,$inner){
+					function callsub($sub,$parent_id = 0,$inner = 0){
 									$submenu = $sub[$parent_id];
 									$sb = 1;
 									++$inner;

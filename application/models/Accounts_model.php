@@ -429,7 +429,7 @@ class Accounts_model extends CI_Model {
 		return $res;
 	}
 	
-	public function update_dept_reconciliation_records($id=0,$users,$grnt_cd){
+	public function update_dept_reconciliation_records($id = 0, $users = '', $grnt_cd = ''){
 		$post = $this->input->post(array('dept_remark','dept_attachment','action_status','dept_user','dept_code','dept_official_name','dept_official_desig','dept_official_contact','dept_date'), TRUE);
 		$update = array();
 /*		
@@ -570,7 +570,7 @@ class Accounts_model extends CI_Model {
 		return array('total'=>$total_records,'results'=>$results);
 	}
 	
-	public function update_dept_investment_records($id=0,$users){
+	public function update_dept_investment_records($id = 0, $users = ''){
 		$post = $this->input->post(array('invst_category','share_no','share_face_val','govt_percentagee','dividend_recpt','interest_recpt','dept_remark','dept_user','dept_official_name','dept_official_desig','dept_official_contact','dept_date'), TRUE);
 		$update = array();
 		$update['invst_category'] = $post['invst_category'];
@@ -619,7 +619,7 @@ class Accounts_model extends CI_Model {
 		return array('total'=>$total_records,'results'=>$results);
 	}
 	
-	public function update_dept_gia_records($id=0,$users){
+	public function update_dept_gia_records($id = 0, $users = ''){
 		$post = $this->input->post(array('credit_to_bank','uc_ref_no','uc_ref_date','utilised_amt','dept_remark','dept_user','dept_official_name','dept_official_desig','dept_official_contact','dept_date'), TRUE);
 		$update = array();
 		$update['credit_to_bank'] = !empty($post['credit_to_bank']) ? $post['credit_to_bank']: '';
@@ -667,7 +667,7 @@ class Accounts_model extends CI_Model {
 		return array('total'=>$total_records,'results'=>$results);
 	}
 	
-	public function update_dept_loan_adv_records($id=0,$users){
+	public function update_dept_loan_adv_records($id = 0, $users = ''){
 		$records = $this->input->post(array('dept_remark','dept_attachment','dept_user','dept_official_name','dept_official_desig','dept_official_contact','dept_date'), TRUE);
 		
 		$update = array();
@@ -1010,7 +1010,7 @@ class Accounts_model extends CI_Model {
 		return array('total'=>$total_records,'results'=>$results);
 	}
 	
-	public function update_try_obsuspense_records($id=0,$users){
+	public function update_try_obsuspense_records($id = 0, $users = ''){
 		$post = $this->input->post(array('try_remark','try_attachment','try_official_name','try_official_desig','try_official_contact','try_date','action_status','update_dt'), TRUE);
 		$update = array();
 
@@ -1032,7 +1032,7 @@ class Accounts_model extends CI_Model {
 		
 		return 0;
 	}
-	public function update_try_misclassification_records($id=0,$users){
+	public function update_try_misclassification_records($id = 0, $users = ''){
 		$post = $this->input->post(array('try_remark','try_official_name','try_official_desig','try_official_contact','try_date','action_status','update_dt'), TRUE);
 		$update = array();
 
@@ -1447,7 +1447,7 @@ class Accounts_model extends CI_Model {
 		}
 	}
 	
-	public function emp_inspection_details_record( $try_insp_prg_id = '', $emp_concerned){
+	public function emp_inspection_details_record( $try_insp_prg_id = '', $emp_concerned = ''){
 		// sql 1	
 		$res2 = $this->db->select('*')
 						 ->from('treasury_inspection_master')

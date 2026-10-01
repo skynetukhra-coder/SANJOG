@@ -35,7 +35,7 @@ $sort = isset($row['sort']) ? $row['sort'] : 1;
               <select class="span12 m-wrap" name="sub_menu_id" required>
 			  	<option value="0">-- Parent Menu --</option>
 				<?php
-					function callsub($sub,$parent_id = 0,$inner,$parent_menu_id){
+					function callsub($sub,$parent_id = 0,$inner = 0,$parent_menu_id = 0){
 									$submenu = $sub[$parent_id];
 									$sb = 1;
 									++$inner;

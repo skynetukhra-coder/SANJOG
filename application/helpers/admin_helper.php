@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 if ( ! function_exists('get_gpf_subscribers_name')){
-    function get_gpf_subscribers_name($series = '',$ac_code) {
+    function get_gpf_subscribers_name($series = '', $ac_code = '') {
 		$ci=& get_instance();
         $res = $ci->db->select('fst_nme,mid_nme,lst_nme')
 						->from('subscriber_master')

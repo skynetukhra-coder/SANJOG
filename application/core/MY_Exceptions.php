@@ -1,5 +1,6 @@
 <?php (defined('BASEPATH')) OR exit('No direct script access allowed');
 
+#[\AllowDynamicProperties]
 class MY_Exceptions extends CI_Exceptions {
 
     public function __construct() {
@@ -10,7 +11,8 @@ class MY_Exceptions extends CI_Exceptions {
     public function show_404($page = '', $log_error = TRUE) {
 		
         $CI =& get_instance();
-		if(substr_count($_SERVER['REQUEST_URI'],"/".ADMIN_BASE) > 0 ){
+		$request_uri = $_SERVER['REQUEST_URI'] ?? '';
+		if(substr_count($request_uri, "/".ADMIN_BASE) > 0 ){
 			$CI->load->view('agadmin/layout/header');
 			$CI->load->view('agadmin/pages/pagenotfound');
 			$CI->load->view('agadmin/layout/footer');

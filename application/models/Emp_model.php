@@ -918,7 +918,7 @@ class Emp_model extends CI_Model {
 						->result_array();
 		return $res;
 	}
-	public function family_member_update($empid = '',$id){
+	public function family_member_update($empid = '', $id = 0){
 		$res = $this->db->select('*')
 						->from('employee_family')
 						->where('empid',$empid)
@@ -3171,7 +3171,7 @@ class Emp_model extends CI_Model {
 		return true;
 	}
 	
-	public function emp_clrh_current_balance($empid = '', $leave_type = '',$leave_cr_year, $balance = 0){
+	public function emp_clrh_current_balance($empid = '', $leave_type = '', $leave_cr_year = '', $balance = 0){
 		$res = $this->db->select('bal.*')
 						->from('employee_leave_credit bal ')
 						->where('bal.empid',$empid)
@@ -3236,7 +3236,7 @@ class Emp_model extends CI_Model {
 		return 0;
 	}
 	
-	public function emp_leave_credit_balance_update($empid = '', $leave_type = '',$cr_from_date, $credit_balance = 0,$pre_credit = 0){
+	public function emp_leave_credit_balance_update($empid = '', $leave_type = '', $cr_from_date = '', $credit_balance = 0, $pre_credit = 0){
 		$res = $this->db->select('bal.*')
 						->from('employee_current_leave_balance bal ')
 						->where('bal.empid',$empid)
@@ -4857,7 +4857,7 @@ class Emp_model extends CI_Model {
 						 ->get()
 						 ->result_array();
 	}
-	public function get_clrh_closing_balance($empid = '',$leave_type='',$leave_cr_year){
+	public function get_clrh_closing_balance($empid = '', $leave_type = '', $leave_cr_year = ''){
 		return  $this->db->select('lc.*')
 						 ->from('employee_leave_credit lc')
 						 ->where('lc.empid',$empid)
@@ -4877,7 +4877,7 @@ class Emp_model extends CI_Model {
 						 ->row_array();
 	}
 
-	public function get_yearwise_closing_clrh_balance($empid = '',$leave_type='',$leave_cr_year){
+	public function get_yearwise_closing_clrh_balance($empid = '', $leave_type = '', $leave_cr_year = ''){
 		return  $this->db->select('lc.*')
 						 ->from('employee_leave_credit lc')
 						 ->where('lc.empid',$empid)
@@ -7057,7 +7057,7 @@ class Emp_model extends CI_Model {
 		$this->db->insert('employee_foreign_visit',$post);
 		return true;
 	}
-	public function get_foreign_visit_record($empid = '',$id){
+	public function get_foreign_visit_record($empid = '', $id = 0){
 		$res = $this->db->select('*')
 						->from('employee_foreign_visit')
 						->where('empid',$empid)
@@ -7136,7 +7136,7 @@ class Emp_model extends CI_Model {
 		return $this->db->insert_id();
 	}
 	
-	public function get_passport_application_ById($empid = '',$id){
+	public function get_passport_application_ById($empid = '', $id = 0){
 		$res = $this->db->select('*')
 						->from('employee_passport')
 						->where('empid',$empid)

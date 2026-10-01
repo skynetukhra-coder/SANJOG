@@ -987,7 +987,7 @@ class Gpf_model extends CI_Model {
 						->row_array();
 		return $res;
 	}
-	public function updatesubscriber_ddo_record($id=0,$users){
+	public function updatesubscriber_ddo_record($id = 0, $users = ''){
 		$post = $this->input->post(array('cur_ddo','emp_code'), TRUE);	//,'ddo_remark','ddo_user','ddo_official_name','ddo_official_desig','ddo_official_contact','ddo_date'
 		$update = array();
 		$update['cur_ddo'] = $post['cur_ddo'];		

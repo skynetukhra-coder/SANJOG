@@ -1023,7 +1023,7 @@ class Emp_model extends CI_Model {
 		}
 		return true;
 	}
-	public function emp_clrh_current_balance($empid = 0, $leave_type = '',$leave_cr_year, $balance = 0){
+	public function emp_clrh_current_balance($empid = 0, $leave_type = '', $leave_cr_year = '', $balance = 0){
 		$res = $this->db->select('bal.*')
 						->from('employee_leave_credit bal ')
 						->where('bal.empid',$empid)
@@ -1847,7 +1847,7 @@ class Emp_model extends CI_Model {
 						 ->get()
 						 ->result_array();
 	}
-	public function get_clrh_closing_balance($empid = '',$leave_type='',$leave_cr_year){
+	public function get_clrh_closing_balance($empid = '', $leave_type = '', $leave_cr_year = ''){
 		return  $this->db->select('lc.*')
 						 ->from('employee_leave_credit lc')
 						 ->where('lc.empid',$empid)

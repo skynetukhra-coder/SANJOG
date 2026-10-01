@@ -1,0 +1,28 @@
+# System and migration backups
+/system_3.1.7_backup/
+/application/libraries/Excel_old_backup.php
+/test_bck/
+
+# Generated temporary files and QR codes
+/sus/temp/*
+!/sus/temp/.gitkeep
+
+# Application logs
+/application/logs/*.php
+!/application/logs/index.html
+/error_log
+
+# CodeIgniter 4 writable directories
+/ci4/writable/cache/*
+!/ci4/writable/cache/index.html
+/ci4/writable/logs/*
+!/ci4/writable/logs/index.html
+/ci4/writable/session/*
+!/ci4/writable/session/index.html
+/ci4/writable/debugbar/*
+!/ci4/writable/debugbar/index.html
+
+# OS and environment
+.DS_Store
+Thumbs.db
+Desktop.ini

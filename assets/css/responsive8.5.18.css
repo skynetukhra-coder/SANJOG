@@ -1,0 +1,102 @@
+
+@media only screen and (min-width : 320px) and (max-width : 639px) {
+	img { max-width: 100%; }
+	.header-bottom{padding:12px 0;}
+	.flag, .logo li:last-child{display:none;}
+	.logo li:first-child {
+	
+		padding-top: 0px;
+	
+	}
+	.logo-text{font-size:16px !important; display:block !important }
+	.header-top ul, .search-field {
+	    float: none;
+		margin-bottom: 5px;
+		text-align:center;
+	}
+	.header-top ul{display:inline-block}
+	.search-field{background:#fff; text-align:left}
+	.search-field input{width:95%; border:0; box-shadow:none}
+	.search-field input.form-control{border:0; box-shadow:none}
+	.header-top .pull-right{float:none !important;}
+	.search-icon{right:10px;}
+	.logo{width:100%;}
+	.menupart{background:none; padding:0;}
+	.new-cont .nav-tabs li a {
+		padding-left: 3px;
+		padding-right: 3px;
+	}
+	.new-cont .nav-tabs li a{
+		font-size:11px;
+	}
+	.left_ac_entitle{display:none}
+	.right_ac_entitle{display:block;}
+	.right-panel{margin-bottom:25px;}
+}
+
+@media only screen and (min-width : 640px) and (max-width : 767px) {
+	img { max-width: 100%; }
+	.logo li:first-child {
+		width: 63%;padding-left:33px;
+	}
+	.logo-text{font-size:16px !important; display:block !important }
+	
+	.logo li:last-child {
+		float: right;
+		width: 24%;
+	}
+	.toggleMenu{top:82px; }
+	
+	.menupart{background:none; padding:0;}
+	.navi{top:120px;}
+	
+	.flag {
+		width: 13%;
+	}
+	.left_ac_entitle{display:none}
+	.right_ac_entitle{display:block;}
+	.right-panel{margin-bottom:25px;}
+
+}
+
+@media only screen and (min-width : 768px) and (max-width : 1023px) {
+	img { max-width: 100%; }
+	
+	
+	.flag {
+		width: 13%;
+	}
+	
+	.logo li:first-child {
+		width: 63%;padding-left:33px;
+	}
+	.logo-text{font-size:16px !important}
+	.logo li:last-child {
+		float: right;
+		width: 24%;
+	}
+	.toggleMenu{top:82px; }
+	
+	.menupart{background:none; padding:0;}
+	.navi{top:120px;}
+}
+
+@media only screen and (min-width : 1024px) and (max-width : 1169px) {
+	img { max-width: 100%; }
+	
+	.quick-link{font-size:14px;}
+	
+	.navi a{
+		font-size: 13px;
+		padding: 0 11px;
+	}
+	.navi li{text-transform:capitalize;}
+	
+	.navi li ul{width:220px;}
+	
+	.navi li li a{
+		font-size: 12px;
+		text-transform: capitalize;
+	}
+}
+

@@ -1,0 +1,65 @@
+<style>
+.table1 th,td{line-height:15px; padding:5px}
+</style>
+<div class="row">
+	<div class="col-md-3 col-sm-4">
+		<div class="left-panel">
+			<?php $this->load->view('layout/subscribers_left_panel',$header);?>
+		</div>
+	</div>
+	<div class="col-md-9 col-sm-8">
+		<div class="right-panel">
+			<div class="breadcrumb"><a href="<?php echo base_url()?>" role="link"><?php echo $this->lang->line('principal_accountant_general_A_E'); ?></a> &raquo; <?php echo $this->lang->line('subscriber'); ?> &raquo; <?php echo $this->lang->line('missing_debit_credit')?>											
+			</div>
+			<div class="msg_cont">
+				<div class="success">
+					<?php if(isset($success) && !empty($success)){
+							echo '<div class="msg">'.$success.'</div>';
+						  }else if($this->session->flashdata('success')){
+							echo '<div class="msg">'.$this->session->flashdata('success').'</div>';
+						  }
+					 ?>
+				</div>
+				<div class="err">
+					<?php if(isset($error) && !empty($error)){
+							echo '<div class="msg">'.$error.'</div>';
+						  }else if($this->session->flashdata('error')){
+							echo '<div class="msg">'.$this->session->flashdata('error').'</div>';
+						  }
+					 ?>
+				</div>
+			</div>
+			<div class="login-box">
+				<h4><?php echo $this->lang->line('credit_debit_details_fin_yr')?></h4>
+				<hr />
+				<table class="table1" border="1" style="width:100%">
+					<thead>
+						<tr style="text-align:center">
+							<th style="text-align:center"><?php echo $this->lang->line('missing_credit_on')?></th>
+							<th style="text-align:center"><?php echo $this->lang->line('month')?></th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+						if(!empty($missing_credits)){
+							foreach($missing_credits as $credit){
+								$months = explode(',',$credit['month']);
+							?>
+								<tr>
+									<td style="text-align:center"><?php echo get_date($credit['fyear'])?></td>
+									<td style="text-align:center"><?php echo $credit['month'] ?></td>
+								</tr>
+						<?php
+							}
+						}else{?>
+							<tr>
+								<td colspan="2" style="font-size:12px"><?php echo $this->lang->line('no_data_found')?></td>
+							</tr>
+						<?php
+						}?>					
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

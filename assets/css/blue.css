@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+.navi li:hover a, .navi li:hover ul li a:hover{
+   /* color: #0279d6;*/
+   
+}
+
+.quick-link{background:#ccdff1;}
+
+.gray-bg{background:#262228;}
+
+.saffron-bg{background:#c25700;}
+
+.blue-dark-bg{background:#3671aa;}
+
+.green-bg{background:#007849;}
+
+footer{background:#262228;} 
+/*footer{background:#062f4f;}*/
+
+.light{background:#3671aa;}
+
+.medium{background:#275e93;}
+
+.dark{background:#062f4f;}
+
+.charcoal{background:#333333;}
+
+.light-green-bg {background:#99e699;}
+
+.pink-bg{background:#ffb3b3;}
+
+.light-pink-bg{background:#ffe6b3;}
+
+.yellow-bg {background:#ffdb4d;}
+
+.light-yellow-bg {background:#ffff99;}

@@ -1,0 +1,82 @@
+@media screen and (max-width: 1199px){
+.navbar-fixed-top{position:relative; top:0}
+.navbar .nav > li > a{padding-left:12px; padding-right:12px}
+.navbar-wrap{width:100%; float:left}
+}
+
+@media screen and (max-width: 991px){
+.navbar .nav > li > a{padding:6px 3px; font-size:13px}
+.dropdown .caret{margin-left:-2px}
+.clock-area{width:90%}
+.fc-header-title h2{font-size:15px; margin-right:10px}
+}
+
+
+@media screen and (max-width: 767px){
+.row-fluid .span1, .row-fluid .span2, .row-fluid .span3, .row-fluid .span4, .row-fluid .span5, .row-fluid .span6, .row-fluid .span7, .row-fluid .span8, 
+.row-fluid .span9, .row-fluid .span10, .row-fluid .span11, .row-fluid .span12{width:100%}
+.row-fluid .span4{margin-left:0}
+.header-middle-content{width:calc(100% - 167px)}
+.table-responsive{overflow-x:auto; z-index:9; position:relative}
+.table-scroll{overflow:scroll; height:300px; z-index:9; position:relative}
+.logo, .flag{padding-left:15px; padding-right:15px; margin-top:10px}
+.logo img{width:40px}
+.flag img{width:55px}
+.main-container{padding-top:10px}
+.navbar-fixed-top .navbar-inner{height:50px}
+.navbar-fixed-top .navbar-inner.responsive{position: relative}
+.navbar-fixed-top .navbar-inner.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+.navbar-fixed-top .navbar-inner.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+.table .btn{margin-bottom:5px; width:100%}
+.form-horizontal .control-group{margin-bottom:15px}
+.form-horizontal .control-label{width:100%; text-align:left}
+.form-horizontal .controls{margin-left:0}
+.form-horizontal .controls textarea{width:100%}
+.form-horizontal .form-actions{padding-left:22px}
+.tab-content > .tab-pane, .pill-content > .pill-pane{padding-left:15px; padding-right:15px}
+.header-btn-wrap{padding-bottom:8px; padding-top:2px !important; }
+.header-btn-wrap .btn{margin-left:2px; margin-right:2px}
+.block-content .control-form{width:100%}
+.block-content .control-form input{display:block; height:20px; width:98%}
+.block-content .control-form input[type="submit"]{height:34px; width:100%}
+.row-fluid [class*="span"]{margin-left:0}
+.navbar-toggle{width:30px; display:inline-block; vertical-align:middle; position:relative; padding:9px 0 0; margin-top:4px; margin-bottom:0; background-color:transparent;background-image:none; border:1px solid transparent; cursor:pointer}
+/*.navbar-inner span.icon-bar{width:30px; height:3px; background:#333; margin:0; padding:0}*/
+.navbar-inner span.icon-bar{width:20px; margin-top:-2px}
+.nav-collapse{border-top: 1px solid transparent; box-shadow: inset 0 1px 0 rgba(255,255,255,0.1); background:#f3f3f3; z-index:999; position:relative; padding-left:30px; margin:17px -16px 0 -30px; display:none}
+.nav-collapse.collapse{display: none!important;}
+.nav-collapse.collapse.in {display: block!important; margin:17px -16px 0 -30px;}
+.navbar-nav {float: none!important; margin: 7.5px -15px;}
+.navbar .nav > li{float:none}
+.navbar .nav.pull-right{/*margin-top:8px*/ margin-top:0}
+.navbar-nav .dropdown-menu{position:relative; width:100%}
+.dropdown-submenu > .dropdown-menu{left:0; background:#f4f4f4}
+.navbar .nav > li > a{font-size:14px; padding:14px 8px;}
+.navbar-nav .nav > li > a{padding:10px 8px;}
+.nav-collapse .nav > li > a{padding-top:9px; padding-bottom:9px; border-bottom:#bebebe 1px solid}
+.nav-collapse .nav > li > a:hover{background-color:#e5e5e5}
+.fc-header-title h2{font-size:20px; margin-right:10px}
+}
+
+@media screen and (max-width: 480px){
+.form-horizontal .form-actions .btn{width:49%}
+.block-header div.block-header-btn{margin-bottom:6px}
+.block-header .btn{padding-left:10px; padding-right:10px}
+.header-btn-wrap{display:block; float:left}
+.block-content .control-form{width:100%}
+.block-content .control-form input{width:96%; display:block}
+
+}
+
+@media screen and (max-width: 380px){
+.upload-file{width:250px}
+}

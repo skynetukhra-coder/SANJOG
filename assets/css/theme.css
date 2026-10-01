@@ -1,0 +1,55 @@
+body{background:#97a9bc; color:#ff0}
+
+/*	#wrapper{overflow:hidden;width: 1250px; margin: 0 auto; background-color: #4d4f50	*/
+.bodysec{background:#4d4f50}
+.header-top {background:#275e93; padding: 5px 0;}
+
+a:hover, a:focus{outline:none}
+.light{background:#111}
+.medium{background:#444}
+.dark{background:#000}
+.bl-theme{background: #444}
+.navi > li > a{color:#ff0}
+.navi li ul li{background:#fff}
+/*.navi > li > .parent{background-image: url("../images/downArrow-yellow.png")}*/
+.navi li li a:hover, .navi ul li.hover > a{background:#275e93;color:#ff0 !important;}
+.navi li:hover{background:#c25700;}
+.navi li:hover a, .navi li:hover ul li a:hover{color:#fff}
+
+.navi li ul li li a{background:#000 color:#fff}
+#tree ul li{background:url(../images/arrow-yellow.png) no-repeat 5px 10px}
+.quick-link{background:#000}
+.quick-link h3{color:#80ff00}
+.quick-link ul li{background:url(../images/arrow-ysellow.png) 11px 15px no-repeat}
+.quick-link ul li a{color:#ff0}
+#tree ul.nav li .lbl, #tree ul.nav li .sign{color:#ff0}
+.newsec h4{color:#80ff00}
+h1.title{color:#80ff00; border-bottom-color:#999}
+h3.title{color:#fff}
+.home h3 span{color:#ff7200}
+a.read-more{color:#ec0011}
+.whats-new{overflow:hidden;}
+.new-cont ul li a{color:#ff0 !important}
+footer{background:#000;color:#ff0} background:#3f3f3f
+footer ul li:before, footer ul li a{color:#ff0}
+.foot-text{color:#ff0}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{background:#757575}
+.new-cont .nav-tabs > li.active > a, nav-tabs > li.active > a:focus{color:#fff}
+.gray-bg{background:#545454}
+#myBtn.scroll-top-btn{background:#ff0; color:#000; border-color:#fff}
+.login-box{background:#000}
+.login-box .heading, .login-box .instruction-box .subheading{color:#80ff00}
+.login-box .instruction-box{border-color:#ff0}
+.breadcrumb{background:#444}
+.breadcrumb a{color:#fff}
+.login-box .btn-primary{background:#3671aa}
+b, strong{color:#fff}
+
+.page-details p span{color:#ff0}
+
+
+@media screen and (max-width:1023px){
+.toggleMenu{background:url(../images/menu_bg1_black.png)}
+.navi{background:#000}
+.navi a{border-bottom-color:#222}
+}

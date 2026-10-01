@@ -1,0 +1,106 @@
+<div class="row-fluid">
+  <div class="span12" id="content">
+  	<div class="block" style="padding:10px 0; border-top:1px solid #ccc">
+		<div class="block-content">
+			<form method="get">
+			  <div class="control-form">
+				<label class="control-label">Search</label>
+				<div class="controls">
+				 <input type="text" name="search" value="<?php echo $this->input->get('search',true)?>" placeholder="Search ......."/>
+				</div>
+			  </div>
+			  <div class="control-form">
+				<label class="control-label">Series</label>
+				<div class="controls">
+				 <input type="text" name="series" value="<?php echo $this->input->get('series',true)?>" placeholder="Series"/>
+				</div>
+			  </div>
+			  <div class="control-form">
+				<label class="control-label">AC Code</label>
+				<div class="controls">
+				 <input type="text" name="ac_code" value="<?php echo $this->input->get('ac_code',true)?>" placeholder="Ac code"/>
+				</div>
+			  </div>
+			  <div class="control-form">
+			  	<label class="control-label">&nbsp;</label>
+				<div class="controls">
+					<input type="submit" value="Filter" />
+				</div>
+			  </div>
+			  <input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
+			  <div class="clearfix"></div>
+			 </form>
+		</div>
+	</div>
+    <div class="block">
+      <div class="navbar navbar-inner block-header">
+        <div class="muted pull-left">List of Tax /Non-Tax Data</div>
+		<div class="header-btn-wrap"><button class="btn btn-success" onclick="window.location.href = '<?php echo ADMIN_BASE_URL ?>gpf/tax_nontax_upload'"><i class="icon-upload icon-white"></i> Upload Tax /Non-Tax Data</button></div>
+      </div>
+      <div class="block-content collapse in">
+        <div class="span12">
+         <div class="table-scroll">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Year</th>
+                <th>Series</th>
+				<th>Ac Code</th>
+                <th>OB NT</th>
+				<th>CB NT</th>
+				<th>OB T</th>
+				<th>CB T</th>
+				<th>UA OB</th>
+				<th>UA CB</th>
+				<th style = "width: 7%">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+			  	<?php
+					if(count($results) > 0){
+						$sl = intval($this->input->get('per_page',true)) + 1;
+						foreach($results as $row){?>
+						 <tr>
+							<td><?php echo $sl++ ?></td>
+							<td><?php echo date(DATE_FORMAT,strtotime($row['fyear']))?></td>
+							<td><?php echo $row['series']?></td>
+							<td><?php echo $row['accode']?></td>
+							<td><?php echo $row['ob_nt']?></td>
+							<td><?php echo $row['cb_nt']?></td>
+							<td><?php echo $row['ob_t']?></td>
+							<td><?php echo $row['cb_t']?></td>
+							<td><?php echo $row['ua_ob']?></td>
+							<td><?php echo $row['ua_cb']?></td>
+							<td>
+								<button class="btn btn-mini btn-danger" onclick="goDelete('<?php echo $row['gpf_tax_id'] ?>')"><i class="icon-remove icon-white"></i> Delete</button>
+							</td>
+						</tr>
+				<?php
+						}
+					}else{
+						echo '<tr><td colspan="8">No data found!</td></tr>';
+					}
+				?>
+            </tbody>
+          </table>
+         </div>
+        </div>
+		<div class="pagination"><?php echo $this->pagination->create_links();?></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+
+function goDelete(id){
+	if(id != undefined){
+		var conf = confirm('Do you want to delete?');
+		if(conf){
+			window.location.href = '<?php echo ADMIN_BASE_URL ?>gpf/tax_nontax_delete/'+id;
+		}
+		
+	}
+}
+
+</script>

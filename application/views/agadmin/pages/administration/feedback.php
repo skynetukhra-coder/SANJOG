@@ -1,0 +1,173 @@
+<link href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+<div class="row-fluid">
+    <div class="span12" id="filter-content">
+        <div class="block">
+            <div class="block-content">
+                <form method="get">
+                    <div class="control-form">
+                        <label class="control-label">Search</label>
+                        <div class="controls">
+                            <input type="text" name="search" value="<?php echo $this->input->get('search',true)?>"
+                                placeholder="Search by Mobile No......." />
+                        </div>
+                    </div>
+                    <div class="control-form">
+                        <label class="control-label">&nbsp;</label>
+                        <div class="controls">
+                            <input type="submit" value="Filter" />
+                        </div>
+                    </div>
+                    <input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div><div class="row-fluid">
+    <div class="span12" id="filter-content">
+        <div class="block">
+            <div class="block-content">
+                <form method="post" action="<?php echo ADMIN_BASE_URL ?>administration/feedback_download">
+                    <div class="control-form">
+                        <label class="control-label">Feedback Details </label>
+                        <div class="controls">
+                            <input type="text" name="date_from" data-required="1" class="datepicker" data-provide="datepicker" autocomplete="off" placeholder="DD-MM-YYYY" />
+                        </div>
+                    </div>
+                    <div class="control-form">
+                        <label class="control-label">to</label>
+                        <div class="controls">
+                            <input type="text" name="date_to"  data-required="1" class="datepicker" data-provide="datepicker" autocomplete="off" placeholder="DD-MM-YYYY" />
+                        </div>
+                    </div>
+                    <div class="control-form" style="padding-right:40px;">
+                        <label class="control-label">Group</label>
+                        <div class="controls">
+                            <select name="visit_for" style="height:34px;">
+								<option value=""> -- Group --</option>
+								<?php
+								if(isset($all_groups) && !empty($all_groups)){
+									foreach($all_groups as $groups){
+										echo '<option value="'.$groups['visit_for'].'">'.$groups['visit_for'].'</option>';
+									}
+								}
+								?>
+							</select>
+                        </div>
+                    </div>
+					<div class="control-form" style="padding-right:40px;">
+                        <label class="control-label">Feedback Status</label>
+                        <div class="controls">
+								<select id="status" name="status" style="height:34px;">
+									<option value=""> -- Select Status--</option>
+									<option data-value="1" value="active"<?php echo $this->input->get('status') == 'active' ? 'selected' : ''?> > Active </option>
+									<option data-value="2" value="close"<?php echo $this->input->get('status') == 'close' ? 'selected' : ''?> >Close</option>
+								</select>
+                        </div>
+                    </div>
+                    <div class="control-form">
+                        <label class="control-label">&nbsp;</label>
+                        <div class="controls">
+                            <input type="submit" value="Download Feedback" />
+                        </div>
+                    </div>
+                    <input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="row-fluid">
+    <div class="span12" id="content">
+        <div class="block">
+<!--            <div class="navbar navbar-inner block-header">
+                <div class="muted pull-left">List of Feedbacks</div>
+				<div class="header-btn-wrap">
+                    <button class="btn btn-success"
+                    onclick="window.location.href = '<?php //echo ADMIN_BASE_URL ?>administration/training_upload'">
+					<i class="icon-plus icon-white"></i> Add or Update Feedback Status</button>
+                </div>
+ -->    </div>
+        <div class="block-content collapse in">
+                <div class="span12">
+                    <div class="table-scroll">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Sl no.</th>
+                                    <th>Feedback ID</th>
+									<th>Name</th>
+									<th>MB No</th>
+									<th>Group</th>
+									<th>GPF No</th>
+									<th>Office</th>
+                                    <th>Comment</th>
+                                    <th>Feedback_Date</th>
+									<th>Status</th>
+                                    <th class="action" style="">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php 
+					if(count($results) > 0){
+						$sl = intval($this->input->get('per_page',true)) + 1;
+						foreach($results as $row){			
+								?>
+                                <tr>
+                                    <td><?php echo $sl++ ?></td>
+                                    <td><?php echo $row['feed_id'] ?></td>
+									<td><?php echo $row['name'] ?></td>
+									<td><?php echo $row['mobile'] ?></td>
+									<td><?php echo $row['visit_for'] ?></td>
+									<td><?php echo $row['gpf_no'] ?></td>
+                                    <td><?php echo $row['office'] ?></td>
+									<td><?php echo $row['details'] ?></td>
+									<td><?php echo date('d-m-Y',strtotime($row['feed_date']))?></td>
+                                    <td><?php echo $row['status'] ?></td>
+                                    <td style = "text-align: center; width: 8%">
+									<button class="btn btn-mini btn-primary" onclick="goEdit('<?php echo $row['feed_id'] ?>')"><i class="icon-pencil icon-white"></i>Update</button>
+									<button class="btn btn-mini btn-success" onclick="goPdf('<?php echo $row['feed_id'] ?>')">Download</button>
+									</td>
+                                </tr>
+                                <?php
+						}    
+					}			
+					else{
+						echo '<tr><td colspan="11">No data found!</td></tr>';
+					}		
+				?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="pagination"><?php echo $this->pagination->create_links();?></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.datepicker').datepicker({dateFormat:'dd-mm-yy'});
+});
+function goEdit(id, type) {
+    if (id != undefined) {
+        window.location.href = '<?php echo ADMIN_BASE_URL ?>administration/feedback_action/' + id;
+    }
+}
+function goPdf(id){
+	if(id != undefined){
+		window.location.href = '<?php echo ADMIN_BASE_URL ?>administration/feedback_download_pdf/'+id;
+	}
+}
+function goDelete(id){
+	if(id != undefined){
+		var conf = confirm('Do you want to delete?');
+		if(conf){
+			window.location.href = '<?php echo ADMIN_BASE_URL ?>administration/feedback_action/'+id;
+		}
+		
+	}
+}
+</script>

@@ -1,0 +1,141 @@
+
+@media only screen and (min-width : 320px) and (max-width : 639px) {
+	img { max-width: 100%; }
+	.header-bottom{padding:12px 0;}
+	.flag, .logo li:last-child{display:none;}
+	.logo li:first-child {
+	
+		padding-top: 0px;
+	
+	}
+	.logo-text{font-size:16px !important; display:block !important }
+	.header-top ul, .search-field {
+	    float: right;
+		margin-bottom: 5px;
+		text-align:center;
+	}
+	.header-top ul{display:inline-block}
+	.search-field{background:#fff; text-align:left; width:100%}
+	.search-field input{width:95%; border:0; box-shadow:none}
+	.search-field input.form-control{border:0; box-shadow:none}
+	.header-top .pull-right{float:none !important;}
+	.search-icon{right:10px;}
+	.logo{width:100%;}
+	.menupart{background:none; padding:0;}
+	.new-cont .nav-tabs li a {
+		padding-left: 3px;
+		padding-right: 3px;
+	}
+	.new-cont .nav-tabs li a{
+		font-size:11px;
+	}
+	.left_ac_entitle{display:none}
+	.right_ac_entitle{display:block;}
+	.right-panel{margin-bottom:25px;}
+	.xs-hidden{display:none}
+	.xs-block{display:block !important}
+	.quick-link a.click-white{font-size:15px; text-decoration:none}
+	.quick-link a.click-white:hover{text-decoration:none}
+	footer{font-size:13px}
+	.filter-form .submit-btn{margin-top:20px;  margin-bottom:15px}
+	.padd-lft15{padding-left:15px !important}
+	.apl-mrgbtm{margin-top:22px}
+	.name-mrgbtm{margin-top:22px}
+	.field-mrgbtm{margin-top:22px}
+	
+	.gallery .nav > li{width:32%; margin-left:1px; margin-right:1px}
+	.gallery .nav > li > a{font-size:10px; padding-left:4px; padding-right:4px}
+}
+
+@media only screen and (min-width : 640px) and (max-width : 767px) {
+	img { max-width: 100%; }
+	.logo li:first-child {
+		width: 63%;padding-left:33px;
+	}
+	.logo-text{font-size:16px !important; display:block !important }
+	
+	.logo li:last-child {
+		float: right;
+		width: 24%;
+	}
+	.toggleMenu{top:82px; }
+	
+	.menupart{background:none; padding:0;}
+	.navi{top:120px;}
+	
+	.flag {
+		width: 13%;
+	}
+	.left_ac_entitle{display:none}
+	.right_ac_entitle{display:block;}
+	.right-panel{margin-bottom:25px;}
+	.xs-hidden{display:none}
+	.xs-block{display:block !important}
+    .quick-link a.click-white{font-size:15px; text-decoration:none}
+	.quick-link a.click-white:hover{text-decoration:none}
+	footer{font-size:14px}
+	.filter-form .submit-btn{margin-top:20px; margin-bottom:15px}
+	.padd-lft15{padding-left:15px !important}
+	.apl-mrgbtm{margin-top:22px}
+	.name-mrgbtm{margin-top:22px}
+	.field-mrgbtm{margin-top:22px}
+	.gallery .nav > li{width:31%; margin-left:1px; margin-right:1px}
+}
+
+@media only screen and (min-width : 768px) and (max-width : 1023px) {
+    header .container{position:relative}
+	img { max-width: 100%; }	
+	.flag {
+		width: 13%;
+	}
+	
+	.logo li:first-child {
+		width: 63%;padding-left:33px;
+	}
+	.logo-text{font-size:16px !important}
+	.logo li:last-child {
+		float: right;
+		width: 24%;
+	}
+	.toggleMenu{top:22px; right:15px}
+	
+	.menupart{background:none; padding:0;}
+	.navi{top:120px;}
+	.xs-block{display:block !important}
+	.xs-hidden{display:none}
+	.quick-link a.click-white{font-size:15px; text-decoration:none}
+	.quick-link a.click-white:hover{text-decoration:none}
+	.filter-form .form-control{border-radius:0; height:40px; margin-bottom:10px}
+	.filter-form .submit-btn{margin-top:0;  margin-bottom:15px}
+	.application-formwrap .name{font-size:11px; line-height:16px}
+	.apl-mrgbtm{margin-top:22px}
+}
+
+@media only screen and (min-width : 992px) and (max-width : 1023px) {
+.apl-mrgbtm{margin-top:0}
+}
+
+@media only screen and (min-width : 1024px) and (max-width : 1169px) {
+	img { max-width: 100%; }
+	
+	.quick-link{font-size:14px;}
+	
+	.navi a{
+		/*font-size: 13px;
+		padding: 0 11px;*/
+	}
+	.navi li{text-transform:capitalize;}
+	
+	.navi li ul{width:220px;}
+	
+	.navi li li a{
+		font-size: 12px;
+		text-transform: capitalize;
+	}
+	.new-cont .nav-tabs li a{padding-left:1px; padding-right:1px ; font-size:10px}
+}
+
+@media only screen and (max-width : 1199px) and (min-width : 1170px){
+.new-cont .nav-tabs li a{padding-left:1px; padding-right:1px ; font-size:10px}
+}
+

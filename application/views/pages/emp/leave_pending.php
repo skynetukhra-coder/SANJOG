@@ -1,0 +1,133 @@
+<style>
+.table1 td{text-align:center}
+</style>
+
+<div class="row">
+	<div class="col-md-3 col-sm-4">
+		<div class="left-panel">
+			<?php $this->load->view('layout/emp_left_panel',$header);?>
+		</div>
+	</div>
+	<div class="col-md-9 col-sm-8">
+		<div class="right-panel">
+			<div class="breadcrumb"> <a href="<?php echo base_url()?>" role="link"><?php echo $this->lang->line('principal_accountant_general_A_E'); ?></a> &raquo; <?php echo $this->lang->line('employee'); ?> &raquo; <?php echo $this->lang->line('my_gpf_statement'); ?> </div>
+			<div class="login-box">
+				<h4><strong>Leave Debit Details</strong></h4>
+				<hr />
+				
+
+				<form method="get">
+						<div class="filter-form1">
+							<div class="form-group row">
+								<div class="col-sm-6">
+									<label class="name-label">Select Leave :</label>
+									<select name="year" class="form-control" required>
+										<option value=""> -- Select leave--</option>
+										<option data-value="1" value="Earned Leave" <?php echo $this->input->get('year') == 'Earned Leave' ? 'selected' : ''?> >Earned Leave</option>
+										<option data-value="2" value="Commutted Leave"<?php echo $this->input->get('year') == 'Commutted Leave' ? 'selected' : ''?> >Commutted Leave</option>
+										<option data-value="3" value="Child Care Leave"<?php echo $this->input->get('year') == 'Child Care Leave' ? 'selected' : ''?> >Child Care Leave</option>
+										<option data-value="4" value="Extra-Ordinary Leave"<?php echo $this->input->get('year') == 'Extra-Ordinary Leave' ? 'selected' : ''?> >Extra-Ordinary Leave</option>
+										<option data-value="5" value="Study Leave"<?php echo $this->input->get('year') == 'Study Leave' ? 'selected' : ''?> >Study Leave</option>
+									</select>
+								</div>
+								<div class="col-sm-3">
+									<input type="submit" class="submit-btn" value="<?php echo $this->lang->line('search'); ?>" />
+								</div>
+								<div class="col-sm-3">
+									<input type="button" class="submit-btn" onclick="window.location.href='<?php echo base_url()?>emp/leave_details'" value="<?php echo $this->lang->line('clear'); ?>" />
+								</div>
+							</div>
+						</div>
+					</form>
+				
+				
+					<table class="table1" border="1" style="width:100%">
+						<thead>
+							<tr style="text-align:center">
+								<th style="text-align:center">Sl No</th>
+								<th style="text-align:center">Type</th>
+								<th style="text-align:center">From</th>
+								<th style="text-align:center">To</th>     
+								<th style="text-align:center">Days</th>
+								<th style="text-align:center">Applied On</th>
+								<th style="text-align:center">Status</th>
+								<th style="text-align:center">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php
+								if(!empty($office_orders)){
+									$sl = intval($this->input->get('per_page',true)) + 1;
+									$s2=0;
+									
+									foreach($office_orders as $leaves){
+										$s2 += $leaves['leave_day_no']; ?>
+										<tr>
+											<td><?php echo $sl++ ?></td>
+											<td><?php echo $leaves['leave_type'] ?></td>
+											<td><?php echo date('d-m-Y',strtotime($leaves['leave_from'])) ?></td>
+											<td><?php echo date('d-m-Y',strtotime($leaves['leave_to'])) ?></td>
+											<td><?php echo $leaves['leave_day_no'] ?></td>
+											<td><?php echo date('d-m-Y',strtotime($leaves['application_dt'])) ?></td>
+											<td id "leave_st"><?php echo $leaves['leave_status']?></td>
+											<td>
+											<button id ="edit" class="btn btn-mini btn-primary" 
+											onclick="goEdit('<?php echo $leaves['leav_id'] ?>')" ><i 
+												class="icon-pencil icon-white"></i> Action</button>
+											</td>
+										</tr>
+								<?php	}
+								}else{
+									echo '<tr><td colspan="8">No records found!</td></tr>';
+								}
+							?>
+						</tbody>
+					
+					</table>
+					
+			<div>
+				<table>
+					<tr>
+						<td style="text-align:center">*</td>
+						<td><?php 
+						if(!empty($office_orders)){
+							
+						//	echo $s2; 
+						}	
+						else{
+							echo '0'; ;
+							}?>
+						</td>   
+					</tr>	
+				</table>
+			</div>
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="<?php echo SITE_BASE_URL?>assets/js/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.datepicker').datepicker({dateFormat:'dd-mm-yy'});
+});
+function goEdit(id, type) {
+    if (id != undefined) {
+        window.location.href = '<?php echo SITE_BASE_URL ?>emp/leave_sanction/' + id;
+    }
+}
+/*
+ function edit_btn(leave_st,edit) 
+{
+    if (leave_st.value == "draft") 
+    {
+        document.getElementById("edit").disabled = false;		
+    }
+    else 
+    {       
+		document.getElementById("edit").disabled = true;
+    }	
+*/	
+	
+</script>

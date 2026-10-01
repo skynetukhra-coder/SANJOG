@@ -1,0 +1,179 @@
+<?php
+$emp_id = isset($row['emp_id']) ? $row['emp_id'] : '';
+$emp_name = isset($row['emp_name']) ? $row['emp_name'] : '';
+$emp_desig = isset($row['emp_desig']) ? $row['emp_desig'] : '';
+$trans_from_grp = isset($row['trans_from_grp']) ? $row['trans_from_grp'] : '';
+$trans_from_sec = isset($row['trans_from_sec']) ? $row['trans_from_sec'] : '';
+$trans_to_grp = isset($row['trans_to_grp']) ? $row['trans_to_grp'] : '';
+$trans_to_sec = isset($row['trans_to_sec']) ? $row['trans_to_sec'] : '';
+$trans_order_no = isset($row['trans_order_no']) ? $row['trans_order_no'] : '';
+$trans_order_dt = isset($row['trans_order_dt']) ? $row['trans_order_dt'] : '';
+$order_issue_date = isset($row['order_issue_date']) ? $row['order_issue_date'] : '';
+$trans_note = isset($row['trans_note']) ? $row['trans_note'] : '';
+$joing_autho_remark = isset($row['joing_autho_remark']) ? $row['joing_autho_remark'] : '';
+$joing_autho_rek_dt = isset($row['joing_autho_rek_dt']) ? $row['joing_autho_rek_dt'] : '';
+$joing_autho_nm = isset($row['joing_autho_nm']) ? $row['joing_autho_nm'] : '';
+$joing_autho_desig = isset($row['joing_autho_desig']) ? $row['joing_autho_desig'] : '';
+$joing_autho_pan = isset($row['joing_autho_pan']) ? $row['joing_autho_pan'] : '';
+
+?>
+<div class="row">
+	<div class="col-md-3 col-sm-4">
+		<div class="left-panel">
+			<?php $this->load->view('layout/emp_left_panel',$header);?>
+		</div>
+	</div>
+	<div class="col-md-9 col-sm-8">
+		<div class="right-panel">
+			<div class="breadcrumb"> <a href="<?php echo base_url()?>" role="link"><?php echo $this->lang->line('principal_accountant_general_A_E'); ?></a> &raquo; <?php echo $this->lang->line('employee'); ?> &raquo; <?php echo $this->lang->line('leave_for_sanction'); ?> </div>
+			
+			<div class="login-box">
+				<div class="application-formwrap">
+					<form method="post" >
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="sub-heading" style="text-align:center"> OFFICE OF THE PR. ACCOUNTANT GENERAL (A&E) , WEST BENGAL<br />
+									Treasury Buildings, 2 Government Place (West), Kolkata 70000-1</div>
+							</div>
+						<div class="col-sm-12">
+							<div class="top-box">
+							<label class="name" align="center"> <font color="#1E0BA9"><b> CHARGE ALLOTMENT </b></font></span></label>
+								<div class="row">
+									<div id="other_exam_name" class="row" style="display:none;">
+										<div class="col-md-8 col-sm-6">
+											<div class="form-group">
+											
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-sm-12">
+								<div class="form-group row">
+									<div class="col-md-3 col-sm-6 name-mrgbtm">
+										<label class="name">Employee PAN<span class="star">*</span></label>
+										<input type="text" name = "emp_id" value="<?php echo $row['emp_id'] ?>" class="form-control"  readonly>
+									</div>
+									<div class="col-md-5 col-sm-6">
+										<label class="name">Employee Name<span class="star">*</span></label>
+										<input value="<?php echo $row['emp_name'] ?>" type="text" class="form-control"  readonly>
+									</div>
+									<div class="col-md-4 col-sm-6 name-mrgbtm">
+										<label class="name">Designation<span class="star">*</span></label>
+										<input type="text" value="<?php echo $row['emp_desig'] ?>" class="form-control"  readonly>
+									</div>
+								</div>
+							</div>
+
+						 <div class="control-group">
+							<label class="control-label">Select Charges of the Section</label>
+							<div class="controls">
+							  <div class="filter-area">
+								<div class="filter-row">
+								  <div class="filter" style="display: inline-block; margin: 0px 10px 0px 0px;">
+				 <!--                  <input id="all-checked" type="checkbox" onclick="checkUncheckAll()" /> &nbsp; All		-->
+								  </div>
+								  <div class="filter" style="display: inline-block; margin: 0px 10px 0px 10px;">
+				<!--                
+									<select id="filter-groups" onchange="filterSectionsByGroupS(this.value)">
+									  <option value="all">Select Group</option>
+									  <?php
+										foreach($groups as $value){
+										  echo '<option value="'.$value.'">'.$value.'</option>';
+										}
+									  ?>
+									</select>
+				-->
+								  </div>
+								  <div class="filter" style="display: inline-block; margin: 0px 0px 0px 10px;">
+				<!--				<input id="selected-only3" type="checkbox" onclick="checkSelectedOnly3()" /> &nbsp; Selected Only		-->
+								  </div>
+								</div> 
+							  </div>
+							  <div class="epmloyees-list" style="border: 1px outset #d6d6c2; width:100%; max-height: 100px; overflow: auto;">
+										 <?php
+									  foreach($section_charges as $sec){
+										//echo '<div class="emp-row" data-designation="'.strtolower($emp['desig']).'"><input type="checkbox" name="emp_concerned['.$emp['empid'].']" '.(in_array($emp['empid'],$asign_emp) ? 'checked' : '').' />&nbsp; '.$emp['empname'].'  ['.$emp['desig'].' / '.$emp['empid'].' ]</div>';
+										echo '<div class="group-row" data-group="'.strtolower($sec['sec_indx']).'"><input  type="checkbox" name="chrg_id['.$sec['chrg_id'].']" value="'.$sec['sec_indx'].'" />&nbsp; ['.$sec['chrg_id'].']  -  '.$sec['charge_desc'].'  </div>';
+									  }?>
+							  </div>
+							</div>
+						  </div>
+
+							<div class="col-sm-12">
+								<div class="form-group row">
+									
+								</div>
+							</div> 
+							<div class="col-sm-12">
+								<div class="form-group row btn-wrap">
+									<div class="col-md-4 col-sm-12">
+										<label class="name">Name</label>
+										<input name="joing_autho_nm" type="text" value="<?php echo $joing_autho_nm ?>" class="form-control"  readonly>											
+									</div>
+									<div class="col-md-8 col-sm-12 apl-mrgbtm">
+										<label class="name">.</label>
+										<div class="row">
+											<div class="col-sm-2 col-xs-2" style="text-align:center">
+												<label class="name1">Designation</label>
+											</div>
+											<div class="col-sm-4  col-xs-4">
+												<input name="joing_autho_desig" type="text" value="<?php echo $joing_autho_desig ?>" class="form-control"  readonly>											
+											</div>
+											<div class="col-sm-2  col-xs-2" style="text-align:center">
+												<label class="name1 text-right">PAN</label>
+											</div>
+											<div class="col-sm-4  col-xs-4">
+												<input name="joing_autho_pan" type="text" value="<?php echo $joing_autho_pan ?>" class="form-control"  readonly>											
+											</div>								
+										</div>			
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-12">
+								<div class="btn-wrap">
+									<div class="row">
+										<div class="col-md-6 col-sm-7 col-xs-7">
+											<div class="form-group"> 
+												<?php echo $cap['image'];?>
+												<button type="button" style="width:40px;height:40px" onclick="reload_captcha()" title="Re-Generate"><i class="fa fa-refresh" style="font-size:20px" aria-hidden="true"></i></button>
+											</div>
+										</div>
+										<div class="col-md-6 col-sm-5 col-xs-5">
+											<div class="form-group">
+												<input type="text" name="c_image" class="form-control" placeholder="<?php echo $this->lang->line('write_image_code'); ?>" autocomplete="off" required >
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+								<input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
+							<div class="col-sm-12">
+								<div class="btn-wrap">
+									<div class="row">
+										<div class="col-sm-6 col-xs-6">
+											<input type="button" class="btn btn-success" onclick="window.location.reload();" value="Reset" />
+										</div>
+										<div class="col-sm-6 col-xs-6">
+											<input id="submit_btn" type="submit" class="btn btn-primary" value="Submit"  />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						</div>	
+					</form>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="<?php echo SITE_BASE_URL?>assets/js/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.datepicker').datepicker({dateFormat:'dd-mm-yy'});
+});
+
+</script>

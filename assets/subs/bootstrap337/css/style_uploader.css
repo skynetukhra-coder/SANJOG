@@ -1,0 +1,82 @@
+.main{
+width: 385px;
+border: 2px solid gray;
+border-radius: 10px;
+}
+.main label{
+color: rgba(0, 0, 0, 0.71);
+margin-left: 60px;
+}
+#image_preview{
+margin: 10px;
+width: 230px;
+height: 250px;
+align-items: center;
+line-height: 180px;
+font-weight: bold;
+color: #C0C0C0;
+margin-left: 20%;
+background-color: #FFFFFF;
+overflow: auto;
+}
+#selectImage{
+padding: 19px 21px 14px 15px;
+bottom: 0px;
+width: 380px;
+background-color: #FEFFED;
+border-radius: 10px;
+}
+.submit{
+font-size: 16px;
+background: linear-gradient(#ffbc00 5%, #ffdd7f 100%);
+border: 1px solid #e5a900;
+color: #4E4D4B;
+font-weight: bold;
+cursor: pointer;
+width: 72%;
+border-radius: 5px;
+padding: 10px 0;
+outline: none;
+margin-top: 10px;
+margin-left: 15%;
+}
+.submit:hover{
+background: linear-gradient(#ffdd7f 5%, #ffbc00 100%);
+}
+#file {
+color: red;
+padding: 5px;
+border: 5px solid #8BF1B0;
+background-color: #8BF1B0;
+box-shadow: 0 0 15px #626F7E;
+margin-left: 15%;
+width: 72%;
+}
+#message{
+position:absolute;
+top:25%;
+left:420px;
+}
+#success
+{
+color:green;
+}
+#invalid
+{
+color:red;
+}
+
+#error
+{
+color:red;
+}
+#error_message
+{
+color:blue;
+}
+#loading
+{
+display:none;
+position:absolute;
+font-size:25px;
+}

@@ -1,0 +1,88 @@
+<style>
+th,td{line-height:15px; padding:5px}
+</style>
+<div class="col-md-2 col-sm-2">
+	<div class="left-panel">
+		<?php //$this->load->view('layout/left_panel');
+		?>
+		
+	</div>
+</div>
+<div class="col-md-9 col-sm-8">
+	<div class="right-panel">
+		<div class="breadcrumb"><a href="<?php echo base_url()?>" role="link"><?php echo $this->lang->line('principal_accountant_general_A_E'); ?></a> &raquo; Pension &raquo; Pensioners Copy Download </div>
+		<div class="msg_cont">
+			<div class="success">
+				<?php if(isset($success) && !empty($success)){
+							echo '<div class="msg">'.$success.'</div>';
+						  }else if($this->session->flashdata('success')){
+							echo '<div class="msg">'.$this->session->flashdata('success').'</div>';
+						  }
+					 ?>
+			</div>
+			<div class="err">
+				<?php if(isset($error) && !empty($error)){
+							echo '<div class="msg">'.$error.'</div>';
+						  }else if($this->session->flashdata('error')){
+							echo '<div class="msg">'.$this->session->flashdata('error').'</div>';
+						  }
+					 ?>
+			</div>
+		</div>
+		<div class="login-box">
+			<div style = "float: right"><span><button type="button" class="btn-primary btn-lg" onclick="ppoView()">View Payment Orders</button></span></div>
+			<div><p>&nbsp;</p></div>
+			<div>
+			<div><p>&nbsp; **</p></div>
+			<form id="icopy" method="post">
+			<table border="1" style="width:100%">
+				<thead>
+					<tr style="text-align:center">
+						<th class="text-center">Letter</th>
+						<th class="text-center" style="width:25%">Download</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+					if($error != ''){?>
+					<tr>
+						<td colspan="2"><strong style="color:red;"><?php echo 'Data for downloading copy of Intimantion Letter is not found' ?></strong></td>
+					</tr>
+					<?php
+					}else{
+						if($is_ppo){?>
+						<tr>
+							<td>Intimation Letter Regarding Issue Of P.P.O.</td>
+							<td class="text-center">
+								<a href="<?php echo SITE_BASE_URL?>pension/ppo_download?q=<?php echo $application_no?>" target="_blank"><img src="<?php echo SITE_BASE_URL?>assets/images/PDF.png" style="max-height:50px;"/></a></td>		
+<!--							<a href="<?php echo SITE_BASE_URL?>pension/ppo_pdf" target="_blank"><img src="<?php echo SITE_BASE_URL?>assets/images/PDF.png" style="max-height:50px;"/></a></td>		-->
+						</tr>
+						<?php
+						}
+						if($is_fppo){
+						?>
+						<tr>
+							<td>Intimation Letter Regarding Issueance Of FPPO</td>
+							<td class="text-center"><a href="<?php echo SITE_BASE_URL?>pension/fppo_download?q=<?php echo $application_no?>" target="_blank"><img src="<?php echo SITE_BASE_URL?>assets/images/PDF.png" style="max-height:50px;"/></a></td>		
+<!--						<td class="text-center"><a href="<?php echo SITE_BASE_URL?>pension/fppo_pdf" target="_blank"><img src="<?php echo SITE_BASE_URL?>assets/images/PDF.png" style="max-height:50px;"/></a></td>		-->
+						</tr>
+						<?php
+						}
+					}?>
+					
+				</tbody>
+			</table>
+			<div><input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" /></div>
+			</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+function ppoView() {
+  window.location.href = '<?php echo SITE_BASE_URL ?>pension/ppogpocpo_view/';
+ //  var likp = '<?php echo SITE_BASE_URL ?>pension/ppogpocpo_view/';
+ // window.open(likp,'_blank');  //Un comment this line to open the PPO view page
+}
+</script>

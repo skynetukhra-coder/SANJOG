@@ -1,0 +1,147 @@
+<link href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+<iv class="row-fluid">
+    <div class="span12" id="filter-content">
+        <div class="block">
+            <div class="block-content">
+                <form method="get">
+                    <div class="control-form">
+                        <label class="control-label">Search</label>
+                        <div class="controls">
+                            <input type="text" name="search" value="<?php echo $this->input->get('search',true)?>"
+                                placeholder="Search ......." />
+                        </div>
+                    </div>
+                    <div class="control-form">
+                        <label class="control-label">&nbsp;</label>
+                        <div class="controls">
+                            <input type="submit" value="Filter" />
+                        </div>
+                    </div>
+                    <input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
+                    <div class="clearfix"></div>
+                </form>
+                <form method="post" action="<?php echo ADMIN_BASE_URL ?>administration/all_passport_applications">
+                    <div class="control-form">
+                        <label class="control-label">Application From</label>
+                        <div class="controls">
+                            <input type="text" name="date_from" data-required="1" class="datepicker" data-provide="datepicker" autocomplete="off" placeholder="DD-MM-YYYY" />
+                        </div>
+                    </div>
+                    <div class="control-form">
+                        <label class="control-label">to</label>
+                        <div class="controls">
+                            <input type="text" name="date_to"  data-required="1" class="datepicker" data-provide="datepicker" autocomplete="off" placeholder="DD-MM-YYYY" />
+                        </div>
+                    </div>
+					<div class="control-form" style="padding-right:40px;">
+                        <label class="control-label">Examination</label>
+                        <div class="col-sm-6">
+							<select name="pappli_yr" class="form-control" >
+								<option value="">-- <?php echo $this->lang->line('select_year'); ?> --</option>
+								<?php
+									for($i = date('Y'); $i >= 2020; $i--){
+										echo '<option value="'.$i.'" '.($this->input->get('pappli_yr',true) == $i ? 'selected': '').' >'.$i.'</option>';
+								}?>
+								</select>
+						</div>
+                    </div>
+                    <div class="control-form">
+                        <label class="control-label">&nbsp;</label>
+                        <div class="controls">
+                            <input type="submit" value="Download Application" />
+                        </div>
+                    </div>
+                    <input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span12" id="content">
+        <div class="block">
+            <div class="navbar navbar-inner block-header">
+                <div class="muted pull-left">List of Passport Applications</div>
+            </div>
+            <div class="block-content collapse in">
+                <div class="span12">
+                    <div class="table-scroll">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Sl no.</th>
+                                    <th>Aplied On</th>
+                                    <th>PAN</th>
+                                    <th>Name</th>
+									<th>Designation</th>
+									<th>Appl. For</th>
+									<th>Description</th>
+									<th>File</th>
+									<th>Recommendation / Date</th>
+									<th>Status[Currently]</th>
+									<th>Draft</th>
+                                    <th class="action" style="">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+					if(count($results) > 0){
+						$sl = intval($this->input->get('per_page',true)) + 1;
+						foreach($results as $row){?>
+                                <tr>
+                                    <td><?php echo $sl++ ?></td>
+									<td><?php echo $row['appli_date'] ?></td>
+									<td><?php echo $row['empid'] ?></td>
+                                    <td><?php echo $row['name'] ?><br> <?php echo $row['mbno'] ?></br></td>
+									<td><?php echo $row['desig'] ?></td>
+									<td><?php echo $row['pass_ren_visa'] ?></td>
+									<td><?php echo $row['reason_pp'] ?></td>
+									<td><?php
+										 if(trim($row['attachment']) != ''){
+											echo '<a href="'.base_url().'files/agae/results/'.$row['attachment'].'" target="_blank"><img src="'.SITE_BASE_URL.'assets/images/PDF.png" style="max-height:30px;"/></a>';
+									}?></td>
+									<td><?php echo $row['reccomendation'] ?><br> <?php echo $row['dag_name_rev'] ?>[<?php echo get_datepicker_date($row['dag_dt_rev']) ?>]</br></td>
+									<td><?php echo $row['appli_status'] ?><br>[<?php echo $row['current_off_nm'] ?>]</br></td>
+									<td><?php
+										 if(trim($row['draft_attachment']) != ''){
+											echo '<a href="'.base_url().'files/agae/results/'.$row['draft_attachment'].'" target="_blank"><img src="'.SITE_BASE_URL.'assets/images/PDF.png" style="max-height:30px;"/></a>';
+									}?></td>
+									<td><button class="btn btn-mini btn-primary" onclick="goEdit('<?php echo $row['pappl_id'] ?>')"><i class="icon-pencil icon-white"></i> Edit</button>&nbsp;
+									<button class="btn btn-mini btn-danger" onclick="goDelete('<?php echo $row['pappl_id'] ?>')"><i class="icon-pencil icon-white"></i> Delete</button></td>
+                                </tr>
+                                <?php
+						}
+					}else{
+						echo '<tr><td colspan="12">No data found!</td></tr>';
+					}
+				?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="pagination"><?php echo $this->pagination->create_links();?></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.datepicker').datepicker({dateFormat:'dd-mm-yy'});
+});
+function goEdit(id, type) {
+    if (id != undefined) {
+        window.location.href = '<?php echo ADMIN_BASE_URL ?>administration/application_passport_edit/' + id;
+    }
+}
+function goDelete(id){
+	if(id != undefined){
+		var conf = confirm('Do you want to delete?');
+		if(conf){
+			window.location.href = '<?php echo ADMIN_BASE_URL ?>administration/application_passport_delete/'+id;
+		}
+		
+	}
+}
+</script>

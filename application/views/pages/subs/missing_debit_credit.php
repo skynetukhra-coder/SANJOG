@@ -1,0 +1,397 @@
+<style>
+.table1 th,td{line-height:15px; padding:5px}
+</style>
+<!--
+<link href="<?php echo SITE_BASE_URL ?>assets/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<script src="<?php echo SITE_BASE_URL ?>assets/admin/bootstrap/js/bootstrap.min.js"></script>
+-->
+<link href="<?php echo SITE_BASE_URL ?>assets/subs/bootstrap337/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<script src="<?php echo SITE_BASE_URL ?>assets/subs/bootstrap337/js/bootstrap.min.js"></script>
+
+<div class="row">
+	<div class="col-md-3 col-sm-4">
+		<div class="left-panel">
+			<?php $this->load->view('layout/subscribers_left_panel',$header);?>
+		</div>
+	</div>
+	<div class="col-md-9 col-sm-8">
+		<div class="right-panel">
+			<div class="breadcrumb"><a href="<?php echo base_url()?>" role="link"><?php echo $this->lang->line('principal_accountant_general_A_E'); ?></a> &raquo; <?php echo $this->lang->line('subscriber'); ?> &raquo; <?php echo $this->lang->line('missing_debit_credit')?>											
+			</div>
+			<div class="msg_cont">
+				<div class="success">
+					<?php if(isset($success) && !empty($success)){
+							echo '<div class="msg">'.$success.'</div>';
+						  }else if($this->session->flashdata('success')){
+							echo '<div class="msg">'.$this->session->flashdata('success').'</div>';
+						  }
+					 ?>
+				</div>
+				<div class="err">
+					<?php if(isset($error) && !empty($error)){
+							echo '<div class="msg">'.$error.'</div>';
+						  }else if($this->session->flashdata('error')){
+							echo '<div class="msg">'.$this->session->flashdata('error').'</div>';
+						  }
+					 ?>
+				</div>
+			</div>
+			<div class="login-box">
+				<div style="font-size:18px; color: #ff0000; text-align:justify"><b>  >> Supporting documents for adjustment of missing credits viz. IFMS generated payslip/duly authenticated manual pay slip containing all information of deductions etc, GPF deduction schedule/voucher/challan as applicable, should be attached as single PDF.
+																			 <br> >> The supporting document should be of the previous month of the missing credit month (i.e if the Missing Credit is for February 2022, the document of subscription deduction of January 2022 shoud be uploaded for adjustment).</br></b></div>
+				<h4><b><?php echo $this->lang->line('credit_debit_details_fin_yr')?></b></h4>
+				<hr />
+				<div class="table-scroll">
+				<table class="table table-bordered">
+					<thead>
+						<tr style="text-align:center">
+							<th style="text-align:center"><?php echo $this->lang->line('missing_credit_on')?></th>
+							<th style="text-align:center">Remarks</th>
+							<th style="text-align:right">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+						if(!empty($missing_credits)){
+							foreach($missing_credits as $credits){
+								$id=$credits['id'];
+								$series=$credits['series'];
+								$accno=$credits['accno'];
+								$misscrdr=$credits['misscrdr'];
+								$misscdmnth=$credits['misscdmnth'];
+								$crdr_flag=$credits['crdr_flag'];
+								$remarks=$credits['remarks'];
+							?>
+								<tr>
+									<td style="text-align:center"><?php echo $misscdmnth ?> / <?php echo $misscrdr ?></td>
+									<td style="text-align:center"><?php echo $remarks ?></td>
+									<!--<td style="text-align:right"><a href="#Updt_Rec" data-target="#Updt_Rec" data-toggle="modal" class="btn btn-link"><i class="far fa-edit">Query</i></a>&nbsp;&nbsp;<a href="file:///C:/Users/Hirani/Documents/My%20Web%20Sites/tr-ledger-card.html"><img src="<?php echo SITE_BASE_URL?>assets/images/view.png" alt="view"/></a></td>-->
+									<!--<td style="text-align:right"><a href="#Updt_Rec"><i data-toggle="modal" id="Updt_Rec" class="fa fa-edit" style="font-size:18px;color:#275E93" aria-hidden="true"></i></a>&nbsp;&nbsp;<a href="#"><i data-toggle="modal" id="View_Rec" class="fa fa-book" style="font-size:18px;color:#275E93" aria-hidden="true" onclick="show_modal(this.id)"></i></a></td>-->
+								<?php
+								if($crdr_flag == 'I'){	?>
+									<td style="text-align:right"><button style="font-size:24px" ><i class="fa fa-edit" style="font-size:18px;color:#275E93; opacity: 0.4 " aria-hidden="true"></i></button></td>
+								<?php
+								}else{
+								?>	
+									<td style="text-align:right"><button style="font-size:24px" onclick="get_details('<?php echo $id ?>,<?php echo $series ?>,<?php echo $accno ?>,<?php echo $misscrdr ?>,<?php echo $misscdmnth ?>')"><i class="fa fa-edit" style="font-size:18px;color:#275E93" aria-hidden="true"></i></button></td>
+									<!--&nbsp;&nbsp;<button style="font-size:24px" onclick="get_details('<?php echo $id ?>,<?php echo $series ?>,<?php echo $accno ?>,<?php echo $misscrdr ?>')"><i class="fa fa-book" style="font-size:18px;color:#275E93" aria-hidden="true"></i></button>-->
+								</tr>
+						<?php
+								}
+							}
+						}else{?>
+							<tr>
+								<td colspan="3" style="font-size:12px"><?php echo $this->lang->line('no_data_found')?></td>
+							</tr>
+						<?php
+						}?>					
+					</tbody>
+				</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="Updt_Rec" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Update Information for Missing Credit</h4>
+      </div>
+      <div class="modal-body">
+		<form class="control-form" id="updmiss" name="updmiss" method="post" enctype="multipart/form-data" class="was-validated">
+		<!-- <form class="form-horizontal" method="post" enctype="multipart/form-data"  action="missingcrdr_add.php" >   -->
+			<div >
+				<input type="hidden" class="form-control pull-right"  name="id"	id="id">
+				<input type="hidden" class="form-control pull-right"  name="ser" id="ser">
+				<input type="hidden" class="form-control pull-right"  name="acc" id="acc">
+				<input type="hidden" class="form-control pull-right"  name="mcode" id="mcode">
+				<input type="hidden" class="form-control pull-right"  name="tcode" id="tcode">
+				<input type="hidden" class="form-control pull-right"  name="dcode" id="dcode">
+				<input type="hidden" class="txt_csrfname" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>"><br>   
+				
+				<div class="form-group row2">
+					<div class="col-sm-6">
+						<label for="date">Missing Year</label>
+						<input type="text" class="form-control pull-right"  name="misscrdr"	id="misscrdr" placeholder="misscrdr" readonly>
+					</div>
+					<div class="col-sm-6">
+						<label for="date">Missing Month</label>
+						<input type="text" class="form-control pull-right"  name="misscdmnth"	id="misscdmnth" placeholder="misscdmnth" readonly>
+					</div>	
+				</div><!-- /.form group -->
+
+				<div class="form-group row2">
+					<div class="col-sm-12">	
+						<label for="date">Select Pay Head</label>
+						<input type="text" class="form-control pull-right"  name="payhead" id="payhead" autofocus tabindex="1" placeholder="Select Pay Head" required>
+					</div>	
+						
+				</div><!-- /.form group -->
+
+				<div class="form-group row3">
+					<div class="col-sm-6">
+						<label for="date">Select Treasury</label>
+						<input type="text" class="form-control pull-right"  name="treasury"	id="treasury" tabindex="2" placeholder="Select Treasury" required>
+					</div>
+					<div class="col-sm-6">
+						<label for="date">Select DDO</label>
+						<input type="text" class="form-control pull-right"  name="ddo"	id="ddo" tabindex="3" placeholder="Select DDO" required>
+					</div>	
+				</div><!-- /.form group -->
+				
+				<div class="form-group row3">
+					<div class="col-sm-6">
+						<label for="date">Subscription Amount</label>
+						<input type="hidden" class="form-control pull-right" name="scat" value = "1"	id="scat" readonly>
+						<input type="text" class="form-control pull-right"  name="samt"	id="samt" tabindex="5" placeholder="Subscription Amount" onfocusout = "CheckAmt();" required>
+					</div>	
+					<div class="col-sm-6">
+						<label for="date">Recovery Amount</label>
+						<input type="hidden" class="form-control pull-right" name="othcat" value = "2"	id="othcat" readonly>
+						<input type="text" class="form-control pull-right"  name="ramt"	id="ramt" tabindex="7" placeholder="Recovery Amount" onfocusout = "CheckRec();">
+					</div>
+				</div><!-- /.form group -->
+
+				<div class="form-group row4">
+					<div class="col-sm-6">
+						<label for="date">T.V. No.</label>
+						<input type="text" class="form-control pull-right"  name="tvno"	id="tvno" tabindex="8" placeholder="T.V. No." required>
+					</div>		
+					<div class="col-sm-6">
+						<label for="date">T.V. Date</label>
+						<input type="text" class="form-control pull-right datepicker"  name="tvdt"	id="tvdt" tabindex="9" placeholder="T.V. Date" required>
+					</div>	
+				</div><!-- /.form group -->
+
+				<div class="form-group row5">
+					<div class="col-sm-12">
+						<label for="date">Upload File</label>
+						<input  name="file" id="file" type="file" tabindex="10" accept="application/pdf" required />
+					</div>	
+				</div><!-- /.form group -->
+							
+				<div class="form-group row6">
+					<div class="col-sm-12">				
+						<label for="date">Remarks</label>
+						<textarea class="form-control pull-right" tabindex="11" name="remarks" id="remarks"></textarea>
+					</div>	
+				</div><!-- /.input group -->
+			</div><!-- /.form group -->
+		</form>
+      </div>
+	  <div class="form-group" align="center" >
+		<div class="input-group" >		
+			<div class="col-md-12 col-xs-12 text-center"><input type="submit" class="btn btn-primary" tabindex="9" data-toggle="modal" name="Update" value="Update" onclick="submitReplyForm(); goRefresh(); window.location.reload();"></div>
+		</div>
+	  </div> 		
+	</div>
+  </div>
+</div>
+
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+		
+ <!-- Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type='text/javascript'>
+     $(document).ready(function(){
+
+     $( "#payhead" ).autocomplete({
+        source: function( request, response ) {
+		  //$('#classpayhead').addClass("classpayhead ui-front");
+          var csrfName = $('.txt_csrfname').attr('name'); // Value specified in $config['csrf_token_name']
+          var csrfHash = $('.txt_csrfname').val(); // CSRF hash
+          $.ajax({
+            url: "<?=base_url()?>subs/mhList",
+            type: 'post',
+            dataType: "json",
+			//data: {mh: request.term,[csrfName]: csrfHash}, //for csrf token usage
+			data: {mh: request.term},
+            success: function( data ) {
+              response( data.data );
+			  //alert (data.data);
+			  //$('.txt_csrfname').val(data.token);//for csrf token usage
+            }
+          });
+        },
+		appendTo : $('#Updt_Rec'),
+        select: function (event, ui) {
+			$('#payhead').val(ui.item.label);
+			$('#mcode').val(ui.item.value);
+			return false;
+		},
+		focus: function(event, ui){
+			$( "#payhead" ).val( ui.item.label );
+			$( "#mcode" ).val( ui.item.value );
+			return false;
+       },
+     });
+
+     $( "#treasury" ).autocomplete({
+        source: function( request, response ) {
+          var csrfName = $('.txt_csrfname').attr('name');
+          var csrfHash = $('.txt_csrfname').val();
+          $.ajax({
+            url: "<?=base_url()?>subs/tryList",
+            type: 'post',
+            dataType: "json",
+			//data: {mh: request.term,[csrfName]: csrfHash}, //for csrf token usage
+			data: {tryt: request.term},
+            success: function( data ) {
+              response( data.data );
+			  //$('.txt_csrfname').val(data.token);//for csrf token usage
+            }
+          });
+        },
+		appendTo : $('#Updt_Rec'),
+        select: function (event, ui) {
+			$('#treasury').val(ui.item.label);
+			$('#tcode').val(ui.item.value);
+			return false;
+		},
+		focus: function(event, ui){
+			$( "#treasury" ).val( ui.item.label );
+			$( "#tcode" ).val( ui.item.value );
+			return false;
+       },
+     });
+
+     $( "#ddo" ).autocomplete({
+        source: function( request, response ) {
+          var csrfName = $('.txt_csrfname').attr('name');
+          var csrfHash = $('.txt_csrfname').val();
+          $.ajax({
+            url: "<?=base_url()?>subs/ddoList",
+            type: 'post',
+            dataType: "json",
+			//data: {mh: request.term,[csrfName]: csrfHash}, //for csrf token usage
+			data: {ddo: request.term},
+            success: function( data ) {
+              response( data.data );
+			  //$('.txt_csrfname').val(data.token);//for csrf token usage
+            }
+          });
+        },
+		appendTo : $('#Updt_Rec'),
+        select: function (event, ui) {
+			$('#ddo').val(ui.item.label);
+			$('#dcode').val(ui.item.value);
+			return false;
+		},
+		focus: function(event, ui){
+			$( "#ddo" ).val( ui.item.label );
+			$( "#dcode" ).val( ui.item.value );
+			return false;
+       },
+     });
+
+  });
+	
+function submitReplyForm(){
+	var formData = new FormData();
+    var d = $('#file')[0].files[0];
+    var idv = $('#id').val();
+    var serv = $('#ser').val();
+    var accv = $('#acc').val();
+    var misv = $('#misscrdr').val();
+	var monv = $('#misscdmnth').val();
+	var mcv = $('#mcode').val();
+	var phv = $('#payhead').val();
+	var tcv = $('#tcode').val();
+	var trv = $('#treasury').val();
+	var dcv = $('#dcode').val();
+	var ddov = $('#ddo').val();
+	var scatv = $('#scat').val();
+	var samtv = $('#samt').val();
+	var othcatv = $('#othcat').val();
+	var ramtv = $('#ramt').val();
+	var tvnov = $('#tvno').val();
+	var tvdtv = $('#tvdt').val();
+    var remv = $('#remarks').val();
+    formData.append('file', d);
+    formData.append('id', idv);
+    formData.append('ser', serv);
+    formData.append('acc', accv);
+	formData.append('misscrdr', misv);
+	formData.append('misscdmnth', monv);
+	formData.append('mcode', mcv);
+    formData.append('payhead', phv);
+	formData.append('tcode', tcv);
+	formData.append('treasury', trv);
+	formData.append('dcode', dcv);
+	formData.append('ddo', ddov);
+	formData.append('scat', scatv);
+	formData.append('samt', samtv);
+	formData.append('othcat', othcatv);
+	formData.append('ramt', ramtv);
+	formData.append('tvno', tvnov);
+	formData.append('tvdt', tvdtv);
+    formData.append('remarks', remv);
+	$.ajax({
+		type: "POST",
+		url: "<?php echo base_url()?>sus/missreplyadd.php",
+		cache:false,
+		data: formData,
+		processData: false,
+		contentType: false,
+		success: function(response){
+				$("#Updt_Rec").html(response)
+				$("#Updt_Rec").modal('hide');
+				$("#success").modal('show');
+		},
+		error: function(){
+				$("#Updt_Rec").modal('hide');
+				$("#error").modal('show');
+		}
+	});
+	}	
+
+function get_details(id){
+	if(id == undefined){
+		alert('Wrong input!');
+	}
+	 var fields = id.split(',');
+	 var id = fields[0];
+	 var series = fields[1];
+	 var accno = fields[2];
+	 var misscrdr = fields[3];
+	 var misscdmnth = fields[4];
+	 var uid =(id);
+	 var sess = "<?php $_SESSION['unid']="+id+"; ?>";
+	 $("#id").val(id);
+	 $("#unid").val(id);
+	 $("#ser").val(series);
+	 $("#ser1").val(series);
+	 $("#acc").val(accno);
+	 $("#acc1").val(accno);
+	 $("#misscrdr").val(misscrdr);
+	 $("#misscdmnth").val(misscdmnth);
+	 $("#Updt_Rec").modal("toggle");
+	 //$("#Updt_Rec").modal("toggle");
+}
+function CheckAmt() {
+	var amount = document.getElementById('samt').value;
+	if(amount < 0){
+		alert("Amount can not be a minus value.");
+		document.getElementById('samt').value = 0;
+	}
+}
+function CheckRec() {
+	var amount = document.getElementById('ramt').value;
+	if(amount < 0){
+		alert("Amount can not be a minus value.");
+		document.getElementById('ramt').value = 0;
+	}
+}
+function goRefresh() {
+	  window.location.href = '<?php echo SITE_BASE_URL ?>subs/missing_debit_credit/';
+	  alert("Successfully submitted.");
+}
+
+</script>

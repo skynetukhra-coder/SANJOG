@@ -4,7 +4,7 @@ class p_mail {
     
     function __construct()
     {
-        $CI = & get_instance();
+        $CI =& get_instance();
 		
 		include_once APPPATH.'/third_party/PHPMailer/src/Exception.php';
 		include_once APPPATH.'/third_party/PHPMailer/src/PHPMailer.php';

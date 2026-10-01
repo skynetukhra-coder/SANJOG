@@ -7,7 +7,37 @@ if (!class_exists('PHPExcel_Style_Alignment', false)) {
     class_alias(\PhpOffice\PhpSpreadsheet\Style\Alignment::class, 'PHPExcel_Style_Alignment');
 }
 if (!class_exists('PHPExcel_IOFactory', false)) {
-    class_alias(\PhpOffice\PhpSpreadsheet\IOFactory::class, 'PHPExcel_IOFactory');
+    class PHPExcel_IOFactory {
+        public static function createWriter(\PhpOffice\PhpSpreadsheet\Spreadsheet $spreadsheet, $writerType = '') {
+            if (strcasecmp($writerType, 'Excel5') === 0 || strcasecmp($writerType, 'xls') === 0) {
+                $writerType = 'Xls';
+            } elseif (strcasecmp($writerType, 'Excel2007') === 0 || strcasecmp($writerType, 'xlsx') === 0) {
+                $writerType = 'Xlsx';
+            }
+            return \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, $writerType);
+        }
+
+        public static function load($pFilename) {
+            return \PhpOffice\PhpSpreadsheet\IOFactory::load($pFilename);
+        }
+
+        public static function identify($pFilename) {
+            return \PhpOffice\PhpSpreadsheet\IOFactory::identify($pFilename);
+        }
+
+        public static function createReader($readerType) {
+            if (strcasecmp($readerType, 'Excel5') === 0) {
+                $readerType = 'Xls';
+            } elseif (strcasecmp($readerType, 'Excel2007') === 0) {
+                $readerType = 'Xlsx';
+            }
+            return \PhpOffice\PhpSpreadsheet\IOFactory::createReader($readerType);
+        }
+
+        public static function createReaderForFile($pFilename) {
+            return \PhpOffice\PhpSpreadsheet\IOFactory::createReaderForFile($pFilename);
+        }
+    }
 }
 if (!class_exists('PHPExcel_Shared_Date', false)) {
     class_alias(\PhpOffice\PhpSpreadsheet\Shared\Date::class, 'PHPExcel_Shared_Date');

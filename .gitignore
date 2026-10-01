@@ -6,6 +6,8 @@
 # Generated temporary files and QR codes
 /sus/temp/*
 !/sus/temp/.gitkeep
+/captcha/*.jpg
+!/captcha/.gitkeep
 
 # Application logs
 /application/logs/*.php

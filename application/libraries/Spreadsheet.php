@@ -1,9 +1,17 @@
 <?php
 if (!defined('BASEPATH')) exit('No direct script access allowed');  
  
-require APPPATH."/third_party/PhpSpreadsheet/vendor/autoload.php";
+require_once APPPATH . "/libraries/Excel.php";
 use PhpOffice\PhpSpreadsheet\IOFactory; 
+
+#[\AllowDynamicProperties]
 class Spreadsheet {
+	public function __construct() {
+		$CI =& get_instance();
+		if (isset($CI->excel)) {
+			$this->excel = $CI->excel;
+		}
+	}
 	public function read_file($file){
 		$spreadsheet = IOFactory::load($file);
 		//$sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);

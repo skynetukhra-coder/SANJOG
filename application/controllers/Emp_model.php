@@ -180,7 +180,7 @@ class Emp_model extends CI_Model {
 		if($employee['dept_appt'] != ''){$update['dept_appt'] = $employee['dept_appt'];}
 		if($employee['joning_type'] != ''){$update['joning_type'] = $employee['joning_type'];}
 		if($employee['blodd_grp'] != ''){$update['blodd_grp'] = $employee['blodd_grp'];}
-		if($employee['password'] != ''){$update['password'] = md5($employee['password']);}
+		if($employee['password'] != ''){$update['password'] = password_hash($employee['password'], PASSWORD_DEFAULT);}
 		if($employee['status'] != ''){$update['status'] = $employee['status'];}
 		if($details['remark'] != ''){
 			$update['remark'] = $details['remark'];
@@ -264,7 +264,7 @@ class Emp_model extends CI_Model {
 		return array('success'=>true,'msg'=>"Reset your password",'details'=>$res);
 	}
 	public function reset_password($empid='',$pass=''){
-		$this->db->where('empid',$empid)->update('employee_master',array('password'=>md5($pass)));
+		$this->db->where('empid',$empid)->update('employee_master',array('password'=>password_hash($pass, PASSWORD_DEFAULT)));
 	}
 
 	public function employee_agae_login($emp_id = '',$pass='',$office='AGAE',$da_cadare='0',$status='Active'){
@@ -272,56 +272,96 @@ class Emp_model extends CI_Model {
 		$res = $this->db->select('*')
 						->from('employee_master')
 						->where('empid',$emp_id)
-						->where('password',md5($pass))
 						->where('office_code',$office)
 						->where('da_cadare',$da_cadare)
 						->where('date(dor) >= ',$date)
 						->where('status',$status)
 						->get()
 						->row_array();
-		return $res;
+		if (!empty($res) && !empty($res['password'])) {
+			if (password_verify($pass, $res['password'])) {
+				return $res;
+			}
+			if ($res['password'] === md5($pass) || hash_equals($res['password'], md5($pass))) {
+				$new_hash = password_hash($pass, PASSWORD_DEFAULT);
+				$this->db->where('empid',$emp_id)->update('employee_master', array('password' => $new_hash));
+				$res['password'] = $new_hash;
+				return $res;
+			}
+		}
+		return array();
 	}
 	public function employee_dacadare_login($emp_id = '',$pass='',$office='AGAE',$da_cadare='1',$status='Active'){
 		$date = date('Y-m-d H:i:s');
 		$res = $this->db->select('*')
 						->from('employee_master')
 						->where('empid',$emp_id)
-						->where('password',md5($pass))
 						->where('office_code',$office)
 						->where('da_cadare',$da_cadare)
 						->where('date(dor) >= ',$date)
 						->where('status',$status)
 						->get()
 						->row_array();
-		return $res;
+		if (!empty($res) && !empty($res['password'])) {
+			if (password_verify($pass, $res['password'])) {
+				return $res;
+			}
+			if ($res['password'] === md5($pass) || hash_equals($res['password'], md5($pass))) {
+				$new_hash = password_hash($pass, PASSWORD_DEFAULT);
+				$this->db->where('empid',$emp_id)->update('employee_master', array('password' => $new_hash));
+				$res['password'] = $new_hash;
+				return $res;
+			}
+		}
+		return array();
 	}
 	public function employee_gssa_login($emp_id = '',$pass='',$office='AGGSSA',$da_cadare='0',$status='Active'){
 		$date = date('Y-m-d H:i:s');
 		$res = $this->db->select('*')
 						->from('employee_master')
 						->where('empid',$emp_id)
-						->where('password',md5($pass))
 						->where('office_code',$office)
 						->where('da_cadare',$da_cadare)
 						->where('date(dor) >= ',$date)
 						->where('status',$status)
 						->get()
 						->row_array();
-		return $res;
+		if (!empty($res) && !empty($res['password'])) {
+			if (password_verify($pass, $res['password'])) {
+				return $res;
+			}
+			if ($res['password'] === md5($pass) || hash_equals($res['password'], md5($pass))) {
+				$new_hash = password_hash($pass, PASSWORD_DEFAULT);
+				$this->db->where('empid',$emp_id)->update('employee_master', array('password' => $new_hash));
+				$res['password'] = $new_hash;
+				return $res;
+			}
+		}
+		return array();
 	}
 	public function employee_ersa_login($emp_id = '',$pass='',$office='AGERSA',$da_cadare='0',$status='Active'){
 		$date = date('Y-m-d H:i:s');
 		$res = $this->db->select('*')
 						->from('employee_master')
 						->where('empid',$emp_id)
-						->where('password',md5($pass))
 						->where('office_code',$office)
 						->where('da_cadare',$da_cadare)
 						->where('date(dor) >= ',$date)
 						->where('status',$status)
 						->get()
 						->row_array();
-		return $res;
+		if (!empty($res) && !empty($res['password'])) {
+			if (password_verify($pass, $res['password'])) {
+				return $res;
+			}
+			if ($res['password'] === md5($pass) || hash_equals($res['password'], md5($pass))) {
+				$new_hash = password_hash($pass, PASSWORD_DEFAULT);
+				$this->db->where('empid',$emp_id)->update('employee_master', array('password' => $new_hash));
+				$res['password'] = $new_hash;
+				return $res;
+			}
+		}
+		return array();
 	}
 	
 	public function employee_details($empid = '',$office='AGAE'){

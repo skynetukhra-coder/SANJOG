@@ -159,7 +159,7 @@ class Wing_model extends CI_Model {
 		$update['user_desig'] = $post['user_desig'];
 		$update['emailid'] = $post['emailid'];
 		$update['mb_no'] = $post['mb_no'];
-		if($post['password'] != ''){$update['password'] = md5($post['password']);}
+		if($post['password'] != ''){$update['password'] = password_hash($post['password'], PASSWORD_DEFAULT);}
 		if(!empty($update) && $id != ''){
 			$this->db->where('users',$id)->update('department_master',$update);
 		}
@@ -210,7 +210,7 @@ class Wing_model extends CI_Model {
 		$update['tr_nm'] = $post['tr_nm'];
 		$update['emailid'] = $post['emailid'];
 		$update['mb_no'] = $post['mb_no'];
-		if($post['password'] != ''){$update['password'] = md5($post['password']);}
+		if($post['password'] != ''){$update['password'] = password_hash($post['password'], PASSWORD_DEFAULT);}
 		if(!empty($update) && $id != ''){
 			$this->db->where('users',$id)->update('treasury_master',$update);
 		}

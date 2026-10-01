@@ -13,10 +13,20 @@ class Accounts_model extends CI_Model {
 		$res = $this->db->select('*')
 						->from('department_master')
 						->where('users',$code)
-						->where('password',md5($pass))
 						->get()
 						->row_array();
-		return $res;
+		if (!empty($res) && !empty($res['password'])) {
+			if (password_verify($pass, $res['password'])) {
+				return $res;
+			}
+			if ($res['password'] === md5($pass) || hash_equals($res['password'], md5($pass))) {
+				$new_hash = password_hash($pass, PASSWORD_DEFAULT);
+				$this->db->where('users',$code)->update('department_master', array('password' => $new_hash));
+				$res['password'] = $new_hash;
+				return $res;
+			}
+		}
+		return array();
 	}
 	public function update_department_last_login($code = ''){
 		$post = $this->input->post(array('last_login'), TRUE);
@@ -60,7 +70,7 @@ class Accounts_model extends CI_Model {
 			$update['mb_no'] = $post['phone'];
 		}
 		if($post['password'] != ''){
-			$update['password'] = md5($post['password']);
+			$update['password'] = password_hash($post['password'], PASSWORD_DEFAULT);
 		}
 		if(!empty($update) && $code != ''){
 			$this->db->where('grnt_cd',$code)->update('department_master',$update);
@@ -72,10 +82,20 @@ class Accounts_model extends CI_Model {
 		$res = $this->db->select('*')
 						->from('treasury_master')
 						->where('users',$code)
-						->where('password',md5($pass))
 						->get()
 						->row_array();
-		return $res;
+		if (!empty($res) && !empty($res['password'])) {
+			if (password_verify($pass, $res['password'])) {
+				return $res;
+			}
+			if ($res['password'] === md5($pass) || hash_equals($res['password'], md5($pass))) {
+				$new_hash = password_hash($pass, PASSWORD_DEFAULT);
+				$this->db->where('users',$code)->update('treasury_master', array('password' => $new_hash));
+				$res['password'] = $new_hash;
+				return $res;
+			}
+		}
+		return array();
 	}
 	public function update_treasury_last_login($code = ''){
 		$post = $this->input->post(array('last_login'), TRUE);
@@ -111,7 +131,7 @@ class Accounts_model extends CI_Model {
 			$update['mb_no'] = $post['phone'];
 		}
 		if($post['password'] != ''){
-			$update['password'] = md5($post['password']);
+			$update['password'] = password_hash($post['password'], PASSWORD_DEFAULT);
 		}
 		if(!empty($update) && $code != ''){
 			$this->db->where('users',$code)->update('treasury_master',$update);
@@ -164,7 +184,7 @@ class Accounts_model extends CI_Model {
 		return array('success'=>true,'msg'=>"Reset your password",'details'=>$res);
 	}
 	public function department_reset_password($users='',$pass=''){
-		$this->db->where('users',$users)->update('department_master',array('password'=>md5($pass)));
+		$this->db->where('users',$users)->update('department_master',array('password'=>password_hash($pass, PASSWORD_DEFAULT)));
 	}
 	public function treasury_registration(){
 		$post =  $this->input->post(array('users','mobile'), TRUE);
@@ -211,7 +231,7 @@ class Accounts_model extends CI_Model {
 		return array('success'=>true,'msg'=>"Reset your password",'details'=>$res);
 	}
 	public function treasury_reset_password($treasury_code='',$pass=''){
-		$this->db->where('users',$treasury_code)->update('treasury_master',array('password'=>md5($pass)));
+		$this->db->where('users',$treasury_code)->update('treasury_master',array('password'=>password_hash($pass, PASSWORD_DEFAULT)));
 	}
 	
 // department******************	

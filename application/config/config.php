@@ -51,7 +51,7 @@ $config['cookie_domain']    = (isset($_SERVER['HTTP_HOST']) && strpos($_SERVER['
 $config['cookie_path']      = '/';
 $config['cookie_secure']    = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on');               // Only send over HTTPS
 $config['cookie_httponly']  = TRUE;               // JS cannot access
-$config['cookie_samesite']  = 'Strict';           // CSRF protection
+$config['cookie_samesite']  = 'Lax';              // CSRF protection with smooth navigation
 
 // CSRF PROTECTION
 $config['csrf_protection'] = TRUE;
@@ -59,7 +59,10 @@ $config['csrf_token_name'] = 'aegwbtk';
 $config['csrf_cookie_name'] = 'aegwbcsrf';         // Renamed from session cookie
 $config['csrf_expire'] = 1800;                     // 30 min
 $config['csrf_regenerate'] = TRUE;
-$config['csrf_exclude_uris'] = array();
+$config['csrf_exclude_uris'] = array(
+	'digilocker_api(/.*)?',
+	'api(/.*)?'
+);
 
 // OUTPUT
 $config['compress_output'] = FALSE;

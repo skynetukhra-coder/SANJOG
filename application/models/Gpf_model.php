@@ -56,7 +56,7 @@ class Gpf_model extends CI_Model {
 		$update['dor'] = $post['dor'];
 		$update['auto_account_no'] = $post['auto_account_no'];
 		$update['nomination_copy'] = $post['nomination_copy'];
-		if($post['password'] != ''){$update['password'] = md5($post['password']);}
+		if($post['password'] != ''){$update['password'] = password_hash($post['password'], PASSWORD_DEFAULT);}
 		if(!empty($update)){
 			$this->db->where('ac_code',$ac_code)->where('series',$series)->update('subscriber_master',$update);
 		}
@@ -442,10 +442,23 @@ class Gpf_model extends CI_Model {
 						->where('ac_code',$gpf_account)
 						->where('series',$series)
 						->where('date(dob)',date('Y-m-d',strtotime($dob)))
-						->where('password',md5($pass))
 						->get()
 						->row_array();
-		return $res;
+		if (!empty($res) && !empty($res['password'])) {
+			if (password_verify($pass, $res['password'])) {
+				return $res;
+			}
+			if ($res['password'] === md5($pass) || hash_equals($res['password'], md5($pass))) {
+				$new_hash = password_hash($pass, PASSWORD_DEFAULT);
+				$this->db->where('ac_code',$gpf_account)
+						 ->where('series',$series)
+						 ->where('date(dob)',date('Y-m-d',strtotime($dob)))
+						 ->update('subscriber_master', array('password' => $new_hash));
+				$res['password'] = $new_hash;
+				return $res;
+			}
+		}
+		return array();
 	}
 	public function subscriber_login_allowed($gpf_account = '',$series = '',$dob = ''){
 		$res = $this->db->select('account_active')
@@ -493,7 +506,7 @@ class Gpf_model extends CI_Model {
 			$update['email_id'] = $post['email_id'];
 		}
 		if($post['password'] != ''){
-			$update['password'] = md5($post['password']);
+			$update['password'] = password_hash($post['password'], PASSWORD_DEFAULT);
 		}
 		$update['profile_updated'] = date('Y-m-d H:i:s');
 		
@@ -547,10 +560,20 @@ class Gpf_model extends CI_Model {
 		$res = $this->db->select('*')
 						->from('ddo_master')
 						->where('ddo_cd',$code)
-						->where('password',md5($pass))
 						->get()
 						->row_array();
-		return $res;
+		if (!empty($res) && !empty($res['password'])) {
+			if (password_verify($pass, $res['password'])) {
+				return $res;
+			}
+			if ($res['password'] === md5($pass) || hash_equals($res['password'], md5($pass))) {
+				$new_hash = password_hash($pass, PASSWORD_DEFAULT);
+				$this->db->where('ddo_cd',$code)->update('ddo_master', array('password' => $new_hash));
+				$res['password'] = $new_hash;
+				return $res;
+			}
+		}
+		return array();
 	}
 	public function update_ddo_last_login($code = ''){
 		$post = $this->input->post(array('last_login'), TRUE);
@@ -593,7 +616,7 @@ class Gpf_model extends CI_Model {
 			$update['mb_no'] = $post['phone'];
 		}
 		if($post['password'] != ''){
-			$update['password'] = md5($post['password']);
+			$update['password'] = password_hash($post['password'], PASSWORD_DEFAULT);
 		}
 		if(!empty($update) && $code != ''){
 			$this->db->where('ddo_cd',$code)->update('ddo_master',$update);
@@ -861,7 +884,7 @@ class Gpf_model extends CI_Model {
 	}
 	
 	public function ddo_reset_password($ddo_code='',$pass=''){
-		$this->db->where('ddo_cd',$ddo_code)->update('ddo_master',array('password'=>md5($pass)));
+		$this->db->where('ddo_cd',$ddo_code)->update('ddo_master',array('password'=>password_hash($pass, PASSWORD_DEFAULT)));
 	}
 	
 	public function get_ddo_files_sub_all($limit_to = 0, $series = '', $ac_code = '' ){

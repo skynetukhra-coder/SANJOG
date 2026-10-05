@@ -30,26 +30,49 @@ h3.title{color:#fff}
 a.read-more{color:#ec0011}
 .whats-new{overflow:hidden;}
 .new-cont ul li a{color:#ff0 !important}
-footer{background:#000;color:#ff0} background:#3f3f3f
+footer{background:#000;color:#ff0;}
 footer ul li:before, footer ul li a{color:#ff0}
 .foot-text{color:#ff0}
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{background:#757575}
 .new-cont .nav-tabs > li.active > a, nav-tabs > li.active > a:focus{color:#fff}
 .gray-bg{background:#545454}
 #myBtn.scroll-top-btn{background:#ff0; color:#000; border-color:#fff}
-.login-box{background:#000}
+.login-box{background:#000; border-color:#ff0; color:#fff;}
 .login-box .heading, .login-box .instruction-box .subheading{color:#80ff00}
-.login-box .instruction-box{border-color:#ff0}
+.login-box .instruction-box{background:#111; border-color:#ff0; color:#fff;}
+.instruction-list{color:#fff;}
+.instruction-list strong{color:#ff0;}
+.action-link-item{background:#222; color:#ff0; border-color:#ff0;}
+.action-link-item:hover{background:#ff0; color:#000;}
+.login-note-card{background:#222; color:#80ff00; border-color:#80ff00;}
 .breadcrumb{background:#444}
 .breadcrumb a{color:#fff}
 .login-box .btn-primary{background:#3671aa}
 b, strong{color:#fff}
 
+.header-bottom{background:#000; border-color:#444;}
+.brand-main-title{color:#ff0;}
+.brand-sub-title{color:#80ff00;}
+.home-portal-notice-card{background:#000; border-color:#ff0; color:#fff;}
+.notice-title{color:#ff0;}
+.portal-highlight{color:#80ff00;}
+.notice-subtitle{color:#fff;}
+.notice-footer-msg{color:#80ff00;}
+.office-links-table thead th{background:#222; color:#ff0; border-color:#444;}
+.office-links-table tbody td{background:#000; color:#fff; border-color:#444;}
+.office-link-btn{background:#111; color:#ff0; border-color:#ff0;}
+.office-link-btn:hover{background:#ff0; color:#000;}
+
+.footer-top{background:#000; color:#ff0; border-color:#ff0;}
+.footer-bottom{background:#000; color:#ff0;}
+.footer-links-list li a{color:#ff0;}
+.footer-copyright-text{color:#ff0;}
+
 .page-details p span{color:#ff0}
 
 
 @media screen and (max-width:1023px){
-.toggleMenu{background:url(../images/menu_bg1_black.png)}
+.toggleMenu{background:#ff0; color:#000;}
 .navi{background:#000}
-.navi a{border-bottom-color:#222}
+.navi a{border-bottom-color:#222; color:#ff0 !important;}
 }

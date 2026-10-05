@@ -1,103 +1,93 @@
 <div class="row">
-	<style>
-	label{margin-top:10px;}
-	</style>
-<!--	<div class="col-md-9 col-sm-8 col-md-push-3 col-sm-push-4">		-->
-		<div align= "center" >
+	<div class="col-xs-12">
 		<div class="right-panel">
-			<div class="breadcrumb" align= "left">
-				<a href="<?php echo base_url()?>" role="link"><?php echo $this->lang->line('principal_accountant_general_A_E'); ?></a> &raquo; <?php echo $this->lang->line('ddo'); ?> &raquo;  <?php echo $this->lang->line('login'); ?>												
+			<div class="breadcrumb">
+				<a href="<?php echo base_url()?>" role="link"><?php echo $this->lang->line('principal_accountant_general_A_E'); ?></a> &raquo; <?php echo $this->lang->line('pension') ? $this->lang->line('pension') : 'Pension'; ?> &raquo; <?php echo $this->lang->line('login'); ?>												
 			</div>
 			<div class="msg_cont">
 				<div class="success">
 					<?php if(isset($success) && !empty($success)){
-							echo '<div class="msg">'.$success.'</div>';
+							echo '<div class="msg alert alert-success">'.$success.'</div>';
 						  }else if($this->session->flashdata('success')){
-							echo '<div class="msg">'.$this->session->flashdata('success').'</div>';
+							echo '<div class="msg alert alert-success">'.$this->session->flashdata('success').'</div>';
 						  }
 					 ?>
 				</div>
 				<div class="err">
 					<?php if(isset($error) && !empty($error)){
-							echo '<div class="msg">'.$error.'</div>';
+							echo '<div class="msg alert alert-danger">'.$error.'</div>';
 						  }else if($this->session->flashdata('error')){
-							echo '<div class="msg">'.$this->session->flashdata('error').'</div>';
+							echo '<div class="msg alert alert-danger">'.$this->session->flashdata('error').'</div>';
 						  }
 					 ?>
 				</div>
 			</div>
 			<div class="login-box">
 				<div class="row">
-					<div class="col-sm-7">
-						<div class="login">
-							<div class="heading"><?php echo $this->lang->line('pen_login'); ?>Pension Login</div>
-							<div class="error" style="color:red; margin-bottom:5px;">
-								
+					<div class="col-md-7 col-sm-12">
+						<div class="login-inner-card">
+							<div class="heading">
+								<i class="fa fa-user-circle"></i> <?php echo $this->lang->line('pen_login') ? $this->lang->line('pen_login') : 'Pension Login'; ?>
 							</div>
+							<div class="error text-danger" style="margin-bottom:10px; font-weight:600;"></div>
 							<form id="login_form" method="post">
 								<div class="form-group row">
-									<div class="col-sm-4">
-										<label><?php echo $this->lang->line('pen_user_id'); ?>:Pension User ID</label>
-									</div>
+									<label class="col-sm-4 control-label"><?php echo $this->lang->line('pen_user_id') ? $this->lang->line('pen_user_id') : 'Pension User ID'; ?>: <span class="required_star">*</span></label>
 									<div class="col-sm-8">
-										<input id="ddo_code" type="text" name="ddo_code" class="form-control" placeholder="Enter ID">
+										<input id="ddo_code" type="text" name="ddo_code" class="form-control" placeholder="Enter Pension ID" required>
 									</div>
 								</div>
 								<div class="form-group row">
-									<div class="col-sm-4">
-										<label><?php echo $this->lang->line('password'); ?>:</label>
-									</div>
+									<label class="col-sm-4 control-label"><?php echo $this->lang->line('password'); ?>: <span class="required_star">*</span></label>
 									<div class="col-sm-8">
-										<input type="password" name="password" autocomplete="off" class="form-control">
+										<input type="password" name="password" autocomplete="off" class="form-control" placeholder="******" required>
 									</div>
 								</div>
 								<div class="form-group row">
-									<div class="col-sm-4">
-										<label><?php echo $this->lang->line('write_image_code'); ?>:</label>
-									</div>
-									<div class="col-sm-8"> <?php echo $cap['image'];?>
-										<button type="button" style="width:40px;height:40px" onclick="reload_captcha()" title="Re-Generate"><i class="fa fa-refresh" style="font-size:20px" aria-hidden="true"></i></button>
-									</div>
-								</div>
-								<div class="form-group row">
-									<div class="col-sm-4"></div>
+									<label class="col-sm-4 control-label"><?php echo $this->lang->line('write_image_code'); ?>: <span class="required_star">*</span></label>
 									<div class="col-sm-8">
-										<input type="text" name="c_image" class="form-control" placeholder="<?php echo $this->lang->line('write_image_code'); ?>" autocomplete="off" required >
+										<div class="captcha-control-wrap">
+											<div class="captcha-img-holder">
+												<?php echo $cap['image'];?>
+											</div>
+											<button type="button" class="btn btn-default btn-refresh-captcha" onclick="reload_captcha()" title="Re-Generate Captcha" aria-label="Reload Captcha">
+												<i class="fa fa-refresh" aria-hidden="true"></i>
+											</button>
+										</div>
+										<input type="text" name="c_image" class="form-control captcha-input" placeholder="<?php echo $this->lang->line('write_image_code'); ?>" autocomplete="off" required>
 									</div>
 								</div>
 								<div>
 									<input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
 								</div>
 								<div class="form-group row">
-									<div class="col-sm-4"></div>
-									<div class="col-sm-8">
-										<input type="submit" class="btn btn-primary" Value="<?php echo $this->lang->line('submit'); ?>" />
+									<div class="col-sm-8 col-sm-offset-4">
+										<button type="submit" class="btn btn-primary btn-block btn-login-submit">
+											<i class="fa fa-sign-in"></i> <?php echo $this->lang->line('submit'); ?>
+										</button>
 									</div>
 								</div>
 							</form>
 						</div>
 					</div>
-					<div class="col-sm-5">
+					<div class="col-md-5 col-sm-12">
 						<div class="instruction-box">
-							<div class="subheading"></div>
-							<ul>
-								<li>&nbsp;</li>
-								<li><a href="<?php echo base_url()?>ddo/forgot_password"><b><?php echo $this->lang->line('forgot_pass'); ?> ?</b></a></li>
-								<li><a href="<?php echo base_url()?>ddo/registration"><b><?php echo $this->lang->line('first_time_login'); ?> ? <?php echo $this->lang->line('click_here'); ?></b></a></li>
-							</ul>
-							<!--<a href="#" class="btn btn-default">Create</a>-->
+							<div class="subheading"><i class="fa fa-link text-primary"></i> Quick Actions</div>
+							<div class="action-links-list">
+								<a href="<?php echo base_url()?>ddo/forgot_password" class="action-link-item">
+									<i class="fa fa-key"></i> <strong><?php echo $this->lang->line('forgot_pass'); ?> ?</strong>
+								</a>
+								<a href="<?php echo base_url()?>ddo/registration" class="action-link-item">
+									<i class="fa fa-user-plus"></i> <strong><?php echo $this->lang->line('first_time_login'); ?> ? <?php echo $this->lang->line('click_here'); ?></strong>
+								</a>
+							</div>
 						</div>
 					</div>
 				</div>
-				<p><b><u><?php echo $this->lang->line('note'); ?>:</u></b> <?php echo $this->lang->line('submit_your'); ?> <strong>"<?php echo $this->lang->line('email_and_mobile'); ?>"</strong> to <a href="mailto:edpfnd-agae-wb@nic.in">edpfnd-agae-wb@nic.in</a>. <?php echo $this->lang->line('ignore_already_submited'); ?>.</p>
+				<div class="login-note-card">
+					<i class="fa fa-info-circle text-info"></i> <strong><u><?php echo $this->lang->line('note'); ?>:</u></strong> <?php echo $this->lang->line('submit_your'); ?> <strong>"<?php echo $this->lang->line('email_and_mobile'); ?>"</strong> to <a href="mailto:edpfnd-agae-wb@nic.in">edpfnd-agae-wb@nic.in</a>. <?php echo $this->lang->line('ignore_already_submited'); ?>.
+				</div>
 			</div>
 		</div>
 	</div>
-<!--
-	<div class="col-md-3 col-sm-4 col-md-pull-9 col-sm-pull-8">
-		<div class="left-panel">
-			<?php //$this->load->view('layout/left_panel'); ?>
-		</div>
-	</div>
--->
 </div>

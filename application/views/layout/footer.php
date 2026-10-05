@@ -1,71 +1,40 @@
 
 </div>
 </section>
-<footer  class = "footer-top">
-<div class="container background:#215299">
-	<div  class = "footer-top-content" >
-		<div><img src="<?php echo SITE_BASE_URL?>assets/images/white-ball.png" alt="" /> &nbsp;&nbsp;
-				<a style="color:#fff" href="https://cag.gov.in/ae/west-bengal/en/page-ae-west-bengal-terms-conditions-kol"><?php echo $this->lang->line('terms_condition'); ?>
-<!--				<a style="color:#fff" href="<?php echo SITE_BASE_URL?>content/terms-condition"><?php echo $this->lang->line('terms_condition'); ?></a>		-->
+<footer class="footer-top">
+<div class="container">
+	<div class="footer-grid">
+		<div class="footer-link-col">
+			<ul class="footer-links-list">
+				<li><i class="fa fa-angle-right" aria-hidden="true"></i> <a href="https://cag.gov.in/ae/west-bengal/en/page-ae-west-bengal-terms-conditions-kol" target="_blank"><?php echo $this->lang->line('terms_condition'); ?></a></li>
+				<li><i class="fa fa-angle-right" aria-hidden="true"></i> <a href="https://cag.gov.in/ae/west-bengal/en/page-ae-west-bengal-accessibility-statement-kol" target="_blank"><?php echo $this->lang->line('accessibility_statement'); ?></a></li>
+			</ul>
 		</div>
-		<div><img src="<?php echo SITE_BASE_URL?>assets/images/white-ball.png" alt="" /> &nbsp;&nbsp;
-				<a style="color:#fff" href="https://cag.gov.in/ae/west-bengal/en/page-ae-west-bengal-accessibility-statement-kol"><?php echo $this->lang->line('accessibility_statement'); ?>
-<!--				<a style="color:#fff" href="<?php echo SITE_BASE_URL?>content/privacy-policy"><?php echo $this->lang->line('accessibility_statement'); ?></a>		-->
+		<div class="footer-link-col">
+			<ul class="footer-links-list">
+				<li><i class="fa fa-angle-right" aria-hidden="true"></i> <a href="https://cag.gov.in/ae/west-bengal/en/page-ae-west-bengal-privacy-policy-kol" target="_blank"><?php echo $this->lang->line('privacy_policy'); ?></a></li>
+				<li><i class="fa fa-angle-right" aria-hidden="true"></i> <a href="https://cag.gov.in/ae/west-bengal/en/sitemap" target="_blank"><?php echo $this->lang->line('sitemap'); ?></a></li>
+			</ul>
 		</div>
-	</div>
-	<div class = "footer-top-content" >
-		<div><img src="<?php echo SITE_BASE_URL?>assets/images/white-ball.png" alt="" /> &nbsp;&nbsp;
-				<a style="color:#fff" href="https://cag.gov.in/ae/west-bengal/en/page-ae-west-bengal-privacy-policy-kol"><?php echo $this->lang->line('privacy_policy'); ?>
-<!--				 <a style="color:#fff" href="<?php echo SITE_BASE_URL?>content/terms-condition"><?php echo $this->lang->line('privacy_policy'); ?></a>		-->
+		<div class="footer-link-col">
+			<ul class="footer-links-list">
+				<li><i class="fa fa-angle-right" aria-hidden="true"></i> <a href="https://cag.gov.in/ae/west-bengal/en/page-ae-west-bengal-copyright-policy-kol" target="_blank"><?php echo $this->lang->line('copyright_policy'); ?></a></li>
+				<li><i class="fa fa-angle-right" aria-hidden="true"></i> <a href="https://cag.gov.in/ae/west-bengal/en/page-ae-west-bengal-help-kol" target="_blank"><?php echo $this->lang->line('help'); ?></a></li>
+			</ul>
 		</div>
-		<div><img src="<?php echo SITE_BASE_URL?>assets/images/white-ball.png" alt="" /> &nbsp;&nbsp;
-				<a style="color:#fff" href="https://cag.gov.in/ae/west-bengal/en/sitemap"><?php echo $this->lang->line('sitemap'); ?>
-<!--				<a style="color:#fff" href="<?php echo SITE_BASE_URL?>content/privacy-policy"><?php echo $this->lang->line('sitemap'); ?></a>		-->
-		</div>
-	</div>
-	<div class = "footer-top-content" >
-		<div><img src="<?php echo SITE_BASE_URL?>assets/images/white-ball.png" alt="" /> &nbsp;&nbsp;
-				<a style="color:#fff" href="https://cag.gov.in/ae/west-bengal/en/page-ae-west-bengal-copyright-policy-kol"><?php echo $this->lang->line('copyright_policy'); ?>
-<!--				 <a style="color:#fff" href="<?php echo SITE_BASE_URL?>content/terms-condition"><?php echo $this->lang->line('copyright_policy'); ?></a>		-->
-		</div>
-		<div><img src="<?php echo SITE_BASE_URL?>assets/images/white-ball.png" alt="" /> &nbsp;&nbsp;
-				<a style="color:#fff" href="https://cag.gov.in/ae/west-bengal/en/page-ae-west-bengal-help-kol"><?php echo $this->lang->line('help'); ?>
-<!--				<a style="color:#fff" href="<?php echo SITE_BASE_URL?>content/privacy-policy"><?php echo $this->lang->line('help'); ?></a>		-->
-		</div>
-	</div>
-	<div class = "footer-top-content" >
-		<div><img src="<?php echo SITE_BASE_URL?>assets/images/white-ball.png" alt="" /> &nbsp;&nbsp;
-				<a style="color:#fff" href="https://cag.gov.in/ae/west-bengal/en/page-ae-west-bengal-hyperlinking-policy-kol"><?php echo $this->lang->line('hyperlink_policy'); ?>
-<!--				 <a style="color:#fff" href="<?php echo SITE_BASE_URL?>content/terms-condition"><?php echo $this->lang->line('hyperlink_policy'); ?></a>		-->
-		</div>
-		<div>
-<!--		<img src="<?php echo SITE_BASE_URL?>assets/images/white-ball.png" alt="" /> &nbsp;&nbsp;
-				<a style="color:#fff" href="<?php //echo SITE_BASE_URL?>content/privacy-policy"><?php echo $this->lang->line('hel'); ?>
-				<a style="color:#fff" href="<?php echo SITE_BASE_URL?>content/privacy-policy"><?php echo $this->lang->line('hel'); ?></a>    -->
-		</div>
-	</div>
-	<div class = "footer-top-content" >
-		<div>
-<!--		<img src="<?php echo SITE_BASE_URL?>assets/images/white-ball.png" alt="" /> &nbsp;&nbsp;
-				<a style="color:#fff" href="<?php //echo SITE_BASE_URL?>content/terms-condition"><?php echo $this->lang->line('hel'); ?>
-				<a style="color:#fff" href="<?php echo SITE_BASE_URL?>content/terms-condition"><?php echo $this->lang->line('hel'); ?></a> 		-->
-		</div>
-		<div>
-<!--		<img src="<?php echo SITE_BASE_URL?>assets/images/white-ball.png" alt="" /> &nbsp;&nbsp;
-				<a style="color:#fff" href="<?php //echo SITE_BASE_URL?>content/privacy-policy"><?php echo $this->lang->line('hel'); ?>
-				<a style="color:#fff" href="<?php echo SITE_BASE_URL?>content/privacy-policy"><?php echo $this->lang->line('hel'); ?></a> 		-->
+		<div class="footer-link-col">
+			<ul class="footer-links-list">
+				<li><i class="fa fa-angle-right" aria-hidden="true"></i> <a href="https://cag.gov.in/ae/west-bengal/en/page-ae-west-bengal-hyperlinking-policy-kol" target="_blank"><?php echo $this->lang->line('hyperlink_policy'); ?></a></li>
+			</ul>
 		</div>
 	</div>
 </div>
 </footer>
-<footer class = "footer-bottom">
+<footer class="footer-bottom">
   <div class="container">
-
-	<p align= "left" > © Copyright 2020 - <?php echo $this->lang->line('content_owned_by'); ?> the O/o :
-										  <?php echo $this->lang->line('ag_ae'); ?>.  
-										  <?php //echo $this->lang->line('ag_gssa'); ?> 
-										  <?php //echo $this->lang->line('ag_ersa'); ?>
-										  <br> All Rights Reserved.</p>
+	<div class="footer-bottom-flex">
+		<p class="footer-copyright-text">© Copyright <?php echo date('Y'); ?> - <?php echo $this->lang->line('content_owned_by'); ?> the O/o : <?php echo $this->lang->line('ag_ae'); ?>. All Rights Reserved.</p>
+	</div>
 
 <!--  
    --   Office Addres and visitor count  -

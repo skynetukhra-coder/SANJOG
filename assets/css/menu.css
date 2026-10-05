@@ -1,26 +1,41 @@
 
 .toggleMenu {
-    background: rgba(0, 0, 0, 0) url("../images/menu_bg1.png") no-repeat scroll 0 0;
+    background: #275e93;
     color: #fff;
     display: none;
-    float: left;
-    font-size: 0;
-    height: 32px;
-    position: absolute;
-    right: 12px;
-    top: 132px;
-    width: 44px;
-    z-index: 999;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    height: 40px;
+    padding: 8px 18px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.2);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 10px auto;
 }
-nav{/*float:right; padding-left:10px; */}
+.toggleMenu:hover, .toggleMenu:focus, .toggleMenu.active {
+    background: #1e4b7a;
+    color: #fff;
+    text-decoration: none;
+}
+nav {
+    width: 100%;
+}
 
 /*-----Main Menu adjustment----*/
 .navi {
     list-style: none;
-     *zoom: 1; 
-	 width: 100%;
-	 text-align:center;
-	 }
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    max-width: 1200px;
+    text-align: left;
+}
 	 
 .navi:before,
 .navi:after {
@@ -196,7 +211,14 @@ nav{/*float:right; padding-left:10px; */}
    .navi > li.hover > ul , .navi li li.hover > ul {
         position: static;
     }
-	.navi {padding-left:0 !important; z-index:9999; position:absolute; width:100%; text-align:left; top:165px; background:#fff; left:0;}
+	.navi {
+		padding-left: 0 !important;
+		position: static !important;
+		width: 100%;
+		text-align: left;
+		background: #333333;
+		border-top: 1px solid #444;
+	}
 	.navi a {padding:7px 15px; border-bottom:1px solid #3671aa; color:#fff;}
 	.navi li:hover a:hover{color:#fff;}
 	li.hover > .parent > .menu-right-arrow{

@@ -1,58 +1,60 @@
 
 	<div class="row" id="main-content">
-		<div class = "container">		
-			<center style="height: px; font-size: 26px; font-weight: bold;">
-			<p class="MsoNormal" align="center" style="text-align:center"><b>
-			<span style="font-size: 18pt; line-height: 107%; font-family: 'Times New Roman',serif">
-			The composite website ‘<font color="#0563C1">www.agwb.cag.gov.in</font>’ is presently with new sub-sites for the offices. </span>
-			</b></p>
-			<p>&nbsp;</p>
-			<p class="MsoNormal" align="center" style="text-align:center">
-			<font size="5"><span style="font-family: 'Times New Roman',serif"></span></font><b><span style="font-size: 18pt; line-height: 107%; font-family: 'Times New Roman',serif">Office-wise 
-			links for the new sub-sites are as mentioned below.</span></b></p>
-			<div align="center">
-				<table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: medium none">
-					<tr>
-						<td width="60%" valign="top" style="width: 425.0pt; border-left: medium none; border: 1.0pt solid windowtext;border-right: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
-						<p class="MsoNormal" style="margin:2pt 0cm; line-height:normal"><font color="#0563C1"><b>
-						<span style="font-size: 14.0pt; font-family: 'Times New Roman',serif">
-						Principal Accountant General (A&amp;E), West Bengal, Kolkata</span></b></font></p></td>
-						<td width="40%" valign="top" style="width: 241.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: 1.0pt solid windowtext; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
-						<p class="MsoNormal" style="margin:2pt 0cm; line-height:normal"><b>
-						<span style="font-size: 14.0pt; font-family: 'Times New Roman',serif">
-						<a style="color: #0563C1; text-decoration: underline; text-underline: single" href="https://cag.gov.in/ae/west-bengal/en">
-						https://cag.gov.in/ae/west-bengal/en</a> </span></b></p></td>
-					</tr>
-					<tr>
-						<td width="60%" valign="top" style="width: 425.0pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
-						<p class="MsoNormal" style="margin:2pt 0cm; line-height:normal"><font color="#0563C1"><b>
-						<span style="font-size: 14.0pt; font-family: 'Times New Roman',serif">
-						Principal Accountant General (Audit-I), West Bengal, Kolkata</span></b></font></p></td>
-						<td width="40%" valign="top" style="width: 241.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
-						<p class="MsoNormal" style="margin:2pt 0cm; line-height:normal"><b>
-						<span style="font-size: 14.0pt; font-family: 'Times New Roman',serif">
-						<a style="color: #0563C1; text-decoration: underline; text-underline: single" href="https://cag.gov.in/ag1/west-bengal/en">
-						https://cag.gov.in/ag1/west-bengal/en</a> </span></b></p></td>
-					</tr>
-					<tr>
-						<td width="60%" valign="top" style="width: 425.0pt; border-left: 1.0pt solid windowtext; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
-						<p class="MsoNormal" style="margin:2pt 0cm; line-height:normal"><font color="#0563C1"><b>
-						<span style="font-size: 14.0pt; font-family: 'Times New Roman',serif">
-						Principal Accountant General (Audit-II), West Bengal, Kolkata</span></b></font></p></td>
-						<td width="40%" valign="top" style="width: 241.0pt; border-left: medium none; border-right: 1.0pt solid windowtext; border-top: medium none; border-bottom: 1.0pt solid windowtext; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0cm; padding-bottom: 0cm">
-						<p class="MsoNormal" style="margin:2pt 0cm; line-height:normal"><b>
-						<span style="font-size: 14.0pt; font-family: 'Times New Roman',serif">
-						<a style="color: #0563C1; text-decoration: underline; text-underline: single" href="https://cag.gov.in/ag2/west-bengal/en">
-						https://cag.gov.in/ag2/west-bengal/en</a> </span></b></p></td>
-					</tr>
-				</table>
+		<div class="col-xs-12">
+			<div class="home-portal-notice-card">
+				<div class="notice-badge"><i class="fa fa-info-circle"></i> Official Portal Notice</div>
+				<h2 class="notice-title">
+					The composite website ‘<span class="portal-highlight">www.agwb.cag.gov.in</span>’ is presently with new sub-sites for the offices.
+				</h2>
+				<p class="notice-subtitle">
+					Office-wise links for the new sub-sites are as mentioned below:
+				</p>
+				<div class="table-responsive office-links-wrap">
+					<table class="table table-bordered office-links-table">
+						<thead>
+							<tr>
+								<th><i class="fa fa-building-o"></i> Office Description</th>
+								<th><i class="fa fa-external-link"></i> Official Portal Link</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<strong>Principal Accountant General (A&amp;E), West Bengal, Kolkata</strong>
+								</td>
+								<td>
+									<a href="https://cag.gov.in/ae/west-bengal/en" target="_blank" class="office-link-btn" rel="noopener noreferrer">
+										<span>https://cag.gov.in/ae/west-bengal/en</span> <i class="fa fa-external-link"></i>
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<strong>Principal Accountant General (Audit-I), West Bengal, Kolkata</strong>
+								</td>
+								<td>
+									<a href="https://cag.gov.in/ag1/west-bengal/en" target="_blank" class="office-link-btn" rel="noopener noreferrer">
+										<span>https://cag.gov.in/ag1/west-bengal/en</span> <i class="fa fa-external-link"></i>
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<strong>Principal Accountant General (Audit-II), West Bengal, Kolkata</strong>
+								</td>
+								<td>
+									<a href="https://cag.gov.in/ag2/west-bengal/en" target="_blank" class="office-link-btn" rel="noopener noreferrer">
+										<span>https://cag.gov.in/ag2/west-bengal/en</span> <i class="fa fa-external-link"></i>
+									</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="notice-footer-msg">
+					<i class="fa fa-arrow-circle-right"></i> Please visit the respective office website for Online Applications, Audit Reports, etc.
+				</div>
 			</div>
-				<p>&nbsp;</p>
-				<p style="margin-top: 6px">
-				<font face="Times New Roman" size="5">Please visit the 
-				respective office website for Online Applications, Audit 
-				Reports, etc.</font></p>
-				</center>
 		</div>		
 	</div>
 <!--	

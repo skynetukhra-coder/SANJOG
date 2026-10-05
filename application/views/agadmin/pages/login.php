@@ -25,13 +25,13 @@
             </div>
           </div>
           <div class="control-group">
-            <div class="">
+            <div class="admin-captcha-wrap">
               <?php echo $cap['image'];?>
-               <button type="button" style="width:60px;height:40px" onclick="reload_captcha()" title="Re-Generate"><i class="fa fa-refresh" style="font-size:20px" aria-hidden="true"></i></button>
+              <button type="button" onclick="reload_captcha()" title="Re-Generate Captcha" aria-label="Reload Captcha"><i class="fa fa-refresh" style="font-size:18px" aria-hidden="true"></i></button>
             </div>
           </div>
           <div class="control-group">
-            <div class="">
+            <div>
               <input type="text" name="c_image" class="span12 m-wrap" placeholder="<?php echo $this->lang->line('write_image_code'); ?>" autocomplete="off" required >
             </div>
           </div>

@@ -93,139 +93,73 @@ var BASEPATH = '<?php echo SITE_BASE_URL?>';
 
    <div class="header-top medium">
 	<div class="container">
-		
-		<div class="pull-left medium header-top-left" style= "width:45% " >
-<!--			<div class="header-top-left">		-->
-			<!-- /Header Top left-->
-			<ul style= "background:#275e93" >
-				<li style= "width:75px; background:#275e93" >
-					<div class = "header-top-left">
-						<a href="https://cag.gov.in" target="_blank"><font color="white">&nbsp;&nbsp;<?php echo $this->lang->line('cag'); ?>&nbsp;&nbsp;</font></a>
-					</div>
-				</li>
-				<li style= "width:75px; background:#275e93">
-					<div class = "header-top-left">
-						<a href="https://cag.eoffice.gov.in" target="_blank"><font color="white">&nbsp;&nbsp;<?php echo $this->lang->line('e_office'); ?>&nbsp;&nbsp;</font></a>
-					</div>
-				</li>
-				<li style= "width:75px; background:#275e93">
-					<div class = "header-top-left">
-						<a href="https://email.gov.in" target="_blank"><font color="white">&nbsp;<?php echo $this->lang->line('mail_srvr'); ?>&nbsp;</font></a>
-					</div>
-				</li>
-				<li style= "width:75px; background:#275e93">
-					<div class = "header-top-left">
-						<a href="https://saccess.nic.in/" target="_blank"><font color="white">&nbsp;&nbsp;<?php echo $this->lang->line('vpn'); ?>&nbsp;&nbsp;</font></a>
-					</div>
-				</li>
-				<li style= "width:75px; background:#275e93">
-					<div class = "header-top-left">
-						<a href="https://pfms.nic.in/Users/LoginDetails/NewLayoutLogin.aspx" target="_blank"><font color="white">&nbsp;&nbsp;<?php echo $this->lang->line('pfms'); ?></font></a>
-					</div>
-				</li>
-				<li style= "width:75px; background:#275e93">
-					<div class = "header-top-left">
-						<a href="https://agwb.cag.gov.in/emp/login_page" target="_blank"><font color="white">&nbsp;&nbsp;<?php echo $this->lang->line('employee'); ?></font></a>
-					</div>
-				</li>
-				<li style= "width:75px; background:#275e93">
-					<div class = "header-top-left">
-						<a href="https://agwb.cag.gov.in/admin" target="_blank"><font color="white"><?php echo $this->lang->line('login'); ?>&nbsp;&nbsp;</font></a>
-					</div>
-				</li>
-			</ul>
-<!--			
-			<ul >
-				  <li class = "header-top-left" style= "width:75px; background:#275e93"><a href="https://cag.gov.in" target="_blank"><font color="white">&nbsp;&nbsp;<?php echo $this->lang->line('cag'); ?>&nbsp;&nbsp;</font></a></li>|
-				  <li class = "header-top-left" style= "width:75px; background:#275e93"><a href="https://cag.eoffice.gov.in" target="_blank"><font color="white">&nbsp;&nbsp;<?php echo $this->lang->line('e_office'); ?>&nbsp;&nbsp;</font></a></li>|
-				  <li class = "header-top-left" style= "width:75px; background:#275e93"><a href="https://email.gov.in" target="_blank"><font color="white">&nbsp;<?php echo $this->lang->line('mail_srvr'); ?>&nbsp;</font></a></li>|
-				  <li class = "header-top-left" style= "width:75px; background:#275e93"><a href="https://saccess.nic.in/" target="_blank"><font color="white">&nbsp;&nbsp;<?php echo $this->lang->line('vpn'); ?>&nbsp;&nbsp;</font></a></li>|
-				  <li class = "header-top-left" style= "width:75px; background:#275e93"><a href="https://agwb.cag.gov.in/admin" target="_blank"><font color="white">&nbsp;&nbsp;<?php echo $this->lang->line('login'); ?>&nbsp;&nbsp;</font></a></li>|
-			</ul>
-			
--->			
-			<!-- ./Top-Header left-->
-<!--			</div>		-->
-		</div>
-		<div>	
-			 <div class="pull-right" style= "width:42%">
-		  
-	<!-- /Header Top right-->
-
-			   <div class="selecttheme-box"><a href="<?php echo SITE_BASE_URL; ?>home/screen_reader_access"><?php echo $this->lang->line('screen_reader'); ?></a></div>
-			   <div class="selecttheme-box">
-				<?php echo $this->lang->line('select_theme'); ?>
-				<div class="colorbox blue" onClick="selectTheam('blue')"></div>
-				<div class="colorbox black" onClick="selectTheam('black')"></div>
-			   </div>
-			  
-				<ul>
-				  <li onClick="increseFont();"><a href="javascript:void(0)">A+</a></li>
-				  <li onClick="defaultFont();"><a href="javascript:void(0)">A</a></li>
-				  <li onClick="decreseFont();"><a href="javascript:void(0)">A-</a></li>
+		<div class="header-top-flex">
+			<div class="header-top-left-nav">
+				<ul class="quick-service-links">
+					<li><a href="https://cag.gov.in" target="_blank"><?php echo $this->lang->line('cag'); ?></a></li>
+					<li><a href="https://cag.eoffice.gov.in" target="_blank"><?php echo $this->lang->line('e_office'); ?></a></li>
+					<li><a href="https://email.gov.in" target="_blank"><?php echo $this->lang->line('mail_srvr'); ?></a></li>
+					<li><a href="https://saccess.nic.in/" target="_blank"><?php echo $this->lang->line('vpn'); ?></a></li>
+					<li><a href="https://pfms.nic.in/Users/LoginDetails/NewLayoutLogin.aspx" target="_blank"><?php echo $this->lang->line('pfms'); ?></a></li>
+					<li><a href="<?php echo base_url('emp/login_page'); ?>" target="_blank"><?php echo $this->lang->line('employee'); ?></a></li>
+					<li><a href="<?php echo base_url('admin'); ?>" target="_blank"><?php echo $this->lang->line('login'); ?></a></li>
 				</ul>
-				
-			   
-				<!---<form class="search-field">
-				  <input type="text" placeholder="<?php echo $this->lang->line('search_placeholder'); ?>"/>
-				  <img src="<?php echo SITE_BASE_URL?>assets/images/search-icon.png" alt="" class="search-icon" />
-				</form>--->
-				
-				<form class="search-field >
-				   <div class = "form-group" style="padding-right:8px">
-					<select class="form-control"  onchange="change_site_lang(this.value)">
-					  <option value="english" <?php if($this->session->userdata('site_lang') == 'english') echo 'selected="selected"'; ?> >English</option>
-					  <option value="hindi" <?php if($this->session->userdata('site_lang') == 'hindi') echo 'selected="selected"'; ?> >हिंदी</option>
-					  <option value="bengali" <?php if($this->session->userdata('site_lang') == 'bengali') echo 'selected="selected"'; ?> >বাংলা</option>
-					</select>
-				  </div>
+			</div>
+			<div class="header-top-right-tools">
+				<div class="selecttheme-box"><a href="<?php echo SITE_BASE_URL; ?>home/screen_reader_access"><?php echo $this->lang->line('screen_reader'); ?></a></div>
+				<div class="selecttheme-box theme-switch-box">
+					<span class="theme-text"><?php echo $this->lang->line('select_theme'); ?></span>
+					<button type="button" class="colorbox blue" onclick="selectTheam('blue')" title="Standard Blue Theme" aria-label="Blue Theme"></button>
+					<button type="button" class="colorbox black" onclick="selectTheam('black')" title="High Contrast Dark Theme" aria-label="Dark Theme"></button>
+				</div>
+				<ul class="font-controls" aria-label="Font Resizer">
+					<li onclick="increseFont();"><a href="javascript:void(0)" title="Increase Font">A+</a></li>
+					<li onclick="defaultFont();"><a href="javascript:void(0)" title="Default Font">A</a></li>
+					<li onclick="decreseFont();"><a href="javascript:void(0)" title="Decrease Font">A-</a></li>
+				</ul>
+				<form class="search-field lang-form" onsubmit="return false;">
+					<div class="form-group">
+						<select class="form-control lang-selector" onchange="change_site_lang(this.value)" aria-label="Select Language">
+							<option value="english" <?php if($this->session->userdata('site_lang') == 'english') echo 'selected="selected"'; ?> >English</option>
+							<option value="hindi" <?php if($this->session->userdata('site_lang') == 'hindi') echo 'selected="selected"'; ?> >हिंदी</option>
+							<option value="bengali" <?php if($this->session->userdata('site_lang') == 'bengali') echo 'selected="selected"'; ?> >বাংলা</option>
+						</select>
+					</div>
 				</form>
-			
-	<!-- /Top-Header right-->	
-
+			</div>
 		</div>
-     <div class="clearfix"></div>
- </div>
- </div>
+	</div>
+  </div>
 
   <div class="header-bottom medium1">
     <div class="container">
-	 <div class="row">
-		 <div class="col-md-1 flag">
-				<a href="https://www.india.gov.in/" target="_blank">
-					<img src="<?php echo SITE_BASE_URL?>assets/images/logo1.png" alt="" />
+		<div class="header-brand-flex">
+			<div class="brand-emblem-left flag">
+				<a href="https://www.india.gov.in/" target="_blank" title="National Portal of India">
+					<img src="<?php echo SITE_BASE_URL?>assets/images/logo1.png" alt="National Emblem of India" class="emblem-img" />
 				</a>
-		 </div>
-		 
-			  <ul class="logo" align = "center">
-				<li>
-				<span style="font-size: 24px;color: #265688;font-weight: 600;line-height: 15px; padding-left:10px" class="logo-text"><?php echo $this->lang->line('main_title'); ?></span>
-				<br>
-				<span style="font-size: 18px;color: #494949;font-weight: 400;line-height: 30px; padding-left:10px" class="logo-text"><?php echo $this->lang->line('iaad'); ?></span>
-				</li>
-				<li>
-					<a href="https://cag.gov.in/" target="_blank">
-					<img src="<?php echo SITE_BASE_URL?>assets/images/logo2.png" alt="Logo" style="max-height:100px; padding-left:50px;" />
+			</div>
+			<div class="brand-titles-center">
+				<h1 class="brand-main-title"><?php echo $this->lang->line('main_title'); ?></h1>
+				<p class="brand-sub-title"><?php echo $this->lang->line('iaad'); ?></p>
+			</div>
+			<div class="brand-logo-right">
+				<a href="https://cag.gov.in/" target="_blank" title="Comptroller and Auditor General of India">
+					<img src="<?php echo SITE_BASE_URL?>assets/images/logo2.png" alt="CAG of India Logo" class="cag-logo-img" />
 				</a>
-				</li>
-			  </ul>
-<!--		
-		  <div class="col-md-3" align="right">
-				<a href="https://cag.gov.in/" target="_blank">
-					<img src="<?php echo SITE_BASE_URL?>assets/images/logo2.png" alt="Logo" style="max-height:100px; padding-left:20px;" />
-				</a>
-		  </div> 
--->		  
+			</div>
 		</div>
-		<div class="row">
-		   <a class="toggleMenu" href="javascript:void(0)"><?php echo $this->lang->line('menu'); ?></a>
-	   </div>
-	 </div>
+		<div class="mobile-menu-bar">
+			<a class="toggleMenu" href="javascript:void(0)" aria-label="Toggle Navigation Menu">
+				<i class="fa fa-bars" aria-hidden="true"></i> <span><?php echo $this->lang->line('menu'); ?></span>
+			</a>
+		</div>
+	</div>
   </div>
-  <div  class="menupart charcoal"  >
+  <div class="menupart charcoal">
     <nav>
-     <ul class="navi" style ="text-align: left; padding-left:75px" >
-		<li><a class="parent" href="https://agwb.cag.gov.in"><?php echo $this->lang->line('home'); ?></a></li><font color="white"><b>|</b></font>			
+     <ul class="navi">
+		<li><a class="parent" href="<?php echo base_url(); ?>"><?php echo $this->lang->line('home'); ?></a></li><font color="white"><b>|</b></font>			
 <!--		<li><a class="parent"  href="https://cag.gov.in/ae/west-bengal/en"><?php echo $this->lang->line('home'); ?></a></li><font color="white"><b>&nbsp;</b></font>		-->
 
 

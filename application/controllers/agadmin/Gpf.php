@@ -3089,6 +3089,14 @@ class Gpf extends CI_Controller {
 		$this->load->view('agadmin/pages/gpf/ddo_document_edit',$data);
 		$this->load->view('agadmin/layout/footer');
 	}
+	public function ddo_document_delete(){
+		$id = $this->uri->segment(4);
+		if(!empty($id)){
+			$this->db->where('ddo_rec_id',$id)->delete('ddo_files');
+			$this->session->set_flashdata('success','Successfully deleted.');
+		}
+		redirect(ADMIN_BASE_URL.'gpf/ddo_document');
+	}
 	
 	public function signature_master(){
 		$this->load->model('gpf_model');

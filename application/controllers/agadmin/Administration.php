@@ -2188,7 +2188,7 @@ class Administration extends CI_Controller {
 		$data['candidates'] = $this->emp_model->get_trainees_list($id);
 		$html = $this->load->view('agadmin/pages/administration/training_order_download',$data,true);//load the pdf_output.php by passing our data and get all data in $html varriable.
 		
-		$img="/usr/local/apache24/htdocs/assets/images/top-head.png";
+		$img=FCPATH . "assets/images/top-head.png";
 		$pdfFilePath ="Training_Order".time().".pdf";
 		$pdf = $this->m_pdf->letterPdfCreate();
 		$pdf->SetWatermarkText('O/o the Pr. Accountant General (A&E), WB');
@@ -2222,7 +2222,7 @@ class Administration extends CI_Controller {
 		$data['candidates'] = $this->emp_model->get_faculties_list($id);
 		$html = $this->load->view('agadmin/pages/administration/faculty_order_download',$data,true);//load the pdf_output.php by passing our data and get all data in $html varriable.
 		
-		$img="/usr/local/apache24/htdocs/assets/images/top-head.png";
+		$img=FCPATH . "assets/images/top-head.png";
 		$pdfFilePath ="Faculty_Order".time().".pdf";
 		$pdf = $this->m_pdf->letterPdfCreate();
 		$pdf->SetWatermarkText('O/o the Pr. Accountant General (A&E), WB');
@@ -3278,6 +3278,15 @@ class Administration extends CI_Controller {
 		$this->load->view('agadmin/pages/administration/charge_master_edit',$data);
 		$this->load->view('agadmin/layout/footer');
 	}
+	public function charge_master_delete(){
+		$id = $this->uri->segment(4);
+		if(!empty($id)){
+			$this->load->model('emp_model');
+			$this->emp_model->deleteChargeMaster($id);
+			$this->session->set_flashdata('success','Successfully deleted.');
+		}
+		redirect(ADMIN_BASE_URL.'administration/charge_master');
+	}
 	public function signature_master(){
 		$this->load->model('emp_model');
 		$this->load->library('pagination');
@@ -3432,6 +3441,15 @@ class Administration extends CI_Controller {
 		$this->load->view('agadmin/pages/administration/signature_master_edit',$data);
 		$this->load->view('agadmin/layout/footer');
 	}
+	public function signature_master_delete(){
+		$id = $this->uri->segment(4);
+		if(!empty($id)){
+			$this->load->model('emp_model');
+			$this->emp_model->deleteSignatureTag($id);
+			$this->session->set_flashdata('success','Successfully deleted.');
+		}
+		redirect(ADMIN_BASE_URL.'administration/signature_master');
+	}
 	
 	public function notice(){
 		$this->load->model('emp_model');
@@ -3572,6 +3590,14 @@ class Administration extends CI_Controller {
 		$this->load->view('agadmin/layout/header');
 		$this->load->view('agadmin/pages/administration/section',$data);
 		$this->load->view('agadmin/layout/footer');
+	}
+	public function section_delete(){
+		$id = $this->uri->segment(4);
+		if(!empty($id)){
+			$this->db->where('sect_idx',$id)->delete('section_master');
+			$this->session->set_flashdata('success','Successfully deleted.');
+		}
+		redirect(ADMIN_BASE_URL.'administration/section');
 	}
 	public function section_br(){
 		$this->load->model('emp_model');
@@ -4128,7 +4154,7 @@ class Administration extends CI_Controller {
 		}
 		$data['candidates'] = $this->emp_model->get_transferred_employee_list($id);
 		$html = $this->load->view('agadmin/pages/administration/transfer_order_download',$data,true);//load the pdf_output.php by passing our data and get all data in $html varriable.
-		$img="/usr/local/apache24/htdocs/assets/images/top-head.png";
+		$img=FCPATH . "assets/images/top-head.png";
 		$pdfFilePath ="Training_Order".time().".pdf";
 		$pdf = $this->m_pdf->letterPdfCreate();
 		$pdf->SetWatermarkText('O/o the Pr. Accountant General (A&E), WB');

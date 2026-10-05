@@ -1,6 +1,3 @@
-</div>
-</body>
-</html>
 <div id="myModal" class="modal hide">
 	<div class="modal-header">
 		<button data-dismiss="modal" class="close" type="button">&times;</button>
@@ -10,3 +7,6 @@
 		
 	</div>
 </div>
+</div>
+</body>
+</html>

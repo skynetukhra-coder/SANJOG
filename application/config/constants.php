@@ -85,7 +85,14 @@ defined('EXIT__AUTO_MIN')      	OR define('EXIT__AUTO_MIN', 9); // lowest automa
 defined('EXIT__AUTO_MAX')      	OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 defined('DATE_FORMAT')       	OR define('DATE_FORMAT', 'd/m/Y');
-defined('DATE_FORMAT')       	OR define('DATETIME_FORMAT', 'd/m/Y H:i');
+defined('DATETIME_FORMAT')   	OR define('DATETIME_FORMAT', 'd/m/Y H:i');
+
+// EXTERNAL INTEGRATION CONFIGURATION (Environment overridable)
+defined('NIC_SMTP_HOST')    	OR define('NIC_SMTP_HOST', getenv('NIC_SMTP_HOST') ?: 'smtp.nic.in');
+defined('NIC_SMTP_USER')    	OR define('NIC_SMTP_USER', getenv('NIC_SMTP_USER') ?: 'itsc-agae-wb@nic.in');
+defined('NIC_SMTP_PASS')    	OR define('NIC_SMTP_PASS', getenv('NIC_SMTP_PASS') ?: 'Itsc#2014$');
+defined('NIC_SMTP_PORT')    	OR define('NIC_SMTP_PORT', getenv('NIC_SMTP_PORT') ?: 25);
+defined('NIC_SMS_GATEWAY')  	OR define('NIC_SMS_GATEWAY', getenv('NIC_SMS_GATEWAY') ?: 'https://smsgw.sms.gov.in/failsafe/HttpLink?username=agwb.otp&pin=3mpxqh7p');
 if (isset($_SERVER['HTTP_HOST'])) {
     $dynamic_protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https://' : 'http://';
     $dynamic_base_dir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));

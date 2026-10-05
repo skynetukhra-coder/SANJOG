@@ -128,8 +128,8 @@ $sign_tag = isset($row['sign_tag']) ? $row['sign_tag'] : '';
           </tbody> 
       </table>
       <p style = "text-align: right"><span>
-<!--	  <img src="/usr/local/apache24/htdocs/assets/images/dagAdmin_sign.png" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br>			-->
-	  <img src="/usr/local/apache24/htdocs/files/agae/signature/<?php echo $trainees['sign_tag']?>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br>
+<!--	  <img src="<?php echo FCPATH; ?>assets/images/dagAdmin_sign.png" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br>			-->
+	  <img src="<?php echo FCPATH; ?>files/agae/signature/<?php echo $trainees['sign_tag']?>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br>
 	  <span>[<?php echo strtoupper($trainees['officer_name'])?>] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	  <span></br><br>
 	  <span> <?php echo strtoupper($trainees['officer_desig'])?>

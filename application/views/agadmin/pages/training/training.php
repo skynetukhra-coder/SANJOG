@@ -703,7 +703,7 @@ class Training extends CI_Controller {
 		$html = $this->load->view('agadmin/pages/training/training_order_download',$data,true);//load the pdf_output.php by passing our data and get all data in $html varriable.
 		
 //		$img="http://localhost/assets/images/top-head.png";
-		$img="/usr/local/apache24/htdocs/assets/images/top-head.png";
+		$img=FCPATH . "assets/images/top-head.png";
 		$pdfFilePath ="Training_Order".time().".pdf";
 		$pdf = $this->m_pdf->letterPdfCreate();
 		$pdf->SetWatermarkText('O/o the Pr. Accountant General (A&E), WB');
@@ -883,7 +883,7 @@ class Training extends CI_Controller {
 		$data['candidates'] = $this->emp_model->get_faculties_list($id);
 		$html = $this->load->view('agadmin/pages/training/faculty_order_download',$data,true);//load the pdf_output.php by passing our data and get all data in $html varriable.
 
-		$img="/usr/local/apache24/htdocs/assets/images/top-head.png";
+		$img=FCPATH . "assets/images/top-head.png";
 		$pdfFilePath ="Faculty_Order".time().".pdf";
 		$pdf = $this->m_pdf->letterPdfCreate();
 		$pdf->SetWatermarkText('O/o the Pr. Accountant General (A&E), WB');

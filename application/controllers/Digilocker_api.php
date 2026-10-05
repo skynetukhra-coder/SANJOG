@@ -13,7 +13,8 @@ class Digilocker_api extends CI_Controller {
 			$this->language_id = 1;
 		/*}*/
 
-		$this->apiKey = 'M2RmMjBhYjMxMjJjNzBhNWRlOWVhOTY0' . date('Y-m-d h:i');
+		$baseKey = getenv('DIGILOCKER_SECRET_KEY') ?: 'M2RmMjBhYjMxMjJjNzBhNWRlOWVhOTY0';
+		$this->apiKey = $baseKey . date('Y-m-d h:i');
 	}
 
 	public function index() {

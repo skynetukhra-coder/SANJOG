@@ -16,12 +16,17 @@
    even if you are using session configuration.
    See http://kcfinder.sunhater.com/install for setting descriptions */
 
+if (session_status() === PHP_SESSION_NONE) {
+    @session_start();
+}
+$is_admin = (!empty($_SESSION['admin_details']['id']) || !empty($_SESSION['admin_logged_in']) || !empty($_SESSION['admin_type']));
+
 $_CONFIG = array(
 
 
 // GENERAL SETTINGS
 
-    'disabled' => false,
+    'disabled' => !$is_admin,
     'uploadURL' => "../../userfiles",
     'uploadDir' => "",
     'theme' => "default",

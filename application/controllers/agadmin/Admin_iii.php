@@ -146,7 +146,6 @@ class Admin_iii extends CI_Controller {
 						redirect(ADMIN_BASE_URL.'admin_iii/service_book');
 					}else{
 						$attachment_sbook = implode(';',$upload_details['filenames']);
-						print_r($attachment_sbook);
 					}
 				}
 				
@@ -584,17 +583,16 @@ class Admin_iii extends CI_Controller {
 		$period_to= date('Y-m-t',strtotime("+180 days",strtotime($period_from)));
 		$last_period_from = date('Y-m-01',strtotime("-180 days",strtotime($period_from)));
 		$last_period_to = date('Y-m-t',strtotime("-15 day",strtotime($period_from)));
-		echo ('||  From '.$period_from);
-		echo ('||  To '.$period_to);
-		echo ('||  Last From '.$last_period_from);
-		echo ('||  Last To '.$last_period_to);
+		// echo ('||  From '.$period_from);
+		// echo ('||  To '.$period_to);
+		// echo ('||  Last From '.$last_period_from);
+		// echo ('||  Last To '.$last_period_to);
 		
 		
 		$emp_dor = $this->emp_model->get_employee_dor($empid);
 		$data['last_exol'] = $this->emp_model->get_employee_exol_last_period($empid,$last_period_from,$last_period_to);
 //echo $this->db->last_query();
 		$data['last_diesnon'] = $this->emp_model->get_employee_diesnon_last_period($empid,$last_period_from,$last_period_to);
-echo "<br>";
 //echo $this->db->last_query();
 		if(!empty($data['last_exol'])){
 			$last_exol =implode('', MAX($data['last_exol']));
@@ -602,15 +600,13 @@ echo "<br>";
 			$last_exol = 0;
 		}
 //echo ('||   Max  '.$last_exol);	
-echo "<br>";	
 
 		if(!empty($data['last_diesnon'])){
 			$last_diesnon =implode('', MIN($data['last_diesnon']));
 		}else{
 			$last_diesnon = 0;
 		}
-//echo ('||   Min  '.$last_diesnon);
-echo "<br>";	
+//echo ('||   Min  '.$last_diesnon);	
 //-----------sum of a column
 
 		if(!empty($data['last_exol'])){
@@ -1993,7 +1989,7 @@ public function circular_office_order(){
 //exit;
 	
 		$html = $this->load->view('agadmin/pages/admin_iii/employee_print',$data,true);//load the pdf_output.php by passing our data and get all data in $html varriable.
-//		$img="/usr/local/apache24/htdocs/assets/images/top-head.png";
+//		$img=FCPATH . "assets/images/top-head.png";
 		$pdfFilePath ="Permission".time().".pdf";
 		$pdf = $this->m_pdf->generate();
 		$pdf->SetWatermarkText('O/o the Pr. Accountant General (A&E), WB');

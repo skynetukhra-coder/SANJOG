@@ -80,7 +80,7 @@
 								<a href="<?php echo base_url()?>treasury/registration" class="action-link-item">
 									<i class="fa fa-user-plus"></i> <strong><?php echo $this->lang->line('first_time_login'); ?> ? <?php echo $this->lang->line('click_here'); ?></strong>
 								</a>
-								<a href="https://164.100.229.182/files/agae/circular_order/User_Manual_Treasury_Login.pdf" target="_blank" class="action-link-item manual-download-link" rel="noopener noreferrer">
+								<a href="<?php echo base_url()?>files/agae/circular_order/User_Manual_Treasury_Login.pdf" target="_blank" class="action-link-item manual-download-link" rel="noopener noreferrer">
 									<i class="fa fa-file-pdf-o text-danger"></i> <strong>Download User Manual for Treasury</strong>
 								</a>
 							</div>

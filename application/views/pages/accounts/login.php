@@ -24,13 +24,7 @@
 									</div>
 								</a> 
 							</div>
-							<div class="button_div">
-								<a class="click-white" href="<?php //echo base_url()?>ddo/login">
-									<div class="pension-case green-bg div-anchor"> 
-										<?php //echo $this->lang->line('ddo_login'); ?>
-									</div>
-								</a> 
-							</div>		
+
 									
 						</div>
 				</div>

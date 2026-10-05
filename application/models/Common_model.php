@@ -18,10 +18,27 @@ class Common_model extends CI_Model {
 		return $res;
 	}
 
+	private function _normalize_allowed_types($type = '*') {
+		$safe_types = 'gif|jpg|jpeg|png|pdf|doc|docx|xls|xlsx|csv|txt';
+		if (empty($type) || trim($type) === '*' || trim($type) === '*.*') {
+			return $safe_types;
+		}
+		$disallowed = array('php', 'phtml', 'php3', 'php4', 'php5', 'php7', 'php8', 'phps', 'phar', 'inc', 'exe', 'bat', 'cmd', 'sh', 'pl', 'cgi');
+		$parts = explode('|', $type);
+		$filtered = array();
+		foreach ($parts as $ext) {
+			$ext = strtolower(trim($ext));
+			if (!empty($ext) && !in_array($ext, $disallowed, true)) {
+				$filtered[] = $ext;
+			}
+		}
+		return !empty($filtered) ? implode('|', $filtered) : $safe_types;
+	}
+
 	public function upload_file($input_name='up_file',$type="*",$path = ''){
 		//$path = './files/';
 		$config['upload_path']          = $path != '' ? $path : UPLOAD_FOLDER;
-		$config['allowed_types']        = $type;
+		$config['allowed_types']        = $this->_normalize_allowed_types($type);
 		//$config['max_size']             = 4096; // In Kilo bites
 		$this->load->library('upload', $config);
 		$return_arr = array();
@@ -43,7 +60,7 @@ class Common_model extends CI_Model {
 	public function upload_gssa_file($input_name='up_file',$type="*",$path = ''){
 		//$path = './files/';
 		$config['upload_path']          = $path != '' ? $path : UPLOAD_GSSA_FOLDER;
-		$config['allowed_types']        = $type;
+		$config['allowed_types']        = $this->_normalize_allowed_types($type);
 		//$config['max_size']             = 4096; // In Kilo bites
 		$this->load->library('upload', $config);
 		$return_arr = array();
@@ -66,7 +83,7 @@ class Common_model extends CI_Model {
 	public function upload_ersa_file($input_name='up_file',$type="*",$path = ''){
 		//$path = './files/';
 		$config['upload_path']          = $path != '' ? $path : UPLOAD_ERSA_FOLDER;
-		$config['allowed_types']        = $type;
+		$config['allowed_types']        = $this->_normalize_allowed_types($type);
 		//$config['max_size']             = 4096; // In Kilo bites
 		$this->load->library('upload', $config);
 		$return_arr = array();
@@ -89,7 +106,7 @@ class Common_model extends CI_Model {
 	public function upload_tender_notice($input_name='up_file',$type="*",$path = ''){
 		//$path = './files/';
 		$config['upload_path']          = $path != '' ? $path : UPLOAD_FOLDER_TENDER;
-		$config['allowed_types']        = $type;
+		$config['allowed_types']        = $this->_normalize_allowed_types($type);
 		//$config['max_size']             = 4096; // In Kilo bites
 		$this->load->library('upload', $config);
 		$return_arr = array();
@@ -111,7 +128,7 @@ class Common_model extends CI_Model {
 	public function upload_documents($input_name='up_file',$type="*",$path = ''){
 		//$path = './files/';
 		$config['upload_path']          = $path != '' ? $path : UPLOAD_FOLDER_DOCUMENT;
-		$config['allowed_types']        = $type;
+		$config['allowed_types']        = $this->_normalize_allowed_types($type);
 		//$config['max_size']             = 4096; // In Kilo bites
 		$this->load->library('upload', $config);
 		$return_arr = array();
@@ -133,7 +150,7 @@ class Common_model extends CI_Model {
 	public function upload_leave_documents($input_name='up_file',$type="*",$path = ''){
 		//$path = './files/';
 		$config['upload_path']          = $path != '' ? $path : UPLOAD_FOLDER_LEAVE;
-		$config['allowed_types']        = $type;
+		$config['allowed_types']        = $this->_normalize_allowed_types($type);
 		//$config['max_size']             = 4096; // In Kilo bites
 		$this->load->library('upload', $config);
 		$return_arr = array();
@@ -155,7 +172,7 @@ class Common_model extends CI_Model {
 	public function upload_pen_payment_doc($input_name='up_file',$type="*",$path = ''){
 		//$path = './files/';
 		$config['upload_path']          = $path != '' ? $path : UPLOAD_PENSION_PAYT;
-		$config['allowed_types']        = $type;
+		$config['allowed_types']        = $this->_normalize_allowed_types($type);
 		//$config['max_size']             = 4096; // In Kilo bites
 		$this->load->library('upload', $config);
 		$return_arr = array();
@@ -177,7 +194,7 @@ class Common_model extends CI_Model {
 	public function upload_circular_order($input_name='up_file',$type="*",$path = ''){
 		//$path = './files/';
 		$config['upload_path']          = $path != '' ? $path : UPLOAD_CIRCULAR_ORDER;
-		$config['allowed_types']        = $type;
+		$config['allowed_types']        = $this->_normalize_allowed_types($type);
 		//$config['max_size']             = 4096; // In Kilo bites
 		$this->load->library('upload', $config);
 		$return_arr = array();
@@ -199,7 +216,7 @@ class Common_model extends CI_Model {
 	public function upload_exam_results($input_name='up_file',$type="*",$path = ''){
 		//$path = './files/';
 		$config['upload_path']          = $path != '' ? $path : UPLOAD_RESULT;
-		$config['allowed_types']        = $type;
+		$config['allowed_types']        = $this->_normalize_allowed_types($type);
 		//$config['max_size']             = 4096; // In Kilo bites
 		$this->load->library('upload', $config);
 		$return_arr = array();
@@ -222,7 +239,7 @@ class Common_model extends CI_Model {
 	public function upload_department_files($input_name='up_file',$type="*",$path = ''){
 		//$path = './files/';
 		$config['upload_path']          = $path != '' ? $path : UPLOAD_FOLDER_DEPT;
-		$config['allowed_types']        = $type;
+		$config['allowed_types']        = $this->_normalize_allowed_types($type);
 		//$config['max_size']             = 4096; // In Kilo bites
 		$this->load->library('upload', $config);
 		$return_arr = array();
@@ -244,7 +261,7 @@ class Common_model extends CI_Model {
 	
 	public function upload_department_files_admin($input_name='up_file',$type="*",$path = ''){
 		$config['upload_path']          = $path != '' ? $path : UPLOAD_FOLDER_DEPT;
-		$config['allowed_types']        = $type;
+		$config['allowed_types']        = $this->_normalize_allowed_types($type);
 		//$config['max_size']             = 4096; // In Kilo bites
 		$this->load->library('upload', $config);
 		$return_arr = array();
@@ -282,7 +299,7 @@ class Common_model extends CI_Model {
 	
 	public function upload_multiple_file($input_name='up_file',$type="*",$path = ''){
 		$config['upload_path']          = $path != '' ? $path : UPLOAD_FOLDER;
-		$config['allowed_types']        = $type;
+		$config['allowed_types']        = $this->_normalize_allowed_types($type);
 		//$config['max_size']             = 4096; // In Kilo bites
 		$this->load->library('upload', $config);
 		$return_arr = array();
@@ -319,7 +336,7 @@ class Common_model extends CI_Model {
 	}
 	public function upload_multiple_order_cicular($input_name='up_file',$type="*",$path = ''){
 		$config['upload_path']          = $path != '' ? $path : UPLOAD_CIRCULAR_ORDER;
-		$config['allowed_types']        = $type;
+		$config['allowed_types']        = $this->_normalize_allowed_types($type);
 		//$config['max_size']             = 4096; // In Kilo bites
 		$this->load->library('upload', $config);
 		$return_arr = array();
@@ -357,7 +374,7 @@ class Common_model extends CI_Model {
 	
 	public function upload_multiple_form_sixteen($input_name='up_file',$type="*",$path = ''){
 		$config['upload_path']          = $path != '' ? $path : UPLOAD_FORM_SIXTEEN;
-		$config['allowed_types']        = $type;
+		$config['allowed_types']        = $this->_normalize_allowed_types($type);
 		//$config['max_size']             = 4096; // In Kilo bites
 		$this->load->library('upload', $config);
 		$return_arr = array();
@@ -395,7 +412,7 @@ class Common_model extends CI_Model {
 	public function upload_employee_image($input_name='up_file',$type="*",$path = ''){
 		//$path = './files/';
 		$config['upload_path']          = $path != '' ? $path : UPLOAD_PICTURE;
-		$config['allowed_types']        = $type;
+		$config['allowed_types']        = $this->_normalize_allowed_types($type);
 		//$config['max_size']             = 4096; // In Kilo bites
 		$this->load->library('upload', $config);
 		$return_arr = array();
@@ -417,7 +434,7 @@ class Common_model extends CI_Model {
 	public function upload_service_book($input_name='up_file',$type="*",$path = ''){
 		
 		$config['upload_path']          = $path != '' ? $path : UPLOAD_FOLDER_SERVICEBOOK;
-		$config['allowed_types']        = $type;
+		$config['allowed_types']        = $this->_normalize_allowed_types($type);
 		//$config['max_size']             = 4096; // In Kilo bites
 		$this->load->library('upload', $config);
 		$return_arr = array();
@@ -456,7 +473,7 @@ class Common_model extends CI_Model {
 	public function upload_apar_booklet($input_name='up_file',$type="*",$path = ''){
 		
 		$config['upload_path']          = $path != '' ? $path : UPLOAD_FOLDER_APAR;
-		$config['allowed_types']        = $type;
+		$config['allowed_types']        = $this->_normalize_allowed_types($type);
 		//$config['max_size']             = 4096; // In Kilo bites
 		$this->load->library('upload', $config);
 		$return_arr = array();
@@ -495,7 +512,7 @@ class Common_model extends CI_Model {
 	public function upload_gpf_statement($input_name='up_file',$type="*",$path = ''){
 		
 		$config['upload_path']          = $path != '' ? $path : UPLOAD_FOLDER_GPF;
-		$config['allowed_types']        = $type;
+		$config['allowed_types']        = $this->_normalize_allowed_types($type);
 		//$config['max_size']             = 4096; // In Kilo bites
 		$this->load->library('upload', $config);
 		$return_arr = array();
@@ -534,7 +551,7 @@ class Common_model extends CI_Model {
 	public function upload_signature($input_name='up_file',$type="*",$path = ''){
 		
 		$config['upload_path']          = $path != '' ? $path : UPLOAD_SIGNATURE;
-		$config['allowed_types']        = $type;
+		$config['allowed_types']        = $this->_normalize_allowed_types($type);
 		//$config['max_size']             = 4096; // In Kilo bites
 		$this->load->library('upload', $config);
 		$return_arr = array();
@@ -1229,7 +1246,7 @@ class Common_model extends CI_Model {
 
 	public function upload_multiple_ppogpocpo($input_name='up_file',$type="*",$path = ''){
 		$config['upload_path']          = $path != '' ? $path : UPLOAD_PPOGPOCPO;
-		$config['allowed_types']        = $type;
+		$config['allowed_types']        = $this->_normalize_allowed_types($type);
 		//$config['max_size']             = 4096; // In Kilo bites
 		$this->load->library('upload', $config);
 		$return_arr = array();

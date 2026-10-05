@@ -103,8 +103,20 @@ class Record extends CI_Controller {
 		$this->load->view('agadmin/pages/record/circular_office_order_add',$data);
 		$this->load->view('agadmin/layout/footer');
 	}
+
+	public function circular_office_order_delete(){
+		$id = $this->uri->segment(4);
+		if(!empty($id)){
+			$data['row'] = $this->wing_model->getCircularOfficeOrderByID($id);
+			if(!empty($data['row'])){
+				$this->wing_model->deleteCircularOfficeOrderByID($id);
+				$this->session->set_flashdata('success','Successfully deleted.');
+			}
+		}
+		redirect(ADMIN_BASE_URL.'record/circular_office_order');
+	}
 	
-public function tender_notice(){
+	public function tender_notice(){
 		$this->load->library('pagination');
 		$data['csrf'] = array(
 				'name' => $this->security->get_csrf_token_name(),

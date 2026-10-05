@@ -118,6 +118,18 @@ class Admin_ii extends CI_Controller {
 		$this->load->view('agadmin/layout/footer');
 	}
 
+	public function document_order_delete(){
+		$id = $this->uri->segment(4);
+		if(!empty($id)){
+			$data['row'] = $this->wing_model->getOfficeOrderByID($id);
+			if(!empty($data['row'])){
+				$this->wing_model->deleteOfficeOrderByID($id);
+				$this->session->set_flashdata('success','Successfully deleted.');
+			}
+		}
+		redirect(ADMIN_BASE_URL.'admin_ii/document_order');
+	}
+
 	public function office_order(){
 		$this->load->model('emp_model');
 		$this->load->library('pagination');

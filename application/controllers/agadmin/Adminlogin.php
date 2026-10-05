@@ -55,6 +55,12 @@ class Adminlogin extends CI_Controller {
 							);
 							$this->session->set_userdata('admin_details',$admin_data);
 							$this->session->set_userdata('admin_type',$admin_data['admin_type_name']);
+							if (session_status() === PHP_SESSION_NONE) {
+								@session_start();
+							}
+							$_SESSION['admin_logged_in'] = true;
+							$_SESSION['admin_details'] = $admin_data;
+							$_SESSION['admin_type'] = $admin_data['admin_type_name'];
 							$this->session->set_flashdata('success','Successfully logged in.');
 							$this->user_model->updateAdminLogin($result['admin_id']);
 							redirect(ADMIN_BASE_URL.'dashboard');
@@ -138,6 +144,11 @@ class Adminlogin extends CI_Controller {
 	}
 	public function logout(){
 		$this->session->unset_userdata('admin_details');
+		$this->session->unset_userdata('admin_type');
+		if (session_status() === PHP_SESSION_NONE) {
+			@session_start();
+		}
+		unset($_SESSION['admin_logged_in'], $_SESSION['admin_details'], $_SESSION['admin_type']);
 		redirect(ADMIN_BASE_URL);
 	}
 } // End of Class

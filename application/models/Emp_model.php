@@ -5794,6 +5794,9 @@ class Emp_model extends CI_Model {
 	public function deleteExamResultsByID($id = 0){
 		$this->db->where('sign_id',$id)->delete('signature_master');
 	}
+	public function deleteSignatureTag($id = 0){
+		$this->db->where('sign_id',$id)->delete('signature_master');
+	}
 	public function get_last_signature_id(){
 		$res = $this->db->select ('max(sign_id) max_id')
 						->from('signature_master')
@@ -6994,6 +6997,10 @@ class Emp_model extends CI_Model {
 		if(empty($update_array)){return $id;} 
 		$this->db->where('chrg_id',$id)->update('section_charge_master',$update_array);
 		return $id;
+	}
+	public function deleteChargeMaster($id = 0){
+		if(empty($id)){return false;}
+		return $this->db->where('chrg_id', $id)->delete('section_charge_master');
 	}
 	public function get_emp_section_index($empid = ''){
 		$res = $this->db->select ('sect_idx')

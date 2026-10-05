@@ -311,15 +311,15 @@ $rol_st = isset($emp_data['rol_st']) ? $emp_data['rol_st']: 'N';
 								</a>
 							</li>
 							<?php } ?>
-							<?php if($desig == 'DY. ACCOUNTANT GENERAL' || $desig == 'SR.DY. ACCOUNTANT GENERAL' || $empid == 'ABMPN8092N' || $empid == 'AEJPM4439C' || $empid == 'ABVPC6794M' || $empid == 'AFGPP1627K' || $empid == 'AUMPB6168Q' ){ ?>
+							<?php if($desig == 'DY. ACCOUNTANT GENERAL' || $desig == 'SR.DY. ACCOUNTANT GENERAL' || in_array($empid, array('ABMPN8092N', 'AEJPM4439C', 'ABVPC6794M', 'AFGPP1627K', 'AUMPB6168Q')) || !empty($this->session->userdata('is_grievance_admin'))){ ?>
 							<li>
 								<a href="<?php echo SITE_BASE_URL?>emp/grievance_all">     
-								<span class="lbl"><?php echo $this->lang->line('exam_app'); ?>Grievance Process</span>                      
+								<span class="lbl">Grievance Process</span>                      
 								</a>
 							</li>
 							<li>
 								<a href="<?php echo SITE_BASE_URL?>emp/feedback_all">     
-								<span class="lbl"><?php echo $this->lang->line('exam_app'); ?>Feedback Process</span>                      
+								<span class="lbl">Feedback Process</span>                      
 								</a>
 							</li>
 							<?php } ?>

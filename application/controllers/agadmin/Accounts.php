@@ -4695,7 +4695,15 @@ public function exam_result(){
 		$this->load->view('agadmin/layout/header');
 		$this->load->view('agadmin/pages/accounts/treasury_inspector_record_edit',$data);
 		$this->load->view('agadmin/layout/footer');
-	}	
+	}
+	public function treasury_inspection_delete(){
+		$id = $this->uri->segment(4);
+		if(!empty($id)){
+			$this->db->where('try_insp_id',$id)->delete('treasury_inspection_master');
+			$this->session->set_flashdata('success','Successfully deleted.');
+		}
+		redirect(ADMIN_BASE_URL.'accounts/treasury_inspection');
+	}
 	public function all_employees_try_inspection(){
 		$headings = array();
 		$firstrow = array();
@@ -4752,7 +4760,7 @@ public function exam_result(){
 		$data['candidates'] = $this->accounts_model->get_emp_inspectors_list($id);
 		$html = $this->load->view('agadmin/pages/accounts/treasury_inspection_order_print',$data,true);
 
-		$img="/usr/local/apache24/htdocs/assets/images/top-head.png";
+		$img = FCPATH . "assets/images/top-head.png";
 		$pdfFilePath ="TI_Order".time().".pdf";
 		$pdf = $this->m_pdf->letterPdfCreate();
 		$pdf->SetWatermarkText('O/o the Pr. Accountant General (A&E), WB');

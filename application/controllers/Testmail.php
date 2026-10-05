@@ -4,6 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Testmail extends CI_Controller {
 	function __construct(){
 		parent::__construct();
+		if (!is_cli() && !$this->session->userdata('admin_details')) {
+			show_404();
+		}
 		$this->lang->load('main','english');
 		$this->load->model('page_model');
 		$this->load->library('p_mail');

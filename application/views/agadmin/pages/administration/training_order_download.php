@@ -126,7 +126,7 @@ $location = isset($row['location']) ? $row['location'] : '';
           </tbody> 
       </table>
       <p style = "text-align: right"><span>
-	  <img src="/usr/local/apache24/htdocs/files/agae/signature/<?php echo $trainees['sign_tag']?>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br>
+	  <img src="<?php echo FCPATH; ?>files/agae/signature/<?php echo $trainees['sign_tag']?>" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br>
 	  <span>[<?php echo strtoupper($trainees['officer_name'])?>] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	  <span></br><br>
 	  <span> <?php echo strtoupper($trainees['officer_desig'])?>

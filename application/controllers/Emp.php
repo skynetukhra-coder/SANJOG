@@ -3188,7 +3188,7 @@ class Emp extends CI_Controller {
 		
 		$html = $this->load->view('pages/emp/treasury_inspection_order_print',$data,true);
 		
-		$img="/usr/local/apache24/htdocs/assets/images/top-head.png";
+		$img=FCPATH . "assets/images/top-head.png";
 		$pdfFilePath ="TI_Order".time().".pdf";
 		$pdf = $this->m_pdf->letterPdfCreate();
 		$pdf->SetWatermarkText('O/o the Pr. Accountant General (A&E), WB');
@@ -3372,7 +3372,7 @@ class Emp extends CI_Controller {
 		
 		$html = $this->load->view('pages/emp/training_order_download',$data,true);//load the pdf_output.php by passing our data and get all data in $html varriable.
 		
-		$img="/usr/local/apache24/htdocs/assets/images/top-head.png";
+		$img=FCPATH . "assets/images/top-head.png";
 		$pdfFilePath ="Training_Order".time().".pdf";
 		$pdf = $this->m_pdf->letterPdfCreate();
 		$pdf->SetWatermarkText('O/o the Pr. Accountant General (A&E), WB');
@@ -3479,7 +3479,7 @@ class Emp extends CI_Controller {
 		$data['candidates'] = $this->emp_model->get_faculties_list($id);
 		$html = $this->load->view('pages/emp/faculty_order_download',$data,true);//load the pdf_output.php by passing our data and get all data in $html varriable.
 		
-		$img="/usr/local/apache24/htdocs/assets/images/top-head.png";
+		$img=FCPATH . "assets/images/top-head.png";
 		$pdfFilePath ="Faculty_Order".time().".pdf";
 		$pdf = $this->m_pdf->letterPdfCreate();
 		$pdf->SetWatermarkText('O/o the Pr. Accountant General (A&E), WB');
@@ -4455,7 +4455,7 @@ class Emp extends CI_Controller {
 		}
 		$data['candidates'] = $this->emp_model->get_transferred_employee_list($id);
 		$html = $this->load->view('pages/emp/transfer_order_download',$data,true);//load the pdf_output.php by passing our data and get all data in $html varriable.
-		$img="/usr/local/apache24/htdocs/assets/images/top-head.png";
+		$img=FCPATH . "assets/images/top-head.png";
 		$pdfFilePath ="Training_Order".time().".pdf";
 		$pdf = $this->m_pdf->letterPdfCreate();
 		$pdf->SetWatermarkText('O/o the Pr. Accountant General (A&E), WB');
@@ -4814,7 +4814,7 @@ class Emp extends CI_Controller {
 		}
 
 		$html = $this->load->view('pages/emp/application_exam_other_print',$data,true);//load the pdf_output.php by passing our data and get all data in $html varriable.
-		$img="/usr/local/apache24/htdocs/assets/images/top-head.png";
+		$img=FCPATH . "assets/images/top-head.png";
 		$pdfFilePath ="Permission".time().".pdf";
 		$pdf = $this->m_pdf->generate();
 		$pdf->SetWatermarkText('O/o the Pr. Accountant General (A&E), WB');
@@ -4964,7 +4964,7 @@ class Emp extends CI_Controller {
 		}
 
 		$html = $this->load->view('pages/emp/bill_emp_download',$data,true);//load the pdf_output.php by passing our data and get all data in $html varriable.
-		$img="/usr/local/apache24/htdocs/assets/images/top-head.png";
+		$img=FCPATH . "assets/images/top-head.png";
 		$pdfFilePath ="Permission".time().".pdf";
 		$pdf = $this->m_pdf->pdfgenerate();
 		$pdf->SetWatermarkText('O/o the Pr. Accountant General (A&E), WB');
@@ -5486,7 +5486,7 @@ class Emp extends CI_Controller {
 		$data['pvigits'] = $this->emp_model->foreing_visit_fouryr_records($empid);
 	
 		$html = $this->load->view('pages/emp/application_passport_print',$data,true);//load the pdf_output.php by passing our data and get all data in $html varriable.
-		$img="/usr/local/apache24/htdocs/assets/images/top-head.png";
+		$img=FCPATH . "assets/images/top-head.png";
 		$pdfFilePath ="Permission".time().".pdf";
 		$pdf = $this->m_pdf->generate();
 		$pdf->SetWatermarkText('O/o the Pr. Accountant General (A&E), WB');

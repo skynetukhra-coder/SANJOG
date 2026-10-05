@@ -36,8 +36,11 @@ $config = array();
 // http://docs.cksource.com/ckfinder3-php/configuration.html#configuration_options_authentication
 
 $config['authentication'] = function () {
-    //return false;
-	return true;
+    if (session_status() === PHP_SESSION_NONE) {
+        @session_start();
+    }
+    // Only allow authenticated administrative staff
+    return (!empty($_SESSION['admin_details']['id']) || !empty($_SESSION['admin_logged_in']) || !empty($_SESSION['admin_type']));
 };
 
 /*============================ License Key ============================================*/

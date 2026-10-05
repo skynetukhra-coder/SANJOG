@@ -7,6 +7,9 @@ class Testajax extends CI_Controller {
 		$this->lang->load('main','english');
 		$this->load->model('page_model');
 		$this->load->model('wing_model');
+		if(!$this->session->userdata('admin_details')){
+			show_404();
+		}
 		if($this->session->userdata('language_id')){
 			$this->language_id = $this->session->userdata('language_id');
 		}else{

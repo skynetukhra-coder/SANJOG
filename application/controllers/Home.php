@@ -25,7 +25,8 @@ class Home extends CI_Controller {
 	}
 	public function screen_reader_access(){
 		$this->load->view('layout/header');
-		$this->load->view('pages/screen_reader_access_'.$this->language_id);
+		$lang = !empty($this->language_id) ? $this->language_id : 1;
+		$this->load->view('pages/screen_reader_access_'.$lang);
 		$this->load->view('layout/footer');
 	}
 	public function on_this_site(){

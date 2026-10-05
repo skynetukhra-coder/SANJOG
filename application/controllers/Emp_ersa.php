@@ -49,7 +49,7 @@ class Emp_ersa extends CI_Controller {
 			}
 		}
 		$data['cap'] = get_captcha();
-		redirect('https://agwb.cag.gov.in');
+		// redirect('https://agwb.cag.gov.in');
 		$this->load->view('layout/header');
 		$this->load->view('pages/emp_ersa/login',$data);
 		$this->load->view('layout/footer');

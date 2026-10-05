@@ -118,7 +118,7 @@
 												<option value=""> -- Select loan type--</option>
 												<option data-value="1" value="Interest Bearing" <?php echo $this->input->get('year') == 'Interest Bearing' ? 'selected' : ''?> >Interest Bearing</option>
 												<option data-value="2" value="Non-Interest Bearing" <?php echo $this->input->get('year') == 'Non-Interest Bearing' ? 'selected' : ''?> >Non-Interest Bearing</option>
-										</Select>									
+										</select>									
 									</div>
 								</div>
 							</div>
@@ -134,7 +134,7 @@
 												<option data-value="2" value="GPF Withdrawal" <?php echo $this->input->get('year') == 'GPF Withdrawal' ? 'selected' : ''?> >GPF Withdrawal</option>
 												<option data-value="3" value="Computer Advance"<?php echo $this->input->get('year') == 'Computer Advance' ? 'selected' : ''?> >Computer Advance</option>
 												<option data-value="4" value="House Building Advance"<?php echo $this->input->get('year') == 'House Building Advance' ? 'selected' : ''?> >House Building Advance</option>
-											</Select>
+											</select>
 										</div>
 									</div>
 									<div class="col-md-8 col-sm-12 apl-mrgbtm">

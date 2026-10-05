@@ -70,6 +70,8 @@ $route[AGAE_BASE.'/page/(:any)'] = "agae/page/$1";
 $route['content/(:any)'] = "content/index/$1";
 $route[AGAE_BASE.'/*'] = "agae/*";
 $route['emp/form-16'] = 'emp/form_sixteen_redirect';
+$route['screen_reader_access'] = 'home/screen_reader_access';
+$route['pension/login'] = 'pension/final_payment_cases';
 /************************
 	End Front End
 ************************/
@@ -91,7 +93,7 @@ $route[ADMIN_BASE.'/members/delete/(:any)'] = "agadmin/members/delete/$1";
 
 $route[ADMIN_BASE.'/dashboard'] = "agadmin/dashboard";
 
-$route[ADMIN_BASE.'/test1'] = "agadmin/pages/test1";
+#$route[ADMIN_BASE.'/test1'] = "agadmin/pages/test1";
 
 $route[ADMIN_BASE.'/contents/agae'] = "agadmin/pages";
 $route[ADMIN_BASE.'/pages/add_agae'] = "agadmin/pages/add";
@@ -119,15 +121,15 @@ $route[ADMIN_BASE.'/blocks'] = "agadmin/blocks";
 $route[ADMIN_BASE.'/blocks/add'] = "agadmin/blocks/add";
 $route[ADMIN_BASE.'/blocks/edit/(:any)'] = "agadmin/blocks/add/$1";
 
-$route[ADMIN_BASE.'/links_agae'] = "agadmin/links_agae";
+$route[ADMIN_BASE.'/links_agae'] = "agadmin/links/add_agae";
 $route[ADMIN_BASE.'/links/add_agae'] = "agadmin/links/add_agae";
 $route[ADMIN_BASE.'/links/edit_agae/(:any)'] = "agadmin/links/add_agae/$1";
 
-$route[ADMIN_BASE.'/links_aggssa'] = "agadmin/links_aggssa";
+$route[ADMIN_BASE.'/links_aggssa'] = "agadmin/links/add_aggssa";
 $route[ADMIN_BASE.'/links/add_aggssa'] = "agadmin/links/add_aggssa";
 $route[ADMIN_BASE.'/links/edit_aggssa/(:any)'] = "agadmin/links/add_aggssa/$1";
 
-$route[ADMIN_BASE.'/links_agersa'] = "agadmin/links_agersa";
+$route[ADMIN_BASE.'/links_agersa'] = "agadmin/links/add_agersa";
 $route[ADMIN_BASE.'/links/add_agersa'] = "agadmin/links/add_agersa";
 $route[ADMIN_BASE.'/links/edit_agersa/(:any)'] = "agadmin/links/add_agersa/$1";
 
@@ -171,8 +173,8 @@ $route[ADMIN_BASE.'/administration/employee_ajax_upload'] = "agadmin/administrat
 $route[ADMIN_BASE.'/administration/employee_details_upload'] = "agadmin/administration/employee_details_upload";
 $route[ADMIN_BASE.'/administration/employee_details_ajax_upload'] = "agadmin/administration/employee_details_ajax_upload";
 $route[ADMIN_BASE.'/administration/employee_application'] = "agadmin/administration/employee_application";
-$route[ADMIN_BASE.'/administration/period_employees_application'] = "agadmin/administration/period_employees_application";
-$route[ADMIN_BASE.'/administration/employees_application'] = "agadmin/administration/employees_application";
+$route[ADMIN_BASE.'/administration/period_employees_application'] = "agadmin/administration/all_employees_application";
+$route[ADMIN_BASE.'/administration/employees_application'] = "agadmin/administration/all_employees_application";
 $route[ADMIN_BASE.'/administration/employee_login'] = "agadmin/administration/employee_login";
 $route[ADMIN_BASE.'/administration/employee_pan/(:any)'] = "agadmin/administration/employee_pan/$1";
 
@@ -244,8 +246,8 @@ $route[ADMIN_BASE.'/administration/order_employee_delete/(:any)'] = "agadmin/adm
 $route[ADMIN_BASE.'/administration/training_employee'] = "agadmin/administration/training_employee";
 $route[ADMIN_BASE.'/administration/training_employee_delete/(:any)'] = "agadmin/administration/training_employee_delete/$1";
 $route[ADMIN_BASE.'/administration/all_office_order'] = "agadmin/administration/all_office_order";
-$route[ADMIN_BASE.'/administration/all_office_order_edit/(:any)'] = "agadmin/administration/all_office_order_add/$1";
-$route[ADMIN_BASE.'/administration/all_office_order_delete/(:any)'] = "agadmin/administration/all_office_order_delete/$1";
+$route[ADMIN_BASE.'/administration/all_office_order_edit/(:any)'] = "agadmin/administration/office_order_edit/$1";
+$route[ADMIN_BASE.'/administration/all_office_order_delete/(:any)'] = "agadmin/administration/office_order_delete/$1";
 $route[ADMIN_BASE.'/administration/employee_download'] = "agadmin/administration/employee_download";
 $route[ADMIN_BASE.'/administration/all_office_order_flag/(:any)'] = "agadmin/administration/all_office_order_flag/$1";
 $route[ADMIN_BASE.'/administration/all_office_order_flagoff/(:any)'] = "agadmin/administration/all_office_order_flagoff/$1";
@@ -261,8 +263,8 @@ $route[ADMIN_BASE.'/administration/tender_notice'] = "agadmin/administration/ten
 $route[ADMIN_BASE.'/administration/tender_notice_add'] = "agadmin/administration/tender_notice_add";
 $route[ADMIN_BASE.'/administration/tender_notice_edit/(:any)'] = "agadmin/administration/tender_notice_add/$1";
 $route[ADMIN_BASE.'/administration/tender_notice_delete/(:any)'] = "agadmin/administration/tender_notice_delete/$1";
-$route[ADMIN_BASE.'/administration/tender_notice_upload'] = "agadmin/administration/tender_notice_upload";
-$route[ADMIN_BASE.'/administration/tender_notice_ajax_upload'] = "agadmin/administration/tender_notice_ajax_upload";
+$route[ADMIN_BASE.'/administration/tender_notice_upload'] = "agadmin/administration/tender_notice";
+$route[ADMIN_BASE.'/administration/tender_notice_ajax_upload'] = "agadmin/administration/tender_notice";
 
 $route[ADMIN_BASE.'/administration/exam_result'] = "agadmin/administration/exam_result";
 $route[ADMIN_BASE.'/administration/exam_result_add'] = "agadmin/administration/exam_result_add";
@@ -286,7 +288,7 @@ $route[ADMIN_BASE.'/administration/trg_feedback_download'] = "agadmin/administra
 
 $route[ADMIN_BASE.'/administration/faculty'] = "agadmin/administration/faculty";
 $route[ADMIN_BASE.'/administration/faculty_edit/(:any)'] = "agadmin/administration/training_edit/$1";
-$route[ADMIN_BASE.'/administration/faculty_assignment/(:any)'] = "agadmin/administfacultyration/faculty_assignment/$1";
+$route[ADMIN_BASE.'/administration/faculty_assignment/(:any)'] = "agadmin/administration/faculty_assignment/$1";
 $route[ADMIN_BASE.'/administration/all_training_faculties'] = "agadmin/administration/all_training_faculties";
 $route[ADMIN_BASE.'/administration/faculty_order_download'] = "agadmin/administration/faculty_order_download";
 
@@ -509,22 +511,22 @@ $route[ADMIN_BASE.'/record/office_order_add'] = "agadmin/record/office_order_add
 $route[ADMIN_BASE.'/record/office_order_edit/(:any)'] = "agadmin/record/office_order_edit/$1";
 $route[ADMIN_BASE.'/record/office_order_delete/(:any)'] = "agadmin/record/office_order_delete/$1";
 $route[ADMIN_BASE.'/record/order_employee'] = "agadmin/record/order_employee";
-$route[ADMIN_BASE.'/record/order_employee_delete/(:any)'] = "agadmin/record/order_employee_delete/$1";
+$route[ADMIN_BASE.'/record/order_employee_delete/(:any)'] = "agadmin/administration/order_employee_delete/$1";
 $route[ADMIN_BASE.'/record/office_order/(:any)'] = "agadmin/record/office_order/$1";
 
 $route[ADMIN_BASE.'/record/circular_office_order'] = "agadmin/record/circular_office_order";
 $route[ADMIN_BASE.'/record/circular_office_order_add'] = "agadmin/record/circular_office_order_add";
 $route[ADMIN_BASE.'/record/circular_office_order_edit/(:any)'] = "agadmin/record/circular_office_order_add/$1";
 $route[ADMIN_BASE.'/record/circular_office_order_delete/(:any)'] = "agadmin/record/circular_office_order_delete/$1";
-$route[ADMIN_BASE.'/record/circular_office_order_upload'] = "agadmin/record/circular_office_order_upload";
-$route[ADMIN_BASE.'/record/circular_office_order_ajax_upload'] = "agadmin/record/circular_office_order_ajax_upload";
+$route[ADMIN_BASE.'/record/circular_office_order_upload'] = "agadmin/record/circular_office_order";
+$route[ADMIN_BASE.'/record/circular_office_order_ajax_upload'] = "agadmin/record/circular_office_order";
 
 $route[ADMIN_BASE.'/record/tender_notice'] = "agadmin/record/tender_notice";
 $route[ADMIN_BASE.'/record/tender_notice_add'] = "agadmin/record/tender_notice_add";
 $route[ADMIN_BASE.'/record/tender_notice_edit/(:any)'] = "agadmin/record/tender_notice_add/$1";
 $route[ADMIN_BASE.'/record/tender_notice_delete/(:any)'] = "agadmin/record/tender_notice_delete/$1";
-$route[ADMIN_BASE.'/record/tender_notice_upload'] = "agadmin/record/tender_notice_upload";
-$route[ADMIN_BASE.'/record/tender_notice_ajax_upload'] = "agadmin/record/tender_notice_ajax_upload";
+$route[ADMIN_BASE.'/record/tender_notice_upload'] = "agadmin/record/tender_notice";
+$route[ADMIN_BASE.'/record/tender_notice_ajax_upload'] = "agadmin/record/tender_notice";
 
 $route[ADMIN_BASE.'/record/document_order'] = "agadmin/record/document_order";
 $route[ADMIN_BASE.'/record/document_order_add'] = "agadmin/record/document_order_add";
@@ -546,29 +548,29 @@ $route[ADMIN_BASE.'/praggssa/circular_office_order'] = "agadmin/praggssa/circula
 $route[ADMIN_BASE.'/praggssa/circular_office_order_add'] = "agadmin/praggssa/circular_office_order_add";
 $route[ADMIN_BASE.'/praggssa/circular_office_order_edit/(:any)'] = "agadmin/praggssa/circular_office_order_add/$1";
 $route[ADMIN_BASE.'/praggssa/circular_office_order_delete/(:any)'] = "agadmin/praggssa/circular_office_order_delete/$1";
-$route[ADMIN_BASE.'/praggssa/circular_office_order_upload'] = "agadmin/praggssa/circular_office_order_upload";
-$route[ADMIN_BASE.'/praggssa/circular_office_order_ajax_upload'] = "agadmin/praggssa/circular_office_order_ajax_upload";
+$route[ADMIN_BASE.'/praggssa/circular_office_order_upload'] = "agadmin/praggssa/circular_office_order";
+$route[ADMIN_BASE.'/praggssa/circular_office_order_ajax_upload'] = "agadmin/praggssa/circular_office_order";
 
 $route[ADMIN_BASE.'/praggssa/tender_notice'] = "agadmin/praggssa/tender_notice";
 $route[ADMIN_BASE.'/praggssa/tender_notice_add'] = "agadmin/praggssa/tender_notice_add";
 $route[ADMIN_BASE.'/praggssa/tender_notice_edit/(:any)'] = "agadmin/praggssa/tender_notice_add/$1";
 $route[ADMIN_BASE.'/praggssa/tender_notice_delete/(:any)'] = "agadmin/praggssa/tender_notice_delete/$1";
-$route[ADMIN_BASE.'/praggssa/tender_notice_upload'] = "agadmin/praggssa/tender_notice_upload";
-$route[ADMIN_BASE.'/praggssa/tender_notice_ajax_upload'] = "agadmin/praggssa/tender_notice_ajax_upload";
+$route[ADMIN_BASE.'/praggssa/tender_notice_upload'] = "agadmin/praggssa/tender_notice";
+$route[ADMIN_BASE.'/praggssa/tender_notice_ajax_upload'] = "agadmin/praggssa/tender_notice";
 
 $route[ADMIN_BASE.'/agersa/circular_office_order'] = "agadmin/agersa/circular_office_order";
 $route[ADMIN_BASE.'/agersa/circular_office_order_add'] = "agadmin/agersa/circular_office_order_add";
 $route[ADMIN_BASE.'/agersa/circular_office_order_edit/(:any)'] = "agadmin/agersa/circular_office_order_add/$1";
 $route[ADMIN_BASE.'/agersa/circular_office_order_delete/(:any)'] = "agadmin/agersa/circular_office_order_delete/$1";
-$route[ADMIN_BASE.'/agersa/circular_office_order_upload'] = "agadmin/agersa/circular_office_order_upload";
-$route[ADMIN_BASE.'/agersa/circular_office_order_ajax_upload'] = "agadmin/agersa/circular_office_order_ajax_upload";
+$route[ADMIN_BASE.'/agersa/circular_office_order_upload'] = "agadmin/agersa/circular_office_order";
+$route[ADMIN_BASE.'/agersa/circular_office_order_ajax_upload'] = "agadmin/agersa/circular_office_order";
 
 $route[ADMIN_BASE.'/agersa/tender_notice'] = "agadmin/agersa/tender_notice";
 $route[ADMIN_BASE.'/agersa/tender_notice_add'] = "agadmin/agersa/tender_notice_add";
 $route[ADMIN_BASE.'/agersa/tender_notice_edit/(:any)'] = "agadmin/agersa/tender_notice_add/$1";
 $route[ADMIN_BASE.'/agersa/tender_notice_delete/(:any)'] = "agadmin/agersa/tender_notice_delete/$1";
-$route[ADMIN_BASE.'/agersa/tender_notice_upload'] = "agadmin/agersa/tender_notice_upload";
-$route[ADMIN_BASE.'/agersa/tender_notice_ajax_upload'] = "agadmin/agersa/tender_notice_ajax_upload";
+$route[ADMIN_BASE.'/agersa/tender_notice_upload'] = "agadmin/agersa/tender_notice";
+$route[ADMIN_BASE.'/agersa/tender_notice_ajax_upload'] = "agadmin/agersa/tender_notice";
 
 $route[ADMIN_BASE.'/pao/gpf_statement'] = "agadmin/pao/gpf_statement";
 $route[ADMIN_BASE.'/pao/gpf_statement_add'] = "agadmin/pao/gpf_statement_add";
@@ -642,8 +644,8 @@ $route[ADMIN_BASE.'/accounts/department_loan_advance'] = "agadmin/accounts/depar
 $route[ADMIN_BASE.'/accounts/department_loan_advance_edit/(:any)'] = "agadmin/accounts/department_loan_advance_edit/$1";
 $route[ADMIN_BASE.'/accounts/department_loan_advance_upload'] = "agadmin/accounts/department_loan_advance_upload";
 $route[ADMIN_BASE.'/accounts/department_loan_advance_ajax_upload'] = "agadmin/accounts/department_loan_advance_ajax_upload";
-$route[ADMIN_BASE.'/accounts/department_loan_advance_delete/(:any)'] = "agadmin/accounts/ddepartment_loan_advance_delete/$1";
-$route[ADMIN_BASE.'/accounts/loan_advance_download'] = "agadmin/accounts/loan_advance_download";
+$route[ADMIN_BASE.'/accounts/department_loan_advance_delete/(:any)'] = "agadmin/accounts/department_loan_advance_delete/$1";
+$route[ADMIN_BASE.'/accounts/loan_advance_download'] = "agadmin/accounts/department_loan_advance";
 
 
 $route[ADMIN_BASE.'/accounts/treasury_inspection_new'] = "agadmin/accounts/treasury_inspection_new";
@@ -658,9 +660,9 @@ $route[ADMIN_BASE.'/accounts/treasury_inspector_record_edit/(:any)'] = "agadmin/
 $route[ADMIN_BASE.'/accounts/all_employees_try_inspection'] = "agadmin/accounts/all_employees_try_inspection";
 $route[ADMIN_BASE.'/accounts/treasury_inspection_order_print'] = "agadmin/accounts/treasury_inspection_order_print";
 
-$route[ADMIN_BASE.'/accounts/da_cadre'] = "agadmin/accounts/da_cadre";
-$route[ADMIN_BASE.'/accounts/da_cadre_upload'] = "agadmin/accounts/da_cadre_upload";
-$route[ADMIN_BASE.'/accounts/da_cadre_ajax_upload'] = "agadmin/accounts/da_cadre_ajax_upload";
+$route[ADMIN_BASE.'/accounts/da_cadre'] = "agadmin/accounts/da_cadare";
+$route[ADMIN_BASE.'/accounts/da_cadre_upload'] = "agadmin/accounts/da_cadare_upload";
+$route[ADMIN_BASE.'/accounts/da_cadre_ajax_upload'] = "agadmin/accounts/da_cadare_ajax_upload";
 
 $route[ADMIN_BASE.'/accounts/monthly_file'] = "agadmin/accounts/monthly_file";
 $route[ADMIN_BASE.'/accounts/monthly_file_upload'] = "agadmin/accounts/monthly_file_upload";
@@ -687,8 +689,8 @@ $route[ADMIN_BASE.'/accounts/section_transfer'] = "agadmin/accounts/section_tran
 $route[ADMIN_BASE.'/accounts/section_transfer_assignment/(:any)'] = "agadmin/accounts/section_transfer_assignment/$1";
 $route[ADMIN_BASE.'/accounts/section_transfer_record'] = "agadmin/accounts/section_transfer_record";
 $route[ADMIN_BASE.'/accounts/section_transfer_record_edit/(:any)'] = "agadmin/accounts/section_transfer_record_edit/$1";
-$route[ADMIN_BASE.'/accounts/all_employees_transfer'] = "agadmin/accounts/all_employees_transfer";
-$route[ADMIN_BASE.'/accounts/transfer_order_download'] = "agadmin/accounts/transfer_order_download";
+$route[ADMIN_BASE.'/accounts/all_employees_transfer'] = "agadmin/administration/all_employees_transfer";
+$route[ADMIN_BASE.'/accounts/transfer_order_download'] = "agadmin/administration/transfer_order_download";
 $route[ADMIN_BASE.'/accounts/section_allotment'] = "agadmin/accounts/section_allotment";
 $route[ADMIN_BASE.'/accounts/section_allotment_edit/(:any)'] = "agadmin/accounts/section_allotment_edit/$1";
 
@@ -705,13 +707,13 @@ $route[ADMIN_BASE.'/accounts/office_order_edit/(:any)'] = "agadmin/accounts/offi
 $route[ADMIN_BASE.'/accounts/office_order_delete/(:any)'] = "agadmin/accounts/office_order_delete/$1";
 $route[ADMIN_BASE.'/accounts/office_order/(:any)'] = "agadmin/accounts/office_order/$1";
 
-$route[ADMIN_BASE.'/accounts/charge_master'] = "agadmin/accounts/charge_master";
-$route[ADMIN_BASE.'/accounts/charge_master_add'] = "agadmin/accounts/charge_master_add";
-$route[ADMIN_BASE.'/accounts/charge_master_edit/(:any)'] = "agadmin/accounts/charge_master_edit/$1";
-$route[ADMIN_BASE.'/accounts/charge_master_delete/(:any)'] = "agadmin/accounts/charge_master_delete/$1";
+$route[ADMIN_BASE.'/accounts/charge_master'] = "agadmin/administration/charge_master";
+$route[ADMIN_BASE.'/accounts/charge_master_add'] = "agadmin/administration/charge_master_add";
+$route[ADMIN_BASE.'/accounts/charge_master_edit/(:any)'] = "agadmin/administration/charge_master_edit/$1";
+$route[ADMIN_BASE.'/accounts/charge_master_delete/(:any)'] = "agadmin/administration/charge_master_delete/$1";
 
 $route[ADMIN_BASE.'/accounts/order_employee'] = "agadmin/accounts/order_employee";
-$route[ADMIN_BASE.'/accounts/order_employee_delete/(:any)'] = "agadmin/accounts/order_employee_delete/$1";
+$route[ADMIN_BASE.'/accounts/order_employee_delete/(:any)'] = "agadmin/administration/order_employee_delete/$1";
 
 $route[ADMIN_BASE.'/accounts/document_order'] = "agadmin/accounts/document_order";
 $route[ADMIN_BASE.'/accounts/document_order_add'] = "agadmin/accounts/document_order_add";
@@ -746,7 +748,7 @@ $route[ADMIN_BASE.'/wm/office_order_edit/(:any)'] = "agadmin/wm/office_order_edi
 $route[ADMIN_BASE.'/wm/office_order_delete/(:any)'] = "agadmin/wm/office_order_delete/$1";
 
 $route[ADMIN_BASE.'/wm/order_employee'] = "agadmin/wm/order_employee";
-$route[ADMIN_BASE.'/wm/order_employee_delete/(:any)'] = "agadmin/wm/order_employee_delete/$1";
+$route[ADMIN_BASE.'/wm/order_employee_delete/(:any)'] = "agadmin/administration/order_employee_delete/$1";
 $route[ADMIN_BASE.'/wm/office_order/(:any)'] = "agadmin/wm/office_order/$1";
 
 $route[ADMIN_BASE.'/wm/document_order'] = "agadmin/wm/document_order";
@@ -804,8 +806,8 @@ $route[ADMIN_BASE.'/pension/section_transfer'] = "agadmin/pension/section_transf
 $route[ADMIN_BASE.'/pension/section_transfer_assignment/(:any)'] = "agadmin/pension/section_transfer_assignment/$1";
 $route[ADMIN_BASE.'/pension/section_transfer_record'] = "agadmin/pension/section_transfer_record";
 $route[ADMIN_BASE.'/pension/section_transfer_record_edit/(:any)'] = "agadmin/pension/section_transfer_record_edit/$1";
-$route[ADMIN_BASE.'/pension/all_employees_transfer'] = "agadmin/pension/all_employees_transfer";
-$route[ADMIN_BASE.'/pension/transfer_order_download'] = "agadmin/pension/transfer_order_download";
+$route[ADMIN_BASE.'/pension/all_employees_transfer'] = "agadmin/administration/all_employees_transfer";
+$route[ADMIN_BASE.'/pension/transfer_order_download'] = "agadmin/administration/transfer_order_download";
 $route[ADMIN_BASE.'/pension/section_allotment'] = "agadmin/pension/section_allotment";
 $route[ADMIN_BASE.'/pension/section_allotment_edit/(:any)'] = "agadmin/pension/section_allotment_edit/$1";
 
@@ -822,14 +824,14 @@ $route[ADMIN_BASE.'/pension/office_order_edit/(:any)'] = "agadmin/pension/office
 $route[ADMIN_BASE.'/pension/office_order_delete/(:any)'] = "agadmin/pension/office_order_delete/$1";
 $route[ADMIN_BASE.'/pension/office_order/(:any)'] = "agadmin/pension/office_order/$1";
 
-$route[ADMIN_BASE.'/pension/charge_master'] = "agadmin/pension/charge_master";
-$route[ADMIN_BASE.'/pension/charge_master_add'] = "agadmin/pension/charge_master_add";
-$route[ADMIN_BASE.'/pension/charge_master_edit/(:any)'] = "agadmin/pension/charge_master_edit/$1";
-$route[ADMIN_BASE.'/pension/charge_master_delete/(:any)'] = "agadmin/pension/charge_master_delete/$1";
+$route[ADMIN_BASE.'/pension/charge_master'] = "agadmin/administration/charge_master";
+$route[ADMIN_BASE.'/pension/charge_master_add'] = "agadmin/administration/charge_master_add";
+$route[ADMIN_BASE.'/pension/charge_master_edit/(:any)'] = "agadmin/administration/charge_master_edit/$1";
+$route[ADMIN_BASE.'/pension/charge_master_delete/(:any)'] = "agadmin/administration/charge_master_delete/$1";
 
 
 $route[ADMIN_BASE.'/pension/order_employee'] = "agadmin/pension/order_employee";
-$route[ADMIN_BASE.'/pension/order_employee_delete/(:any)'] = "agadmin/pension/order_employee_delete/$1";
+$route[ADMIN_BASE.'/pension/order_employee_delete/(:any)'] = "agadmin/administration/order_employee_delete/$1";
 $route[ADMIN_BASE.'/pension/training'] = "agadmin/pension/training";
 
 $route[ADMIN_BASE.'/pension/pension_payment'] = "agadmin/pension/pension_payment";
@@ -913,7 +915,7 @@ $route[ADMIN_BASE.'/gpf/case_status_upload'] = "agadmin/gpf/case_status_upload";
 $route[ADMIN_BASE.'/gpf/case_status_ajax_upload'] = "agadmin/gpf/case_status_ajax_upload";
 
 $route[ADMIN_BASE.'/gpf/mjh_head'] = "agadmin/gpf/mjh_head";
-$route[ADMIN_BASE.'/gpf/mjh_head_edit/(:any)'] = "agadmin/gpf/mjh_head_edit/$1";
+$route[ADMIN_BASE.'/gpf/mjh_head_edit/(:any)'] = "agadmin/gpf/mjh_head/$1";
 $route[ADMIN_BASE.'/gpf/mjh_head_upload'] = "agadmin/gpf/mjh_head_upload";
 $route[ADMIN_BASE.'/gpf/mjh_head_ajax_upload'] = "agadmin/gpf/mjh_head_ajax_upload";
 
@@ -927,20 +929,20 @@ $route[ADMIN_BASE.'/gpf/fp_authority_ajax_upload'] = "agadmin/gpf/fp_authority_a
 $route[ADMIN_BASE.'/gpf/fp_authority_details/(:any)'] = "agadmin/gpf/fp_authority_details/$1";
 
 $route[ADMIN_BASE.'/gpf/missingcr'] = "agadmin/gpf/missingcr";
-$route[ADMIN_BASE.'/gpf/missingcr_edit/(:any)'] = "agadmin/gpf/missingcr_edit/$1";
+$route[ADMIN_BASE.'/gpf/missingcr_edit/(:any)'] = "agadmin/gpf/missingcr/$1";
 $route[ADMIN_BASE.'/gpf/missingcr_delete/(:any)'] = "agadmin/gpf/missingcr_delete/$1";
 $route[ADMIN_BASE.'/gpf/missingcr_upload'] = "agadmin/gpf/missingcr_upload";
 $route[ADMIN_BASE.'/gpf/missingcr_ajax_upload'] = "agadmin/gpf/missingcr_ajax_upload";
-$route[ADMIN_BASE.'/gpf/missingcr_details/(:any)'] = "agadmin/gpf/missingcr_details/$1";
+$route[ADMIN_BASE.'/gpf/missingcr_details/(:any)'] = "agadmin/gpf/missingcr/$1";
 
 $route[ADMIN_BASE.'/gpf/missingcract_all'] = "agadmin/gpf/missingcract_all";
 $route[ADMIN_BASE.'/gpf/missingcract/(:any)'] = "agadmin/gpf/missingcract/$1";
 
 $route[ADMIN_BASE.'/gpf/missingcract'] = "agadmin/gpf/missingcract";
-$route[ADMIN_BASE.'/gpf/missingcract_edit/(:any)'] = "agadmin/gpf/missingcract_edit/$1";
-$route[ADMIN_BASE.'/gpf/missingcract_upload'] = "agadmin/gpf/missingcract_upload";
-$route[ADMIN_BASE.'/gpf/missingcract_ajax_upload'] = "agadmin/gpf/missingcract_ajax_upload";
-$route[ADMIN_BASE.'/gpf/missingcract_details/(:any)'] = "agadmin/gpf/missingcract_details/$1";
+$route[ADMIN_BASE.'/gpf/missingcract_edit/(:any)'] = "agadmin/gpf/missingcract/$1";
+$route[ADMIN_BASE.'/gpf/missingcract_upload'] = "agadmin/gpf/missingcr_upload";
+$route[ADMIN_BASE.'/gpf/missingcract_ajax_upload'] = "agadmin/gpf/missingcr_ajax_upload";
+$route[ADMIN_BASE.'/gpf/missingcract_details/(:any)'] = "agadmin/gpf/missingcract/$1";
 $route[ADMIN_BASE.'/gpf/missing_reports_download'] = "agadmin/gpf/missing_reports_download";
 
 $route[ADMIN_BASE.'/gpf/section_transfer_new'] = "agadmin/gpf/section_transfer_new";
@@ -948,8 +950,8 @@ $route[ADMIN_BASE.'/gpf/section_transfer'] = "agadmin/gpf/section_transfer";
 $route[ADMIN_BASE.'/gpf/section_transfer_assignment/(:any)'] = "agadmin/gpf/section_transfer_assignment/$1";
 $route[ADMIN_BASE.'/gpf/section_transfer_record'] = "agadmin/gpf/section_transfer_record";
 $route[ADMIN_BASE.'/gpf/section_transfer_record_edit/(:any)'] = "agadmin/gpf/section_transfer_record_edit/$1";
-$route[ADMIN_BASE.'/gpf/all_employees_transfer'] = "agadmin/gpf/all_employees_transfer";
-$route[ADMIN_BASE.'/gpf/transfer_order_download'] = "agadmin/gpf/transfer_order_download";
+$route[ADMIN_BASE.'/gpf/all_employees_transfer'] = "agadmin/administration/all_employees_transfer";
+$route[ADMIN_BASE.'/gpf/transfer_order_download'] = "agadmin/administration/transfer_order_download";
 $route[ADMIN_BASE.'/gpf/section_allotment'] = "agadmin/gpf/section_allotment";
 $route[ADMIN_BASE.'/gpf/section_allotment_edit/(:any)'] = "agadmin/gpf/section_allotment_edit/$1";
 
@@ -967,7 +969,7 @@ $route[ADMIN_BASE.'/gpf/office_order_delete/(:any)'] = "agadmin/gpf/office_order
 $route[ADMIN_BASE.'/gpf/office_order/(:any)'] = "agadmin/gpf/office_order/$1";
 
 $route[ADMIN_BASE.'/gpf/order_employee'] = "agadmin/gpf/order_employee";
-$route[ADMIN_BASE.'/gpf/order_employee_delete/(:any)'] = "agadmin/gpf/order_employee_delete/$1";
+$route[ADMIN_BASE.'/gpf/order_employee_delete/(:any)'] = "agadmin/administration/order_employee_delete/$1";
 
 $route[ADMIN_BASE.'/gpf/training'] = "agadmin/gpf/training";
 $route[ADMIN_BASE.'/gpf/document_order'] = "agadmin/gpf/document_order";
@@ -986,15 +988,15 @@ $route[ADMIN_BASE.'/gpf/feedback_download_pdf/(:any)'] = "agadmin/gpf/feedback_d
 $route[ADMIN_BASE.'/gpf/epabx_list'] = "agadmin/gpf/epabx_list";
 $route[ADMIN_BASE.'/gpf/epabx_list_edit/(:any)'] = "agadmin/gpf/epabx_list_edit/$1";
 
-$route[ADMIN_BASE.'/gpf/charge_master'] = "agadmin/gpf/charge_master";
-$route[ADMIN_BASE.'/gpf/charge_master_add'] = "agadmin/gpf/charge_master_add";
-$route[ADMIN_BASE.'/gpf/charge_master_edit/(:any)'] = "agadmin/gpf/charge_master_edit/$1";
-$route[ADMIN_BASE.'/gpf/charge_master_delete/(:any)'] = "agadmin/gpf/charge_master_delete/$1";
+$route[ADMIN_BASE.'/gpf/charge_master'] = "agadmin/administration/charge_master";
+$route[ADMIN_BASE.'/gpf/charge_master_add'] = "agadmin/administration/charge_master_add";
+$route[ADMIN_BASE.'/gpf/charge_master_edit/(:any)'] = "agadmin/administration/charge_master_edit/$1";
+$route[ADMIN_BASE.'/gpf/charge_master_delete/(:any)'] = "agadmin/administration/charge_master_delete/$1";
 
 $route[ADMIN_BASE.'/gpf/signature_master_new'] = "agadmin/gpf/signature_master_new";
 $route[ADMIN_BASE.'/gpf/signature_master'] = "agadmin/gpf/signature_master";
 $route[ADMIN_BASE.'/gpf/signature_master_edit/(:any)'] = "agadmin/gpf/signature_master_edit/$1";
-$route[ADMIN_BASE.'/gpf/signature_master_delete/(:any)'] = "agadmin/gpf/signature_master_delete/$1";
+$route[ADMIN_BASE.'/gpf/signature_master_delete/(:any)'] = "agadmin/administration/signature_master_delete/$1";
 
 $route[ADMIN_BASE.'/faq'] = "agadmin/faq/index";
 $route[ADMIN_BASE.'/faq/add'] = "agadmin/faq/add";
@@ -1064,9 +1066,9 @@ $route[ADMIN_BASE.'/video/agersa'] = "agadmin/video/agersa";
 $route[ADMIN_BASE.'/video/agersa_add'] = "agadmin/video/agersa_add";
 $route[ADMIN_BASE.'/video/agersa_delete/(:any)'] = "agadmin/video/agersa_delete/$1";
 
-$route[ADMIN_BASE.'/contact'] = "agadmin/contact";
+$route[ADMIN_BASE.'/contact'] = "agadmin/menu/contact_us";
 
-$route[ADMIN_BASE.'/grievances'] = "agadmin/grievances";
+$route[ADMIN_BASE.'/grievances'] = "agadmin/grievance/feedback";
 
 $route[ADMIN_BASE.'/logout'] = "agadmin/adminlogin/logout";
 /************************

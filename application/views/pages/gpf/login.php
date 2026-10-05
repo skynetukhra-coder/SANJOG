@@ -12,7 +12,7 @@
 						<div class="login">
 							<div class="button_div">
 								<div class="payment-case green-bg div-anchor"> 
-									<a class="click-white" href="<?php //echo base_url()?>ddo/login" style="text-transform:uppercase"><?php //echo $this->lang->line('ddo_login'); ?></a> 
+									<a class="click-white" href="<?php echo base_url()?>ddo/login" style="text-transform:uppercase"><?php echo $this->lang->line('ddo_login'); ?></a> 
 								</div>
 							</div>
 							<div class="button_div">

@@ -363,7 +363,6 @@ function get_details(id){
 	 var misscrdr = fields[3];
 	 var misscdmnth = fields[4];
 	 var uid =(id);
-	 var sess = "<?php $_SESSION['unid']="+id+"; ?>";
 	 $("#id").val(id);
 	 $("#unid").val(id);
 	 $("#ser").val(series);

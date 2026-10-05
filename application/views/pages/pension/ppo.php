@@ -13,7 +13,7 @@ if(isset($dispatched[0]['inout_out_type']) && strtolower($dispatched[0]['inout_o
 ?>
 <div style="width:800px;background:#fff;color:#018401;margin:0px auto; padding:5px 5px 0 5px;border:3px solid #018401; font-size:13px; font-family:Georgia, "Times New Roman", Times, serif">
 	<div style="width:100%;">
-		<div style="width:60px; float:left"><img src="/usr/local/apache24/htdocs/assets/images/ashok-charka.png" style="height:80px;" /></div>
+		<div style="width:60px; float:left"><img src="<?php echo FCPATH; ?>assets/images/ashok-charka.png" style="height:80px;" /></div>
 		<div style=" float:left;text-align:center;font-weight:bold">
 			<div style="font-size:15px; font-family:serif;">OFFICE OF THE PRINCIPAL ACCOUNTANT GENERAL (A & E ), WEST BENGAL</div>
 			<div style="font-size:15px; font-family:serif;">TREASURY BUILDINGS, 2, GOVT PLACE (WEST), KOLKATA - 700 001</div>

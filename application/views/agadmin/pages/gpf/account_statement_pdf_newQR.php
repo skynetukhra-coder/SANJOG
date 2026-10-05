@@ -19,7 +19,7 @@ include_once APPPATH.'/third_party/qrcode/phpqrcode/qrlib.php';
 ?>
 <div style="width:100%;background:#fff;color:#275e93;margin:10px auto;">
 	<div style="width:100%; padding:5px 5px 0 5px;font-family:arial">
-		<div style="width:60px; float:left"><img src="/usr/local/apache24/htdocs/assets/images/ashok-charka.png" style="height:100px;" /></div> 
+		<div style="width:60px; float:left"><img src="<?php echo FCPATH; ?>assets/images/ashok-charka.png" style="height:100px;" /></div> 
 <!--		<div style="width:60px; float:left"><img src="http://localhost/assets/images/ashok-charka.png" style="height:100px;" /></div>	-->
 		<div style="width:82%;float:left;text-align:center;font-weight:bold">
 			<div style="font-size:14px; font-family:arial;letter-spacing:1px;">OFFICE OF THE PRINCIPAL ACCOUNTANT GENERAL (A & E ), WEST BENGAL</div>
@@ -29,7 +29,7 @@ include_once APPPATH.'/third_party/qrcode/phpqrcode/qrlib.php';
 			<div style="font-size:13px; font-family:arial;letter-spacing:1px;">STATEMENTS OF GENERAL / A.I.S.P.F ACCOUTS FOR THE YEAR ENDED <?php echo $f_year ?></div>
 			<div lang="hi" style="font-size:13px; font-weight:normal;letter-spacing:1px;"><?php echo $f_year ?> को समाप्त वर्ष के लिए सामान्य / ए.आई.एस. भविष्या निधि लेखा विवरण:</div>
 		</div>
-		<div style="width:80px; float:right"><img style="width:80px; height:80px;" src="/usr/local/apache24/htdocs/sus/temp/<?php echo $filename ?>.png" alt="not_loaded.png"></div>  
+		<div style="width:80px; float:right"><img style="width:80px; height:80px;" src="<?php echo FCPATH; ?>sus/temp/<?php echo $filename ?>.png" alt="not_loaded.png"></div>  
 <!--		<div style="width:80px; float:right"><img style="width:80px; height:80px;" src="http://localhost/userfiles/temp/<?php echo $filename ?>.png" alt="not_loaded.png"></div>	-->
 	</div>
 	<div id="page_body">
@@ -249,7 +249,7 @@ include_once APPPATH.'/third_party/qrcode/phpqrcode/qrlib.php';
 								<span>&nbsp;</span><span class="print_txt" style="color:#000;font-family:serif;font-weight:600;font-size:13px"> <?php echo $sign['officer_name']?> </span><span lang="hi" style="color:#000;font-size:13px">/ <?php echo $sign['officer_name_hindi']?> </span><br />
 								<span>Accounts Officer / Sr. Accounts Officer <span lang="hi" style="font-size:10px;">लौखा अधिकारी / वरिष्ट लेखा अधिकारी</span></span> </div></td>
 						<td class="bottom_guide_details"style="width:25%;color:#275e93;padding-bottom:1px;background-color: #ccdff1;font-size: 12px;line-height: 15px;letter-spacing: .3px;border-bottom:1px solid #275e93;font-family:arial; text-align:center"><div>
-								<span><img src="/usr/local/apache24/htdocs/files/agae/signature/<?php echo $sign['sign_tag']?>" /></span><br />		
+								<span><img src="<?php echo FCPATH; ?>files/agae/signature/<?php echo $sign['sign_tag']?>" /></span><br />		
 <!--							<span><img src="http://localhost/assets/images/<?php echo $sign['sign_tag']?>" /></span><br />			
 								<span>Section's Name .....................</span><br />
 								<span lang="hi" style="font-size:10px">अनुमाग का नाम  ...................................</span> </div></td>		 -->

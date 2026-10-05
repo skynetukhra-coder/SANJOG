@@ -21,7 +21,11 @@
   Contact: Lyubomir Arsov, liubo (at) web-lobby.com
 */
 function checkAccess($action){
-  if(!session_id())
-    session_start();
+  if(session_status() === PHP_SESSION_NONE)
+    @session_start();
+  if (empty($_SESSION['admin_details']['id']) && empty($_SESSION['admin_logged_in']) && empty($_SESSION['admin_type'])) {
+    http_response_code(403);
+    die(json_encode(array('res' => 'error', 'msg' => 'Access denied: Administrative privileges required.')));
+  }
 }
 ?>

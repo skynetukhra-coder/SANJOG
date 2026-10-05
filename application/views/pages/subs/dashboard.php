@@ -33,29 +33,33 @@
 				<div class="row">
 					<h4><strong><?php echo $this->lang->line('welcome')?>,</strong> <?php echo $subscribers_data['fst_nme'].' '.$subscribers_data['mid_nme'].' '.$subscribers_data['lst_nme'] ?></h4>
 					<hr />
-					<table class="table1" border="1" style="width:100%">
-						<tbody>
-							<tr><td class="col_1">Series</td><td class="col_2"><?php echo $subscribers_data['series'] ?></td></tr>	
-							<tr><td class="col_1">GPF A/c No</td><td class="col_2"><?php echo $subscribers_data['series'].'/WB/'.$subscribers_data['ac_code'] ?></td></tr>			
-							<tr><td class="col_1">Employee Code</td><td class="col_2"><?php echo $subscribers_data['emp_code'] ?></td></tr>		
-							<tr><td class="col_1">Name</td><td class="col_2"><?php echo $subscribers_data['fst_nme'].' '.$subscribers_data['mid_nme'].' '.$subscribers_data['lst_nme'] ?></td></tr>	
-							<tr><td class="col_1">Father's / Husband's Name</td><td class="col_2"><?php echo $subscribers_data['nm_father_e'] ?></td></tr>	
-							<tr><td class="col_1">Date of Birth</td><td class="col_2"><?php if($subscribers_data['dob'] != '1970-01-01 00:00:00'){echo get_date($subscribers_data['dob']); } else {echo '00-00-0000';} ?></td></tr>
-							<tr><td class="col_1">Date of Joining</td><td class="col_2"><?php if($subscribers_data['date_o_join'] != '1970-01-01 00:00:00'){echo get_date($subscribers_data['date_o_join']); } else {echo '00-00-0000';} ?></td></tr>
-							<tr><td class="col_1">Gender</td><td class="col_2"><?php if($subscribers_data['sex']=='F'){ echo "Female";} elseif($subscribers_data['sex']=='M'){echo "Male";} else{ echo '';}  ?></td></tr>
-							<tr><td class="col_1">Allotment Date</td><td class="col_2"><?php if($subscribers_data['allot_dt'] != '1970-01-01 00:00:00'){echo get_date($subscribers_data['allot_dt']); } else {echo '00-00-0000';} ?></td></tr>
-							<tr><td class="col_1">Mobile</td><td class="col_2"><?php echo $subscribers_data['mobile_no'] ?></td></tr>	
-							<tr><td class="col_1">Email</td><td class="col_2"><?php echo $subscribers_data['email_id'] ?></td></tr>	
-							<tr><td class="col_1">Nomination</td><td class="col_2"><?php echo $subscribers_data['nomination'] == 'Y' ? 'Yes': 'No'  ?></td></tr>		
-							<tr><td class="col_1">Last Nomination Date</td><td class="col_2"><?php //echo $subscribers_data['nomination'] == 'Y' ? 'Yes': 'No'  ?></td></tr>		
-						</tbody>
-					</table>
+					<div class="table-responsive" style="margin-top: 15px;">
+						<table class="table table-bordered table-striped" style="width:100%;">
+							<tbody>
+								<tr><td style="width: 35%; font-weight: 600;">Series</td><td><?php echo $subscribers_data['series'] ?></td></tr>	
+								<tr><td style="font-weight: 600;">GPF A/c No</td><td><span class="badge badge-info" style="font-size: 13px;"><?php echo $subscribers_data['series'].'/WB/'.$subscribers_data['ac_code'] ?></span></td></tr>			
+								<tr><td style="font-weight: 600;">Employee Code</td><td><?php echo $subscribers_data['emp_code'] ?></td></tr>		
+								<tr><td style="font-weight: 600;">Name</td><td><strong><?php echo $subscribers_data['fst_nme'].' '.$subscribers_data['mid_nme'].' '.$subscribers_data['lst_nme'] ?></strong></td></tr>	
+								<tr><td style="font-weight: 600;">Father's / Husband's Name</td><td><?php echo $subscribers_data['nm_father_e'] ?></td></tr>	
+								<tr><td style="font-weight: 600;">Date of Birth</td><td><?php if($subscribers_data['dob'] != '1970-01-01 00:00:00'){echo get_date($subscribers_data['dob']); } else {echo '00-00-0000';} ?></td></tr>
+								<tr><td style="font-weight: 600;">Date of Joining</td><td><?php if($subscribers_data['date_o_join'] != '1970-01-01 00:00:00'){echo get_date($subscribers_data['date_o_join']); } else {echo '00-00-0000';} ?></td></tr>
+								<tr><td style="font-weight: 600;">Gender</td><td><?php if($subscribers_data['sex']=='F'){ echo "Female";} elseif($subscribers_data['sex']=='M'){echo "Male";} else{ echo '';}  ?></td></tr>
+								<tr><td style="font-weight: 600;">Allotment Date</td><td><?php if($subscribers_data['allot_dt'] != '1970-01-01 00:00:00'){echo get_date($subscribers_data['allot_dt']); } else {echo '00-00-0000';} ?></td></tr>
+								<tr><td style="font-weight: 600;">Mobile</td><td><?php echo $subscribers_data['mobile_no'] ?></td></tr>	
+								<tr><td style="font-weight: 600;">Email</td><td><?php echo $subscribers_data['email_id'] ?></td></tr>	
+								<tr><td style="font-weight: 600;">Nomination</td><td><?php echo $subscribers_data['nomination'] == 'Y' ? '<span class="label label-success">Yes</span>': '<span class="label label-warning">No</span>'; ?></td></tr>		
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
-			<div class="muted pull-left" style = "color: #00004d; font-size:18px;">
-				<marquee direction="left"  onMouseOver="this.stop()" onMouseOut="this.start()">
-					*You can update your mobile number and other information by sending an email to:- <span style = "color: red;"> edpfnd-agae-wb@nic.in </span>* Please mention your Name, Designation, GPF A/c No, HRMS ID Number and Date of Birth for the purpose.
-				</marquee>
+			<div class="alert alert-info" style="margin-top: 20px; border-left: 4px solid #275e93; border-radius: 4px; padding: 12px 18px;">
+				<div style="font-size: 14px; color: #1e395b; line-height: 1.5;">
+					<i class="fa fa-info-circle" style="color: #275e93; margin-right: 6px;"></i>
+					<strong>Notice:</strong> You can update your mobile number and other information by sending an email to: 
+					<a href="mailto:edpfnd-agae-wb@nic.in" style="font-weight: 700; color: #c9302c;">edpfnd-agae-wb@nic.in</a>.
+					Please mention your <em>Name, Designation, GPF A/c No, HRMS ID Number</em> and <em>Date of Birth</em> for verification.
+				</div>
 			</div>
 		</div>
 	</div>

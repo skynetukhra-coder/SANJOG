@@ -36,7 +36,7 @@ function open_fms_file_location (id_input){
         // Actions with url parameter here
         window.KCFinder = null;
     };
-    window.open('/agwb/editor/fms/browse.php?type=files&dir=files/accounts', 'kcfinder_single','width=800,height=500');
+    window.open('<?php echo base_url(); ?>editor/fms/browse.php?type=files&dir=files/accounts', 'kcfinder_single','width=800,height=500');
 }
 
 </script>

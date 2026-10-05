@@ -62,7 +62,7 @@ if($this->session->userdata('admin_details')){
           </li>
         </ul>
         
-    <a class="navbar-toggle" role="button" data-toggle="collapse" data-target=".nav-collapse" aria-expanded"false"> 
+    <a class="navbar-toggle" role="button" data-toggle="collapse" data-target=".nav-collapse" aria-expanded="false"> 
     <span class="icon-bar"><img src="<?php echo SITE_BASE_URL ?>assets/admin/images/toggle-menu.png"></span>
     </a>
       <div class="nav-collapse collapse">

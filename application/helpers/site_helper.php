@@ -337,7 +337,9 @@ if (! function_exists('send_SMS')){
 	function send_SMS($baseURL='',$mobile='',$msg="") {
 		$subject = "SMS from AG Bengal";
 		$ch = curl_init();
-//		$baseURL = "https://smsgw.sms.gov.in/failsafe/HttpLink?username=agwb.otp&pin=3mpxqh7p";
+		if (empty($baseURL)) {
+			$baseURL = defined('NIC_SMS_GATEWAY') ? NIC_SMS_GATEWAY : "https://smsgw.sms.gov.in/failsafe/HttpLink?username=agwb.otp&pin=3mpxqh7p";
+		}
 		$replyTo = "AGAEWB";
 		$recipient = preg_replace('/\s+/', '', $mobile);
 		$messageBody = $msg;
@@ -400,13 +402,13 @@ if (! function_exists('send_email')){
 //			$mail->SMTPSecure = 'tls'; // ssl is depracated
 			$mail->SMTPSecure = 'ssl'; // 
 //			$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-			$mail->Port = 25;	// 465  // NIC smtp mail server port
+			$mail->Port = defined('NIC_SMTP_PORT') ? NIC_SMTP_PORT : 25;
 			
-			$mail->Username = 'itsc-agae-wb@nic.in'; // Sender email ID
-			$mail->Password = 'Itsc#2014$'; // Sender email password or app password
+			$mail->Username = defined('NIC_SMTP_USER') ? NIC_SMTP_USER : 'itsc-agae-wb@nic.in';
+			$mail->Password = defined('NIC_SMTP_PASS') ? NIC_SMTP_PASS : 'Itsc#2014$';
 
 			// Sender and recipient settings
-			$mail->setFrom('itsc-agae-wb@nic.in', 'Pr. AG(A&E), WB');
+			$mail->setFrom($mail->Username, 'Pr. AG(A&E), WB');
 			$mail->addAddress ($email,'Employee');	// Receipent mail id 
 //			$mail->addReplyTo('itsc-agae-wb@nic.in', 'Pr. AG(A&E), WB'); // to set the reply to
 

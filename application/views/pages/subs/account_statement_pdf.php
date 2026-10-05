@@ -232,7 +232,7 @@ tr.transaction td{padding:0px}
 								<span>&nbsp;</span><span class="print_txt" style="color:#000;font-family:serif;font-weight:600;font-size:13px"> <?php echo $sign['officer_name']?> </span><span lang="hi" style="color:#000;font-size:13px">/ <?php echo $sign['officer_name_hindi']?> </span><br />
 								<span>Accounts Officer / Sr. Accounts Officer <span lang="hi" style="font-size:10px;">लौखा अधिकारी / वरिष्ट लेखा अधिकारी</span></span> </div></td>
 						<td class="bottom_guide_details"style="width:25%;color:#275e93;padding-bottom:1px;background-color: #ccdff1;font-size: 12px;line-height: 15px;letter-spacing: .3px;border-bottom:1px solid #275e93;font-family:arial; text-align:center"><div>
-								<span><img src="/usr/local/apache24/htdocs/files/agae/signature/<?php echo $sign['sign_tag']?>" /></span><br />	
+								<span><img src="<?php echo FCPATH; ?>files/agae/signature/<?php echo $sign['sign_tag']?>" /></span><br />	
 <!--							<span><img src="<?php echo SITE_BASE_URL?>assets/images/no_signature.jpg" /></span><br />	src="http://localhost/assets/images/MILAN-png.png" 				
 								<span>Section's Name .....................</span><br />
 								<span lang="hi" style="font-size:10px">अनुमाग का नाम  ...................................</span> </div></td>		-->	
